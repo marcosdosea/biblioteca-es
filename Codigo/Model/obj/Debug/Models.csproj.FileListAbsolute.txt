@@ -1,5 +1,0 @@
-D:\UFS\Ensino\_20131tdi\Projects\Biblioteca_v1\Model\bin\Debug\Model.dll.config
-D:\UFS\Ensino\_20131tdi\Projects\Biblioteca_v1\Model\bin\Debug\Model.dll
-D:\UFS\Ensino\_20131tdi\Projects\Biblioteca_v1\Model\bin\Debug\Model.pdb
-D:\UFS\Ensino\_20131tdi\Projects\Biblioteca_v1\Model\obj\Debug\Model.dll
-D:\UFS\Ensino\_20131tdi\Projects\Biblioteca_v1\Model\obj\Debug\Model.pdb
