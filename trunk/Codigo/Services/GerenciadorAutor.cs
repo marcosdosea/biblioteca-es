@@ -109,7 +109,20 @@ namespace Services
         public Autor Obter(int idAutor)
         {
             IEnumerable<Autor> autores = GetQuery().Where(autorModel => autorModel.Codigo.Equals(idAutor));
+
             return autores.ElementAtOrDefault(0);
+        }
+
+
+        /// <summary>
+        /// Obtém um autor pelo nome
+        /// </summary>
+        /// <param name="nome">Nome do autor que será buscado base de dados</param>
+        /// <returns>Autor model</returns>
+        public IEnumerable<Autor> ObterPorNome(string nome)
+        {
+            IEnumerable<Autor> autores = GetQuery().Where(autorModel => autorModel.Nome.StartsWith(nome));
+            return autores;
         }
 
         /// <summary>
