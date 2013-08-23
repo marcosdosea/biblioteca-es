@@ -28,7 +28,7 @@
             <%: Html.LabelFor(model => model.IdEditora) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("IdEditora") %>
+            <%: Html.DropDownList("IdEditora")  %>
             <%: Html.ValidationMessageFor(model => model.IdEditora) %>
         </div>
 
