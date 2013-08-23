@@ -14,7 +14,6 @@ namespace Services
     /// </summary>
     
     public class GerenciadorAutor
-
     {
         private IUnitOfWork unitOfWork;
         private bool shared;
@@ -87,7 +86,7 @@ namespace Services
                         select new Autor
                         {
                             Codigo = autor.idAutor,
-                            Nome = autor.nome,
+                            Nome = autor.NomeAutor,
                             AnoNascimento = autor.anoNascimento
                         };
             return query;
@@ -121,7 +120,7 @@ namespace Services
         private void Atribuir(Autor autorModel, tb_autor autorE)
         {
             autorE.idAutor = autorModel.Codigo;
-            autorE.nome = autorModel.Nome;
+            autorE.NomeAutor = autorModel.Nome;
             autorE.anoNascimento = autorModel.AnoNascimento;
         }
     }

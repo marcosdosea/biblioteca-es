@@ -71,6 +71,7 @@
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -115,6 +116,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Views\Autor2\Create.aspx" />
+    <Content Include="Views\Autor2\Details.aspx" />
+    <Content Include="Views\Autor2\Index.aspx" />
     <Content Include="Views\Autor\Create.aspx" />
     <Content Include="Views\Autor\Delete.aspx" />
     <Content Include="Views\Autor\Details.aspx" />
@@ -125,6 +129,11 @@
     <Content Include="Views\Editora\Details.aspx" />
     <Content Include="Views\Editora\Edit.aspx" />
     <Content Include="Views\Editora\Index.aspx" />
+    <Content Include="Views\Livro\Create.aspx" />
+    <Content Include="Views\Livro\Delete.aspx" />
+    <Content Include="Views\Livro\Details.aspx" />
+    <Content Include="Views\Livro\Edit.aspx" />
+    <Content Include="Views\Livro\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

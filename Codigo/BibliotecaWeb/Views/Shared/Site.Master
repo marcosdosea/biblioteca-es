@@ -22,6 +22,7 @@
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("Autor", "Index", "Autor")%></li>
                     <li><%: Html.ActionLink("Editora", "Index", "Editora")%></li>
+                    <li><%: Html.ActionLink("Livro", "Index", "Livro")%></li>
                     <li><%: Html.ActionLink("About", "About", "Home")%></li>
                 </ul>
             </nav>

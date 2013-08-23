@@ -1,0 +1,11 @@
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Services.Test.dll
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Services.Test.pdb
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Model.dll
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Persistence.dll
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Services.dll
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Model.pdb
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Persistence.pdb
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\bin\Debug\Services.pdb
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\obj\Debug\Services.Test.csprojResolveAssemblyReference.cache
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\obj\Debug\Services.Test.dll
+D:\UFS\Ensino\_20131esii\biblioteca-es\trunk\Codigo\Services.Test\obj\Debug\Services.Test.pdb
