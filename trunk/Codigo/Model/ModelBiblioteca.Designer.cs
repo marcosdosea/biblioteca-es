@@ -21,15 +21,15 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_ItemAcervo_Biblioteca1", "tb_biblioteca", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_biblioteca), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Usuario_CartaoBiblioteca1", "tb_cartaobiblioteca", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_cartaobiblioteca), "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_usuario), true)]
-[assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Devolucao_Usuario", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_usuario), "tb_devolucao", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_devolucao), true)]
-[assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Devolucao_Usuario1", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_usuario), "tb_devolucao", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_devolucao), true)]
+[assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Devolucao_Usuario", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_usuario), "tb_devolucao", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.DevolucaoE), true)]
+[assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Devolucao_Usuario1", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_usuario), "tb_devolucao", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.DevolucaoE), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_ItemAcervo_Doacao1", "tb_doacao", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Models.tb_doacao), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Livro_Editora1", "tb_editora", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_editora), "tb_livro", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_livro), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Emprestimo_Usuario1", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_usuario), "tb_emprestimo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_emprestimo), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_Emprestimo_Usuario2", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_usuario), "tb_emprestimo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_emprestimo), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_ItemAcervo_Livro1", "tb_livro", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_livro), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo), true)]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "fk_ItemAcervo_SituacaoLivro1", "tb_situacaolivro", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Models.tb_situacaolivro), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo), true)]
-[assembly: EdmRelationshipAttribute("BibliotecaModel", "tb_devolucaoitemacervo", "tb_devolucao", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_devolucao), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo))]
+[assembly: EdmRelationshipAttribute("BibliotecaModel", "tb_devolucaoitemacervo", "tb_devolucao", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.DevolucaoE), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo))]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "tb_emprestimoitemacervo", "tb_emprestimo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_emprestimo), "tb_itemacervo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_itemacervo))]
 [assembly: EdmRelationshipAttribute("BibliotecaModel", "tb_livroautor", "tb_autor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_autor), "tb_livro", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Models.tb_livro))]
 
@@ -134,18 +134,18 @@ namespace Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<tb_devolucao> tb_devolucao
+        public ObjectSet<DevolucaoE> tb_devolucao
         {
             get
             {
                 if ((_tb_devolucao == null))
                 {
-                    _tb_devolucao = base.CreateObjectSet<tb_devolucao>("tb_devolucao");
+                    _tb_devolucao = base.CreateObjectSet<DevolucaoE>("tb_devolucao");
                 }
                 return _tb_devolucao;
             }
         }
-        private ObjectSet<tb_devolucao> _tb_devolucao;
+        private ObjectSet<DevolucaoE> _tb_devolucao;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -290,9 +290,9 @@ namespace Models
         /// <summary>
         /// Deprecated Method for adding a new object to the tb_devolucao EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTotb_devolucao(tb_devolucao tb_devolucao)
+        public void AddTotb_devolucao(DevolucaoE devolucaoE)
         {
-            base.AddObject("tb_devolucao", tb_devolucao);
+            base.AddObject("tb_devolucao", devolucaoE);
         }
     
         /// <summary>
@@ -362,6 +362,289 @@ namespace Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="DevolucaoE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DevolucaoE : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new DevolucaoE object.
+        /// </summary>
+        /// <param name="idDevolucao">Initial value of the idDevolucao property.</param>
+        /// <param name="cpfBalconista">Initial value of the cpfBalconista property.</param>
+        /// <param name="cpfUsuario">Initial value of the cpfUsuario property.</param>
+        public static DevolucaoE CreateDevolucaoE(global::System.Int32 idDevolucao, global::System.String cpfBalconista, global::System.String cpfUsuario)
+        {
+            DevolucaoE devolucaoE = new DevolucaoE();
+            devolucaoE.idDevolucao = idDevolucao;
+            devolucaoE.cpfBalconista = cpfBalconista;
+            devolucaoE.cpfUsuario = cpfUsuario;
+            return devolucaoE;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idDevolucao
+        {
+            get
+            {
+                return _idDevolucao;
+            }
+            set
+            {
+                if (_idDevolucao != value)
+                {
+                    OnidDevolucaoChanging(value);
+                    ReportPropertyChanging("idDevolucao");
+                    _idDevolucao = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idDevolucao");
+                    OnidDevolucaoChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idDevolucao;
+        partial void OnidDevolucaoChanging(global::System.Int32 value);
+        partial void OnidDevolucaoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String cpfBalconista
+        {
+            get
+            {
+                return _cpfBalconista;
+            }
+            set
+            {
+                OncpfBalconistaChanging(value);
+                ReportPropertyChanging("cpfBalconista");
+                _cpfBalconista = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("cpfBalconista");
+                OncpfBalconistaChanged();
+            }
+        }
+        private global::System.String _cpfBalconista;
+        partial void OncpfBalconistaChanging(global::System.String value);
+        partial void OncpfBalconistaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String cpfUsuario
+        {
+            get
+            {
+                return _cpfUsuario;
+            }
+            set
+            {
+                OncpfUsuarioChanging(value);
+                ReportPropertyChanging("cpfUsuario");
+                _cpfUsuario = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("cpfUsuario");
+                OncpfUsuarioChanged();
+            }
+        }
+        private global::System.String _cpfUsuario;
+        partial void OncpfUsuarioChanging(global::System.String value);
+        partial void OncpfUsuarioChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                OndataChanging(value);
+                ReportPropertyChanging("data");
+                _data = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("data");
+                OndataChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _data;
+        partial void OndataChanging(Nullable<global::System.DateTime> value);
+        partial void OndataChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> multa
+        {
+            get
+            {
+                return _multa;
+            }
+            set
+            {
+                OnmultaChanging(value);
+                ReportPropertyChanging("multa");
+                _multa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("multa");
+                OnmultaChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _multa;
+        partial void OnmultaChanging(Nullable<global::System.Decimal> value);
+        partial void OnmultaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> valorPago
+        {
+            get
+            {
+                return _valorPago;
+            }
+            set
+            {
+                OnvalorPagoChanging(value);
+                ReportPropertyChanging("valorPago");
+                _valorPago = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("valorPago");
+                OnvalorPagoChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _valorPago;
+        partial void OnvalorPagoChanging(Nullable<global::System.Decimal> value);
+        partial void OnvalorPagoChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "fk_Devolucao_Usuario", "tb_usuario")]
+        public tb_usuario tb_usuario
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_usuario> tb_usuarioReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "fk_Devolucao_Usuario1", "tb_usuario")]
+        public tb_usuario tb_usuario1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_usuario> tb_usuario1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "tb_devolucaoitemacervo", "tb_itemacervo")]
+        public EntityCollection<tb_itemacervo> tb_itemacervo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_itemacervo>("BibliotecaModel.tb_devolucaoitemacervo", "tb_itemacervo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_itemacervo>("BibliotecaModel.tb_devolucaoitemacervo", "tb_itemacervo", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="tb_autor")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -373,13 +656,13 @@ namespace Models
         /// Create a new tb_autor object.
         /// </summary>
         /// <param name="idAutor">Initial value of the idAutor property.</param>
-        /// <param name="nome">Initial value of the nome property.</param>
+        /// <param name="nomeAutor">Initial value of the NomeAutor property.</param>
         /// <param name="anoNascimento">Initial value of the anoNascimento property.</param>
-        public static tb_autor Createtb_autor(global::System.Int32 idAutor, global::System.String nome, global::System.DateTime anoNascimento)
+        public static tb_autor Createtb_autor(global::System.Int32 idAutor, global::System.String nomeAutor, global::System.DateTime anoNascimento)
         {
             tb_autor tb_autor = new tb_autor();
             tb_autor.idAutor = idAutor;
-            tb_autor.nome = nome;
+            tb_autor.NomeAutor = nomeAutor;
             tb_autor.anoNascimento = anoNascimento;
             return tb_autor;
         }
@@ -420,24 +703,24 @@ namespace Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String nome
+        public global::System.String NomeAutor
         {
             get
             {
-                return _nome;
+                return _NomeAutor;
             }
             set
             {
-                OnnomeChanging(value);
-                ReportPropertyChanging("nome");
-                _nome = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("nome");
-                OnnomeChanged();
+                OnNomeAutorChanging(value);
+                ReportPropertyChanging("NomeAutor");
+                _NomeAutor = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("NomeAutor");
+                OnNomeAutorChanged();
             }
         }
-        private global::System.String _nome;
-        partial void OnnomeChanging(global::System.String value);
-        partial void OnnomeChanged();
+        private global::System.String _NomeAutor;
+        partial void OnNomeAutorChanging(global::System.String value);
+        partial void OnNomeAutorChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -700,289 +983,6 @@ namespace Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_usuario>("BibliotecaModel.fk_Usuario_CartaoBiblioteca1", "tb_usuario", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BibliotecaModel", Name="tb_devolucao")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tb_devolucao : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new tb_devolucao object.
-        /// </summary>
-        /// <param name="idDevolucao">Initial value of the idDevolucao property.</param>
-        /// <param name="cpfBalconista">Initial value of the cpfBalconista property.</param>
-        /// <param name="cpfUsuario">Initial value of the cpfUsuario property.</param>
-        public static tb_devolucao Createtb_devolucao(global::System.Int32 idDevolucao, global::System.String cpfBalconista, global::System.String cpfUsuario)
-        {
-            tb_devolucao tb_devolucao = new tb_devolucao();
-            tb_devolucao.idDevolucao = idDevolucao;
-            tb_devolucao.cpfBalconista = cpfBalconista;
-            tb_devolucao.cpfUsuario = cpfUsuario;
-            return tb_devolucao;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 idDevolucao
-        {
-            get
-            {
-                return _idDevolucao;
-            }
-            set
-            {
-                if (_idDevolucao != value)
-                {
-                    OnidDevolucaoChanging(value);
-                    ReportPropertyChanging("idDevolucao");
-                    _idDevolucao = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("idDevolucao");
-                    OnidDevolucaoChanged();
-                }
-            }
-        }
-        private global::System.Int32 _idDevolucao;
-        partial void OnidDevolucaoChanging(global::System.Int32 value);
-        partial void OnidDevolucaoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String cpfBalconista
-        {
-            get
-            {
-                return _cpfBalconista;
-            }
-            set
-            {
-                OncpfBalconistaChanging(value);
-                ReportPropertyChanging("cpfBalconista");
-                _cpfBalconista = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("cpfBalconista");
-                OncpfBalconistaChanged();
-            }
-        }
-        private global::System.String _cpfBalconista;
-        partial void OncpfBalconistaChanging(global::System.String value);
-        partial void OncpfBalconistaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String cpfUsuario
-        {
-            get
-            {
-                return _cpfUsuario;
-            }
-            set
-            {
-                OncpfUsuarioChanging(value);
-                ReportPropertyChanging("cpfUsuario");
-                _cpfUsuario = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("cpfUsuario");
-                OncpfUsuarioChanged();
-            }
-        }
-        private global::System.String _cpfUsuario;
-        partial void OncpfUsuarioChanging(global::System.String value);
-        partial void OncpfUsuarioChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> data
-        {
-            get
-            {
-                return _data;
-            }
-            set
-            {
-                OndataChanging(value);
-                ReportPropertyChanging("data");
-                _data = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("data");
-                OndataChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _data;
-        partial void OndataChanging(Nullable<global::System.DateTime> value);
-        partial void OndataChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> multa
-        {
-            get
-            {
-                return _multa;
-            }
-            set
-            {
-                OnmultaChanging(value);
-                ReportPropertyChanging("multa");
-                _multa = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("multa");
-                OnmultaChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _multa;
-        partial void OnmultaChanging(Nullable<global::System.Decimal> value);
-        partial void OnmultaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> valorPago
-        {
-            get
-            {
-                return _valorPago;
-            }
-            set
-            {
-                OnvalorPagoChanging(value);
-                ReportPropertyChanging("valorPago");
-                _valorPago = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("valorPago");
-                OnvalorPagoChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _valorPago;
-        partial void OnvalorPagoChanging(Nullable<global::System.Decimal> value);
-        partial void OnvalorPagoChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "fk_Devolucao_Usuario", "tb_usuario")]
-        public tb_usuario tb_usuario
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tb_usuario> tb_usuarioReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario", "tb_usuario", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "fk_Devolucao_Usuario1", "tb_usuario")]
-        public tb_usuario tb_usuario1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tb_usuario> tb_usuario1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_usuario>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_usuario", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "tb_devolucaoitemacervo", "tb_itemacervo")]
-        public EntityCollection<tb_itemacervo> tb_itemacervo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_itemacervo>("BibliotecaModel.tb_devolucaoitemacervo", "tb_itemacervo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_itemacervo>("BibliotecaModel.tb_devolucaoitemacervo", "tb_itemacervo", value);
                 }
             }
         }
@@ -1904,17 +1904,17 @@ namespace Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "tb_devolucaoitemacervo", "tb_devolucao")]
-        public EntityCollection<tb_devolucao> tb_devolucao
+        public EntityCollection<DevolucaoE> tb_devolucao
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_devolucao>("BibliotecaModel.tb_devolucaoitemacervo", "tb_devolucao");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DevolucaoE>("BibliotecaModel.tb_devolucaoitemacervo", "tb_devolucao");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_devolucao>("BibliotecaModel.tb_devolucaoitemacervo", "tb_devolucao", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DevolucaoE>("BibliotecaModel.tb_devolucaoitemacervo", "tb_devolucao", value);
                 }
             }
         }
@@ -2713,17 +2713,17 @@ namespace Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "fk_Devolucao_Usuario", "tb_devolucao")]
-        public EntityCollection<tb_devolucao> tb_devolucao
+        public EntityCollection<DevolucaoE> tb_devolucao
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_devolucao>("BibliotecaModel.fk_Devolucao_Usuario", "tb_devolucao");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DevolucaoE>("BibliotecaModel.fk_Devolucao_Usuario", "tb_devolucao");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_devolucao>("BibliotecaModel.fk_Devolucao_Usuario", "tb_devolucao", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DevolucaoE>("BibliotecaModel.fk_Devolucao_Usuario", "tb_devolucao", value);
                 }
             }
         }
@@ -2735,17 +2735,17 @@ namespace Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BibliotecaModel", "fk_Devolucao_Usuario1", "tb_devolucao")]
-        public EntityCollection<tb_devolucao> tb_devolucao1
+        public EntityCollection<DevolucaoE> tb_devolucao1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_devolucao>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_devolucao");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DevolucaoE>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_devolucao");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_devolucao>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_devolucao", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DevolucaoE>("BibliotecaModel.fk_Devolucao_Usuario1", "tb_devolucao", value);
                 }
             }
         }

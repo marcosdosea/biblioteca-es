@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GerenciadorLivro.cs" />
     <Compile Include="GerenciadorEditora.cs" />
     <Compile Include="GerenciadorAutor.cs" />
     <Compile Include="ServiceException.cs" />

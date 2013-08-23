@@ -418,7 +418,7 @@
           <EntitySet Name="tb_autor" EntityType="BibliotecaModel.tb_autor" />
           <EntitySet Name="tb_biblioteca" EntityType="BibliotecaModel.tb_biblioteca" />
           <EntitySet Name="tb_cartaobiblioteca" EntityType="BibliotecaModel.tb_cartaobiblioteca" />
-          <EntitySet Name="tb_devolucao" EntityType="BibliotecaModel.tb_devolucao" />
+          <EntitySet Name="tb_devolucao" EntityType="BibliotecaModel.DevolucaoE" />
           <EntitySet Name="tb_doacao" EntityType="BibliotecaModel.tb_doacao" />
           <EntitySet Name="tb_editora" EntityType="BibliotecaModel.tb_editora" />
           <EntitySet Name="tb_emprestimo" EntityType="BibliotecaModel.tb_emprestimo" />
@@ -484,7 +484,7 @@
             <PropertyRef Name="idAutor" />
           </Key>
           <Property Name="idAutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nome" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="NomeAutor" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
           <Property Name="anoNascimento" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="tb_livro" Relationship="BibliotecaModel.tb_livroautor" FromRole="tb_autor" ToRole="tb_livro" />
         </EntityType>
@@ -504,7 +504,7 @@
           <Property Name="validade" Type="DateTime" />
           <NavigationProperty Name="tb_usuario" Relationship="BibliotecaModel.fk_Usuario_CartaoBiblioteca1" FromRole="tb_cartaobiblioteca" ToRole="tb_usuario" />
         </EntityType>
-        <EntityType Name="tb_devolucao">
+        <EntityType Name="DevolucaoE">
           <Key>
             <PropertyRef Name="idDevolucao" />
           </Key>
@@ -639,7 +639,7 @@
         </Association>
         <Association Name="fk_Devolucao_Usuario">
           <End Role="tb_usuario" Type="BibliotecaModel.tb_usuario" Multiplicity="1" />
-          <End Role="tb_devolucao" Type="BibliotecaModel.tb_devolucao" Multiplicity="*" />
+          <End Role="tb_devolucao" Type="BibliotecaModel.DevolucaoE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tb_usuario">
               <PropertyRef Name="cpf" />
@@ -651,7 +651,7 @@
         </Association>
         <Association Name="fk_Devolucao_Usuario1">
           <End Role="tb_usuario" Type="BibliotecaModel.tb_usuario" Multiplicity="1" />
-          <End Role="tb_devolucao" Type="BibliotecaModel.tb_devolucao" Multiplicity="*" />
+          <End Role="tb_devolucao" Type="BibliotecaModel.DevolucaoE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tb_usuario">
               <PropertyRef Name="cpf" />
@@ -734,7 +734,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="tb_devolucaoitemacervo">
-          <End Role="tb_devolucao" Type="BibliotecaModel.tb_devolucao" Multiplicity="*" />
+          <End Role="tb_devolucao" Type="BibliotecaModel.DevolucaoE" Multiplicity="*" />
           <End Role="tb_itemacervo" Type="BibliotecaModel.tb_itemacervo" Multiplicity="*" />
         </Association>
         <Association Name="tb_emprestimoitemacervo">
@@ -755,7 +755,7 @@
             <EntityTypeMapping TypeName="BibliotecaModel.tb_autor">
               <MappingFragment StoreEntitySet="tb_autor">
                 <ScalarProperty Name="idAutor" ColumnName="idAutor" />
-                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="NomeAutor" ColumnName="nome" />
                 <ScalarProperty Name="anoNascimento" ColumnName="anoNascimento" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -777,7 +777,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_devolucao">
-            <EntityTypeMapping TypeName="BibliotecaModel.tb_devolucao">
+            <EntityTypeMapping TypeName="BibliotecaModel.DevolucaoE">
               <MappingFragment StoreEntitySet="tb_devolucao">
                 <ScalarProperty Name="idDevolucao" ColumnName="idDevolucao" />
                 <ScalarProperty Name="cpfBalconista" ColumnName="cpfBalconista" />
@@ -914,11 +914,11 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ModelBiblioteca" ZoomLevel="83">
+      <Diagram Name="ModelBiblioteca" ZoomLevel="87">
         <EntityTypeShape EntityType="BibliotecaModel.tb_autor" Width="1.5" PointX="3" PointY="13.25" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_biblioteca" Width="1.5" PointX="5.25" PointY="8.625" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_cartaobiblioteca" Width="1.5" PointX="0.75" PointY="3.5" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="BibliotecaModel.tb_devolucao" Width="1.5" PointX="5.25" PointY="1.375" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotecaModel.DevolucaoE" Width="1.5" PointX="5.375" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_doacao" Width="1.5" PointX="5.25" PointY="11" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_editora" Width="1.5" PointX="3" PointY="15.875" Height="2.7494921874999978" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_emprestimo" Width="1.5" PointX="5.25" PointY="4.875" Height="2.3648893229166674" IsExpanded="true" />
@@ -940,12 +940,12 @@
           <ConnectorPoint PointX="3" PointY="4.297841796875" />
         </AssociationConnector>
         <AssociationConnector Association="BibliotecaModel.fk_Devolucao_Usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="2.99974609375" />
-          <ConnectorPoint PointX="5.25" PointY="2.99974609375" />
+          <ConnectorPoint PointX="4.5" PointY="2.68724609375" />
+          <ConnectorPoint PointX="5.375" PointY="2.68724609375" />
         </AssociationConnector>
         <AssociationConnector Association="BibliotecaModel.fk_Devolucao_Usuario1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="2.374873046875" />
-          <ConnectorPoint PointX="5.25" PointY="2.374873046875" />
+          <ConnectorPoint PointX="4.5" PointY="2.218623046875" />
+          <ConnectorPoint PointX="5.375" PointY="2.218623046875" />
         </AssociationConnector>
         <AssociationConnector Association="BibliotecaModel.fk_ItemAcervo_Doacao1" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="11.797841796875" />
@@ -979,8 +979,8 @@
           <ConnectorPoint PointX="7.6406212500000006" PointY="5.8840950520833317" />
         </AssociationConnector>
         <AssociationConnector Association="BibliotecaModel.tb_devolucaoitemacervo" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="3.43724609375" />
-          <ConnectorPoint PointX="7.5" PointY="3.43724609375" />
+          <ConnectorPoint PointX="6.875" PointY="3.12474609375" />
+          <ConnectorPoint PointX="7.5" PointY="3.12474609375" />
         </AssociationConnector>
         <AssociationConnector Association="BibliotecaModel.tb_emprestimoitemacervo" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="5.3795475260416659" />
