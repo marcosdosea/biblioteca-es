@@ -914,7 +914,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ModelBiblioteca" ZoomLevel="87">
+      <Diagram Name="ModelBiblioteca" ZoomLevel="78">
         <EntityTypeShape EntityType="BibliotecaModel.tb_autor" Width="1.5" PointX="3" PointY="13.25" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_biblioteca" Width="1.5" PointX="5.25" PointY="8.625" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="BibliotecaModel.tb_cartaobiblioteca" Width="1.5" PointX="0.75" PointY="3.5" Height="1.5956835937499996" IsExpanded="true" />

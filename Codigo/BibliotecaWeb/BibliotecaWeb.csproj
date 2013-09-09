@@ -116,9 +116,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Views\Autor2\Create.aspx" />
-    <Content Include="Views\Autor2\Details.aspx" />
-    <Content Include="Views\Autor2\Index.aspx" />
     <Content Include="Views\Autor\Create.aspx" />
     <Content Include="Views\Autor\Delete.aspx" />
     <Content Include="Views\Autor\Details.aspx" />
@@ -134,6 +131,7 @@
     <Content Include="Views\Livro\Details.aspx" />
     <Content Include="Views\Livro\Edit.aspx" />
     <Content Include="Views\Livro\Index.aspx" />
+    <Content Include="Views\Livro\ListarAutores.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -163,14 +161,18 @@
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

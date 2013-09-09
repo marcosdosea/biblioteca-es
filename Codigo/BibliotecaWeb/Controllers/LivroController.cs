@@ -12,11 +12,13 @@ namespace BibliotecaWeb.Controllers
     {
         GerenciadorLivro gLivro;
         GerenciadorEditora gEditora;
+        GerenciadorLivroAutor gLivroAutor;
 
         public LivroController()
         {
             gLivro = new GerenciadorLivro();
             gEditora = new GerenciadorEditora();
+            gLivroAutor = new GerenciadorLivroAutor();
         }
         
         
@@ -25,6 +27,13 @@ namespace BibliotecaWeb.Controllers
         public ActionResult Index()
         {
             return View(gLivro.ObterTodos());
+        }
+
+        //
+        // GET: /Livro/
+        public ActionResult ListarAutores(string isbn)
+        {
+            return View(gLivroAutor.ObterAutoresPorLivro(isbn));
         }
 
         //
@@ -58,6 +67,13 @@ namespace BibliotecaWeb.Controllers
 
             return View(livroModel);
         }
+
+        [HttpPost]
+        public ActionResult AddAutor(string isbn, int idAutor)
+        {
+            gLivroAutor.Inserir(isbn, idAutor);
+            return RedirectToAction("Edit", new { isbn = isbn });
+        }
         
         //
         // GET: /Livro/Edit/5
@@ -66,6 +82,7 @@ namespace BibliotecaWeb.Controllers
         {
             Livro livroModel = gLivro.Obter(id.ToString());
             ViewBag.IdEditora = new SelectList(gEditora.ObterTodos(), "Codigo", "Nome", livroModel.IdEditora);
+            livroModel.ListaAutores = gLivroAutor.ObterAutoresPorLivro(id);
             return View(livroModel);
         }
 
