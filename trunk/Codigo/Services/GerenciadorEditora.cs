@@ -18,7 +18,7 @@ namespace Services
     {
         private IUnitOfWork unitOfWork;
         private bool shared;
-
+        
         /// <summary>
         /// Construtor pode ser acessado externamente e não compartilha contexto
         /// </summary>
@@ -82,7 +82,7 @@ namespace Services
         /// <returns></returns>
         private IQueryable<Editora> GetQuery()
         {
-            IQueryable<tb_editora> tb_editora = unitOfWork.RepositorioEditora.GetQueryable();
+             IQueryable<tb_editora> tb_editora = unitOfWork.RepositorioEditora.GetQueryable();
             var query = from editora in tb_editora 
                         select new Editora
                         {
@@ -117,6 +117,7 @@ namespace Services
             IEnumerable<Editora> editoraes = GetQuery().Where(editoraModel => editoraModel.Codigo.Equals(idEditora));
             return editoraes.ElementAtOrDefault(0);
         }
+
 
         /// <summary>
         /// Atribui dados do Editora Model para o Editora Entity

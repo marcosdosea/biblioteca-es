@@ -29,5 +29,7 @@ namespace Models
         public DateTime? DataPublicacao { get; set; }
 
         public string Resumo { get; set; }
+
+        public IEnumerable<Autor> ListaAutores { get; set; }
     }
 }

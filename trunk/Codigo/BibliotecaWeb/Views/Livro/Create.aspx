@@ -28,7 +28,7 @@
             <%: Html.LabelFor(model => model.IdEditora) %>
         </div>
         <div class="editor-field">
-            <%: Html.DropDownList("IdEditora")  %>
+            <%: Html.DropDownList("IdEditora") %>
             <%: Html.ValidationMessageFor(model => model.IdEditora) %>
         </div>
 
@@ -52,7 +52,7 @@
             <%: Html.LabelFor(model => model.Resumo) %>
         </div>
         <div class="editor-field">
-            <%: Html.EditorFor(model => model.Resumo) %>
+            <%: Html.TextAreaFor(model => model.Resumo) %>
             <%: Html.ValidationMessageFor(model => model.Resumo) %>
         </div>
 

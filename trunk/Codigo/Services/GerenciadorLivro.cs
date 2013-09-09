@@ -111,6 +111,37 @@ namespace Services
             return livroes.ElementAtOrDefault(0);
         }
 
+
+
+        public IQueryable<Livro> ObterPorEditora(string nomeEditora)
+        {
+            return GetQuery().Where(livro => livro.NomeEditora.StartsWith(nomeEditora)).OrderByDescending(livro => livro.Nome);
+        }
+
+
+        /// <summary>
+        /// Consulta padrão para retornar dados do livro como model
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable ObterNumeroItensAcervoPorLivro()
+        {
+            IQueryable<tb_livro> tb_livro = unitOfWork.RepositorioLivro.GetQueryable();
+            var query = from livro in tb_livro
+                        select new
+                        {
+                            Isbn = livro.isbn,
+                            IdEditora = livro.idEditora,
+                            DataPublicacao = livro.dataPublicacao,
+                            Nome = livro.nome,
+                            NomeEditora = livro.tb_editora.nome,
+                            Resumo = livro.nome,
+                            NumeroItensAcervo = livro.tb_itemacervo.Count()
+                        };
+            return query;
+        }
+
+        
+
         /// <summary>
         /// Atribui dados do Livro Model para o Livro Entity
         /// </summary>

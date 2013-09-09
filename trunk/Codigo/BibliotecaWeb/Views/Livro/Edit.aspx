@@ -62,6 +62,8 @@
     </fieldset>
 <% } %>
 
+<% Html.RenderPartial("ListarAutores", Model.ListaAutores);%>
+
 <div>
     <%: Html.ActionLink("Back to List", "Index") %>
 </div>

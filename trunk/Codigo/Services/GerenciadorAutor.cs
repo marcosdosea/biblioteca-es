@@ -101,6 +101,7 @@ namespace Services
             return GetQuery();
         }
 
+        
         /// <summary>
         /// Obtém um autor
         /// </summary>

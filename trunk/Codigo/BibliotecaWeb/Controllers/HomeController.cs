@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace BibliotecaWeb.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -15,6 +16,7 @@ namespace BibliotecaWeb.Controllers
             return View();
         }
 
+        [Authorize(Roles = "bibliotecario, balconista")]
         public ActionResult About()
         {
             return View();

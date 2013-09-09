@@ -6,6 +6,7 @@
 
 <asp:Content ID="errorContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
+        <%: Html.LabelFor(model => model.Exception.InnerException.Message) %> <br />
         Sorry, an error occurred while processing your request.
     </h2>
 </asp:Content>
