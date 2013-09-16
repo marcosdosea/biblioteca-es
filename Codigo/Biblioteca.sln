@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Test", "Services.Test\Services.Test.csproj", "{D00EAFAC-6D4D-49F2-9C2F-000CC28035B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaWebServices", "BibliotecaWebServices\BibliotecaWebServices.csproj", "{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Biblioteca_v1.vsmdi
@@ -84,6 +86,16 @@ Global
 		{D00EAFAC-6D4D-49F2-9C2F-000CC28035B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D00EAFAC-6D4D-49F2-9C2F-000CC28035B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D00EAFAC-6D4D-49F2-9C2F-000CC28035B7}.Release|x86.ActiveCfg = Release|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7D861343-1B4F-4EC9-826A-E8C8D9B050B7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

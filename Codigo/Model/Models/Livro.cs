@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
+    [Serializable]
     public class Livro
     {
         [Required]

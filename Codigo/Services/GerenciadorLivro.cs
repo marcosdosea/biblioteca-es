@@ -112,8 +112,13 @@ namespace Services
         }
 
 
+        public IQueryable<Livro> ObterPorIdEditora(int idEditora)
+        {
+            return GetQuery().Where(livro => livro.IdEditora.Equals(idEditora)).OrderByDescending(livro => livro.Nome);
+        }
 
-        public IQueryable<Livro> ObterPorEditora(string nomeEditora)
+
+        public IQueryable<Livro> ObterPorNomeEditora(string nomeEditora)
         {
             return GetQuery().Where(livro => livro.NomeEditora.StartsWith(nomeEditora)).OrderByDescending(livro => livro.Nome);
         }

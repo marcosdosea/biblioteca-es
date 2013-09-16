@@ -120,14 +120,14 @@ namespace BibliotecaWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult RelatorioLivroEditora()
+        public ActionResult RelatorioLivroEditora(int id)
         {
             LocalReport relatorio = new LocalReport();
 
             //Caminho onde o arquivo do Report Viewer está localizado
             relatorio.ReportPath = Server.MapPath("~/Reports/ReportLivrosPorEditora.rdlc");
             //Define o nome do nosso DataSource e qual rotina irá preenche-lo, no caso, nosso método criado anteriormente
-            relatorio.DataSources.Add(new ReportDataSource("DataSetLivro", gLivro.ObterTodos()));
+            relatorio.DataSources.Add(new ReportDataSource("DataSetLivro", gLivro.ObterPorIdEditora(id)));
 
             string reportType = "PDF";
             string mimeType;
