@@ -29,7 +29,7 @@
             <%: Html.LabelFor(model => model.AnoNascimento) %>
         </div>
         <div class="editor-field">
-            <%: Html.TextBoxFor(model => model.AnoNascimento, new { @class = "date" })%>
+            <%: Html.TextBoxFor(model => model.AnoNascimento, new { @class = "ui-datepicker" })%>
             <%: Html.ValidationMessageFor(model => model.AnoNascimento) %>
         </div>
 
