@@ -11,15 +11,8 @@ namespace BibliotecaWeb.Controllers
     {
         public ActionResult Index()
         {
-            ServiceTemperatura.TempConvertSoapClient conversor = new ServiceTemperatura.TempConvertSoapClient();
-            string temperaturaResultado = conversor.FahrenheitToCelsius("100");
-
-
-            ServiceCalculadora.WebServiceCalculadoraSoapClient calculadora = new ServiceCalculadora.WebServiceCalculadoraSoapClient();
-
-            int resultado = calculadora.Soma(2, 4);
-
-            ViewBag.Message = "Welcome to ASP.NET MVC! A temperatura atual é "+ temperaturaResultado;
+            
+            ViewBag.Message = "Welcome to ASP.NET MVC!";
             return View();
         }
 

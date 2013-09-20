@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://www.w3schools.com/webservices/tempconvert.asmx?wsdl" docRef="http://www.w3schools.com/webservices/tempconvert.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://www.w3schools.com/webservices/tempconvert.asmx" xmlns:q1="http://tempuri.org/" binding="q1:TempConvertSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://www.w3schools.com/webservices/tempconvert.asmx" xmlns:q2="http://tempuri.org/" binding="q2:TempConvertSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
