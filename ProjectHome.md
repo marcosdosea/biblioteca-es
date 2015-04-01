@@ -1,0 +1,1 @@
+Utilizado para ilustrar a arquitetura de uma aplicação desenvolvida para o ambiente WEB.
