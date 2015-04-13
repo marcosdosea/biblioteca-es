@@ -13,5 +13,11 @@ namespace Services
         {
 
         }
+
+        public ServiceException(String mensagem)
+            : base(mensagem)
+        {
+
+        }
     }
 }

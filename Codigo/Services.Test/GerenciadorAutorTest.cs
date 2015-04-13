@@ -67,7 +67,7 @@ namespace Services.Test
 
 
         /// <summary>
-        ///A test for Editar
+        ///Um teste de edição com valores válidos
         ///</summary>
         [TestMethod()]
         public void EditarTest()
@@ -83,6 +83,50 @@ namespace Services.Test
             Autor autorModelActual = gAutor.Obter(1);
             Assert.AreEqual(autorModelExpected.AnoNascimento, autorModelActual.AnoNascimento);
             Assert.AreEqual(autorModelExpected.Nome, autorModelActual.Nome);
+        }
+
+
+        /// <summary>
+        ///Um teste de edição para uma nome muito grande
+        ///</summary>
+        [TestMethod()]
+        public void EditarTest_NomeGrande()
+        {
+            // realiza o processo de edição
+            GerenciadorAutor gAutor = new GerenciadorAutor();
+            Autor autorModelExpected = gAutor.Obter(1);
+            autorModelExpected.Nome = "José dos Santos Barbosa Arimateia Vergueiro de Oliveira Dósea";
+            autorModelExpected.AnoNascimento = new DateTime(1982, 1, 1);
+            gAutor.Editar(autorModelExpected);
+
+            // verifica se a edição realizada com sucesso
+            Autor autorModelActual = gAutor.Obter(1);
+            Assert.AreEqual(autorModelExpected.AnoNascimento, autorModelActual.AnoNascimento);
+            Assert.AreEqual(autorModelExpected.Nome, autorModelActual.Nome);
+        }
+
+
+        /// <summary>
+        ///Um teste de edição para uma data muito antiga
+        ///</summary>
+        [TestMethod()]
+        public void EditarTest_DataMenorDoQueMil()
+        {
+            // realiza o processo de edição
+            GerenciadorAutor gAutor = new GerenciadorAutor();
+            Autor autorModelExpected = gAutor.Obter(1);
+            autorModelExpected.Nome = "Marcos Dósea";
+            autorModelExpected.AnoNascimento = new DateTime(100, 1, 1);
+            
+            // verifica se exceção de serviço foi lançada
+            try
+            {
+                gAutor.Editar(autorModelExpected);
+            }
+            catch (Exception e)
+            {
+                Assert.IsInstanceOfType(e, typeof(ServiceException));
+            }
         }
 
         /// <summary>

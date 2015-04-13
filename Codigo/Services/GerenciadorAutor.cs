@@ -58,6 +58,9 @@ namespace Services
         /// <param name="autorModel"></param>
         public void Editar(Autor autorModel)
         {
+            if (autorModel.AnoNascimento.Year < 1000)
+                throw new ServiceException("O ano de nascimento de autor deve ser maior do que 1000. Favor informar nova data.");
+
             tb_autor autorE = new tb_autor(); 
             Atribuir(autorModel, autorE);
             unitOfWork.RepositorioAutor.Editar(autorE);
