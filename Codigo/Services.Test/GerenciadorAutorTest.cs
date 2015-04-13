@@ -72,10 +72,17 @@ namespace Services.Test
         [TestMethod()]
         public void EditarTest()
         {
-            GerenciadorAutor target = new GerenciadorAutor(); // TODO: Initialize to an appropriate value
-            Autor autorModel = null; // TODO: Initialize to an appropriate value
-            target.Editar(autorModel);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            // realiza o processo de edição
+            GerenciadorAutor gAutor = new GerenciadorAutor(); 
+            Autor autorModelExpected = gAutor.Obter(1);
+            autorModelExpected.Nome = "Marcos Dósea";
+            autorModelExpected.AnoNascimento = new DateTime(1982, 1, 1);
+            gAutor.Editar(autorModelExpected);
+
+            // verifica se a edição realizada com sucesso
+            Autor autorModelActual = gAutor.Obter(1);
+            Assert.AreEqual(autorModelExpected.AnoNascimento, autorModelActual.AnoNascimento);
+            Assert.AreEqual(autorModelExpected.Nome, autorModelActual.Nome);
         }
 
         /// <summary>
