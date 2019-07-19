@@ -1,0 +1,9 @@
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\bin\Debug\netcoreapp2.1\Data.deps.json
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\bin\Debug\netcoreapp2.1\Data.dll
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\bin\Debug\netcoreapp2.1\Data.pdb
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\obj\Debug\netcoreapp2.1\Data.csprojAssemblyReference.cache
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\obj\Debug\netcoreapp2.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\obj\Debug\netcoreapp2.1\Data.AssemblyInfoInputs.cache
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\obj\Debug\netcoreapp2.1\Data.AssemblyInfo.cs
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\obj\Debug\netcoreapp2.1\Data.dll
+C:\Users\Marcos\source\repos\BibliotecaCore2\Model\obj\Debug\netcoreapp2.1\Data.pdb
