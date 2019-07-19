@@ -10,11 +10,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 		{56618912-5ADD-45E3-A091-1BB71FF06DD7} = {56618912-5ADD-45E3-A091-1BB71FF06DD7}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Model\Data.csproj", "{56618912-5ADD-45E3-A091-1BB71FF06DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{56618912-5ADD-45E3-A091-1BB71FF06DD7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{F9ADD7A4-BA57-44FE-BB8C-9E27614F2BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Test", "Service.Test\Service.Test.csproj", "{89A8327A-915A-4227-ACE3-6361928E94DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Test", "Service.Test\Service.Test.csproj", "{89A8327A-915A-4227-ACE3-6361928E94DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

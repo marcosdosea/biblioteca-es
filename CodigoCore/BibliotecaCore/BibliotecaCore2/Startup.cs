@@ -35,7 +35,6 @@ namespace BibliotecaCore2
 				options.CheckConsentNeeded = context => true;
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
-
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
@@ -43,7 +42,6 @@ namespace BibliotecaCore2
 				options.UseMySQL(
 					Configuration.GetConnectionString("BibliotecaConnection")));
 			services.AddTransient<IGerenciadorAutor, GerenciadorAutor>();
-
 			services.AddDefaultIdentity<IdentityUser>()
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Data
+namespace Model
 {
-    public partial class Autor
+    public class Autor
     {
 		[Required]
 		[Display(Name = "Código")]

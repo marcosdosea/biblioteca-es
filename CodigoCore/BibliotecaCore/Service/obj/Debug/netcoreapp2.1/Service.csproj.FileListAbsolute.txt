@@ -15,9 +15,9 @@ C:\Users\Marcos\source\repos\BibliotecaCore2\Service\obj\Debug\netcoreapp2.1\Ser
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Service.deps.json
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Service.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Service.pdb
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Data.dll
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Model.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Persistence.dll
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Data.pdb
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Model.pdb
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\Persistence.pdb
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\obj\Debug\netcoreapp2.1\Service.csprojAssemblyReference.cache
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\obj\Debug\netcoreapp2.1\Service.csproj.CoreCompileInputs.cache

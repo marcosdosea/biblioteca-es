@@ -17,12 +17,9 @@ C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\bin\
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\bin\Debug\netcoreapp2.1\Persistence.runtimeconfig.dev.json
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\bin\Debug\netcoreapp2.1\Persistence.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\bin\Debug\netcoreapp2.1\Persistence.pdb
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\bin\Debug\netcoreapp2.1\Data.dll
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\bin\Debug\netcoreapp2.1\Data.pdb
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.csprojAssemblyReference.cache
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.csproj.CoreCompileInputs.cache
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.AssemblyInfoInputs.cache
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.AssemblyInfo.cs
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.csproj.CopyComplete
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.pdb
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Persistence\obj\Debug\netcoreapp2.1\Persistence.csprojAssemblyReference.cache

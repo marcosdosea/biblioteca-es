@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Model;
 using Service;
 
 namespace BibliotecaCore2.Controllers

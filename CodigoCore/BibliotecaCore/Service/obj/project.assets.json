@@ -935,21 +935,20 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "Data/1.0.0": {
+      "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "compile": {
-          "bin/placeholder/Data.dll": {}
+          "bin/placeholder/Model.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Data.dll": {}
+          "bin/placeholder/Model.dll": {}
         }
       },
       "Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.11",
           "MySql.Data.EntityFrameworkCore": "8.0.16"
         },
@@ -3566,10 +3565,10 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "Data/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
-      "path": "../Model/Data.csproj",
-      "msbuildProject": "../Model/Data.csproj"
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     },
     "Persistence/1.0.0": {
       "type": "project",
@@ -3579,8 +3578,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Data >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0",
+      "Model >= 1.0.0",
       "Persistence >= 1.0.0"
     ]
   },
@@ -3614,8 +3613,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj": {
-              "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj"
+            "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj"
             },
             "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Persistence\\Persistence.csproj": {
               "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Persistence\\Persistence.csproj"

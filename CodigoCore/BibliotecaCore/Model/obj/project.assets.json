@@ -694,9 +694,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj",
-      "projectName": "Data",
-      "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj",
+      "projectName": "Model",
+      "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\obj\\",
       "projectStyle": "PackageReference",

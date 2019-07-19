@@ -24,11 +24,11 @@
     ".NETCoreApp,Version=v2.1": {
       "BibliotecaWeb/1.0.0": {
         "dependencies": {
-          "Data": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.9",
+          "Model": "1.0.0",
           "Service": "1.0.0"
         },
         "runtime": {
@@ -734,17 +734,16 @@
           }
         }
       },
-      "Data/1.0.0": {
+      "Model/1.0.0": {
         "runtime": {
-          "Data.dll": {}
+          "Model.dll": {}
         },
         "compile": {
-          "Data.dll": {}
+          "Model.dll": {}
         }
       },
       "Persistence/1.0.0": {
         "dependencies": {
-          "Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.11",
           "MySql.Data.EntityFrameworkCore": "8.0.16"
         },
@@ -757,7 +756,7 @@
       },
       "Service/1.0.0": {
         "dependencies": {
-          "Data": "1.0.0",
+          "Model": "1.0.0",
           "Persistence": "1.0.0"
         },
         "runtime": {
@@ -3919,7 +3918,7 @@
       "path": "system.security.cryptography.protecteddata/4.4.0",
       "hashPath": "system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
     },
-    "Data/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

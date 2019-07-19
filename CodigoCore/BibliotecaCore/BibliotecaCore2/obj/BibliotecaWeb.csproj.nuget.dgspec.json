@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj": {
-                "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj"
+              "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj"
               },
               "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Service\\Service.csproj": {
                 "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Service\\Service.csproj"
@@ -77,12 +77,12 @@
         }
       }
     },
-    "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj": {
+    "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj",
-        "projectName": "Data",
-        "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj",
+        "projectName": "Model",
+        "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\obj\\",
         "projectStyle": "PackageReference",
@@ -154,11 +154,7 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
-            "projectReferences": {
-              "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj": {
-                "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -219,8 +215,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj": {
-                "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Data.csproj"
+              "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj"
               },
               "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Persistence\\Persistence.csproj": {
                 "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Persistence\\Persistence.csproj"

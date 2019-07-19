@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v2.1": {
       "Service/1.0.0": {
         "dependencies": {
-          "Data": "1.0.0",
+          "Model": "1.0.0",
           "Persistence": "1.0.0"
         },
         "runtime": {
@@ -516,14 +516,13 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "Data/1.0.0": {
+      "Model/1.0.0": {
         "runtime": {
-          "Data.dll": {}
+          "Model.dll": {}
         }
       },
       "Persistence/1.0.0": {
         "dependencies": {
-          "Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.11",
           "MySql.Data.EntityFrameworkCore": "8.0.16"
         },
@@ -924,7 +923,7 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "Data/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -2030,21 +2030,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Data/1.0.0": {
+      "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "compile": {
-          "bin/placeholder/Data.dll": {}
+          "bin/placeholder/Model.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Data.dll": {}
+          "bin/placeholder/Model.dll": {}
         }
       },
       "Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.11",
           "MySql.Data.EntityFrameworkCore": "8.0.16"
         },
@@ -2059,7 +2058,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "Data": "1.0.0",
+          "Model": "1.0.0",
           "Persistence": "1.0.0"
         },
         "compile": {
@@ -7043,10 +7042,10 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "Data/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
-      "path": "../Model/Data.csproj",
-      "msbuildProject": "../Model/Data.csproj"
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     },
     "Persistence/1.0.0": {
       "type": "project",
