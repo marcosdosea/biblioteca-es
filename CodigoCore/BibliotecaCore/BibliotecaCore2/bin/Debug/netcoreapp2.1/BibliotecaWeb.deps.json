@@ -738,6 +738,11 @@
         "runtime": {
           "Model.dll": {}
         },
+        "resources": {
+          "en/Model.resources.dll": {
+            "locale": "en"
+          }
+        },
         "compile": {
           "Model.dll": {}
         }

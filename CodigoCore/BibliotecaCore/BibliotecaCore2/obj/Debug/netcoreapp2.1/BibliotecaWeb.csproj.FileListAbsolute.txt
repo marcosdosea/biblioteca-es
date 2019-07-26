@@ -44,3 +44,14 @@ C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\bin\Debug\netcoreapp2.1\Persistence.pdb
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\BibliotecaWeb.Views.pdb
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\BibliotecaWeb.csproj.CopyComplete
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\bin\Debug\netcoreapp2.1\en\Model.resources.dll
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Editora\Index.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Editora\Details.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Editora\Create.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Editora\Edit.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Editora\Delete.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Index.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Details.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Create.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Edit.g.cshtml.cs
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\BibliotecaCore2\obj\Debug\netcoreapp2.1\Razor\Views\Livro\Delete.g.cshtml.cs

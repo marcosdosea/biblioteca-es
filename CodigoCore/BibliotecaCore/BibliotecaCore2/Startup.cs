@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence;
 using Service;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace BibliotecaCore2
 {
@@ -42,10 +43,16 @@ namespace BibliotecaCore2
 				options.UseMySQL(
 					Configuration.GetConnectionString("BibliotecaConnection")));
 			services.AddTransient<IGerenciadorAutor, GerenciadorAutor>();
+			services.AddTransient<IGerenciadorEditora, GerenciadorEditora>();
+			services.AddTransient<IGerenciadorLivro, GerenciadorLivro>();
 			services.AddDefaultIdentity<IdentityUser>()
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+			
+
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

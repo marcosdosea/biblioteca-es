@@ -16,3 +16,8 @@ C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfo.cs
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\Model.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\Model.pdb
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\Model.Resources.Mensagem.resources
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\Model.csproj.GenerateResource.cache
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\bin\Debug\netcoreapp2.1\en\Model.resources.dll
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\Model.Resources.Mensagem.en.resources
+C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Model\obj\Debug\netcoreapp2.1\en\Model.resources.dll

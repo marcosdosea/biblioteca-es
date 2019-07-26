@@ -29,11 +29,14 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">BibliotecaCore2</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+				<ul class="nav navbar-nav">
+					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+					<li><a asp-area="" asp-controller="Autor" asp-action="Index">Autor</a></li>
+					<li><a asp-area="" asp-controller="Editora" asp-action="Index">Editora</a></li>
+					<li><a asp-area="" asp-controller="Livro" asp-action="Index">Livro</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+				</ul>
                 <partial name="_LoginPartial" />
             </div>
         </div>

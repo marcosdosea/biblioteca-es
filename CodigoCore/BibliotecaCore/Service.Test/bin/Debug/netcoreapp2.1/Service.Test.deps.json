@@ -1348,6 +1348,11 @@
       "Model/1.0.0": {
         "runtime": {
           "Model.dll": {}
+        },
+        "resources": {
+          "en/Model.resources.dll": {
+            "locale": "en"
+          }
         }
       },
       "Persistence/1.0.0": {
