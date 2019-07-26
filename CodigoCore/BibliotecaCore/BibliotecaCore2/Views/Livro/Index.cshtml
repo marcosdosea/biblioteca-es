@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Model.Livro>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEditora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPublicacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resumo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEditora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPublicacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resumo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Isbn }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Isbn }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Isbn })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
