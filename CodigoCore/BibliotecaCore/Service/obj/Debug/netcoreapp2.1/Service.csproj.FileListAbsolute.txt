@@ -26,4 +26,3 @@ C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\obj\Debu
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\obj\Debug\netcoreapp2.1\Service.csproj.CopyComplete
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\obj\Debug\netcoreapp2.1\Service.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\obj\Debug\netcoreapp2.1\Service.pdb
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service\bin\Debug\netcoreapp2.1\en\Model.resources.dll

@@ -19,4 +19,3 @@ C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service.Test\obj
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service.Test\obj\Debug\netcoreapp2.1\Service.Test.csproj.CopyComplete
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service.Test\obj\Debug\netcoreapp2.1\Service.Test.dll
 C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service.Test\obj\Debug\netcoreapp2.1\Service.Test.pdb
-C:\Users\Marcos\Desktop\biblioteca-es\CodigoCore\BibliotecaCore\Service.Test\bin\Debug\netcoreapp2.1\en\Model.resources.dll

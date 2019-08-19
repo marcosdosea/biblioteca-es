@@ -61,7 +61,7 @@ namespace Model.Resources {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo deve ser preenchido.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo deve ser preenchido obrigatoriamente.
         /// </summary>
         public static string campo_requerido {
             get {
@@ -70,11 +70,38 @@ namespace Model.Resources {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Cod.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a City.
+        /// </summary>
+        public static string Cidade {
+            get {
+                return ResourceManager.GetString("Cidade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Código.
         /// </summary>
         public static string IdAutor {
             get {
                 return ResourceManager.GetString("IdAutor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nome.
+        /// </summary>
+        public static string Nome {
+            get {
+                return ResourceManager.GetString("Nome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Street.
+        /// </summary>
+        public static string Rua {
+            get {
+                return ResourceManager.GetString("Rua", resourceCulture);
             }
         }
     }

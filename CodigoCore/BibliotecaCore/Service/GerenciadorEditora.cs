@@ -1,6 +1,7 @@
 ﻿using Data;
 using Model;
 using Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -113,6 +114,65 @@ namespace Service
 			IEnumerable<Editora> editoras = GetQuery().Where(editoraModel => editoraModel.Nome.StartsWith(nome));
 			return editoras;
 		}
+
+		public void ObterNomeEditoraNomeLivro()
+		{
+			var query = from editoraModel in _context.TbEditora
+						join livroModel in _context.TbLivro
+						on editoraModel.IdEditora equals livroModel.IdEditora
+						select new 
+						{
+							NomeEditora = editoraModel.Nome,
+							NomeLivro = livroModel.Nome
+						};
+			foreach(var editoraLivro in query)
+			{
+				Console.WriteLine(editoraLivro.NomeEditora);
+				Console.WriteLine(editoraLivro.NomeLivro);
+			}
+		}
+
+
+
+		public IEnumerable<Editora> ObterEditorasSPRS()
+		{
+			IQueryable<TbEditora> tb_editora = _context.TbEditora;
+			var query = from editora in tb_editora
+						where (editora.Estado.Equals("RS") ||
+						editora.Estado.Equals("SP")) &&
+						editora.Nome.ToUpper().Contains("EDITORA")
+						select new Editora
+						{
+							IdEditora = editora.IdEditora,
+							Nome = editora.Nome,
+							Bairro = editora.Bairro,
+							Cep = editora.Cep,
+							Cidade = editora.Cidade,
+							Estado = editora.Estado,
+							Numero = editora.Numero,
+							Rua = editora.Rua
+						};
+			return query;
+		}
+
+
+		public void ObterNomeCepEditora()
+		{
+			IQueryable<TbEditora> tb_editora = _context.TbEditora;
+			var query = from editora in tb_editora
+						select new 
+						{
+							NomeEditora = editora.Nome,
+							CepEditora = editora.Cep,
+						};
+
+			foreach (var editoraAnonima in query)
+			{
+				Console.WriteLine(editoraAnonima.CepEditora);
+				Console.WriteLine(editoraAnonima.NomeEditora);
+			}
+		}
+
 
 		/// <summary>
 		/// Atribui dados entre objetos do model e entity

@@ -8,7 +8,8 @@ namespace Model
     public class Autor
     {
 		[Display(Name ="IdAutor", ResourceType=typeof(Mensagem))]
-		[Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "campo_requerido")]
+		[Required(ErrorMessageResourceType = typeof(Mensagem), 
+			ErrorMessageResourceName = "campo_requerido")]
 		public int IdAutor { get; set; }
 		[Required]
 		[Display(Name = "Nome")]

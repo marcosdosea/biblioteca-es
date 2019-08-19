@@ -71,7 +71,8 @@ namespace Service
 							Nome = livro.Nome,
 							DataPublicacao = livro.DataPublicacao,
 							IdEditora = livro.IdEditora,
-							Resumo = livro.Resumo
+							Resumo = livro.Resumo,
+							NomeEditora = livro.IdEditoraNavigation.Nome
 						};
 			return query;
 		}
@@ -83,6 +84,12 @@ namespace Service
 		public IEnumerable<Livro> ObterTodos()
 		{
 			return GetQuery();
+		}
+
+
+		public IEnumerable<Livro> ObterDezPrimeiros()
+		{
+			return GetQuery().Take(10);
 		}
 
 		/// <summary>
@@ -107,6 +114,112 @@ namespace Service
 			IEnumerable<Livro> livroes = GetQuery().Where(livroModel => livroModel.Nome.StartsWith(nome));
 			return livroes;
 		}
+
+		/// <summary>
+		/// Obtém todos os livros associados a uma editra
+		/// </summary>
+		/// <param name="nome"></param>
+		/// <returns></returns>
+		public IEnumerable<Livro> ObterPorNomeEditora(string nomeEditora)
+		{
+			IQueryable<TbLivro> tb_livro = _context.TbLivro;
+			var query = from livro in tb_livro
+						where livro.IdEditoraNavigation.Nome.Equals(nomeEditora)
+						select new Livro
+						{
+							Isbn = livro.Isbn,
+							Nome = livro.Nome,
+							DataPublicacao = livro.DataPublicacao,
+							IdEditora = livro.IdEditora,
+							Resumo = livro.Resumo,
+							NomeEditora = livro.IdEditoraNavigation.Nome
+						};
+			return query;
+		}
+
+		/// <summary>
+		/// Obter livros
+		/// </summary>
+		/// <param name="nomeLivro"></param>
+		/// <returns></returns>
+		public IEnumerable<Livro> ObterOrdenadoPorNome(string nomeLivro)
+		{
+			IQueryable<TbLivro> tb_livro = _context.TbLivro;
+			var query = from livro in tb_livro
+						where livro.Nome.StartsWith(nomeLivro)
+						orderby livro.Nome
+						select new Livro
+						{
+							Isbn = livro.Isbn,
+							Nome = livro.Nome,
+							DataPublicacao = livro.DataPublicacao,
+							IdEditora = livro.IdEditora,
+							Resumo = livro.Resumo,
+							NomeEditora = livro.IdEditoraNavigation.Nome
+						};
+			return query;
+		}
+
+
+		public void ObterLivroMaxExemplares()
+		{
+			IQueryable<TbItemacervo> tb_itemAcervo = _context.TbItemacervo;
+			var query = from itemAcervo in tb_itemAcervo
+						group itemAcervo by itemAcervo.Isbn into g
+						select new
+						{
+							Isbn = g.Key,
+							CountLivros = g.Count()
+						};
+			var itemMaximo = query.Max(item => item.CountLivros);
+		}
+
+
+
+
+		public void ObterItensAcervoPorLivro(string isbnLivro)
+		{
+			TbLivro tb_livro = _context.TbLivro.
+				Where(livro => livro.Isbn.Equals(isbnLivro)).FirstOrDefault();
+
+			if (tb_livro != null)
+			{
+				IEnumerable<TbItemacervo> itensAcervo = tb_livro.TbItemacervo;
+				foreach(var itemAcervo in itensAcervo)
+				{
+					System.Console.WriteLine(itemAcervo.IdItemAcervo);
+					System.Console.WriteLine(itemAcervo.IdSituacaoLivroNavigation.Situacao);
+
+				}
+			}
+
+
+		}
+
+		/// <summary>
+		/// Obtém o número os itens de acervo de cada livro
+		/// </summary>
+		public void ObterNumeroItensAcervoPorLivro()
+		{
+			IQueryable<TbLivro> tb_livro = _context.TbLivro;
+			var query = from livro in tb_livro
+						orderby livro.Nome
+						select new
+						{
+							IsbnLivro = livro.Isbn,
+							NomeLivro = livro.Nome,
+							NumeroItensAcervo = livro.TbItemacervo.Count()
+						};
+
+			foreach (var itemAcervo in query)
+			{
+				System.Console.WriteLine(itemAcervo.IsbnLivro);
+				System.Console.WriteLine(itemAcervo.NomeLivro);
+				System.Console.WriteLine(itemAcervo.NumeroItensAcervo);
+			}
+
+		}
+
 
 		/// <summary>
 		/// Atribui dados entre objetos do model e entity

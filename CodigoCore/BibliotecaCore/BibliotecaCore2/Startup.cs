@@ -37,8 +37,8 @@ namespace BibliotecaCore2
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
 			services.AddDbContext<ApplicationDbContext>(options =>
-				options.UseSqlServer(
-					Configuration.GetConnectionString("DefaultConnection")));
+				options.UseMySQL(
+					Configuration.GetConnectionString("BibliotecaConnection")));
 			services.AddDbContext<BibliotecaContext>(options =>
 				options.UseMySQL(
 					Configuration.GetConnectionString("BibliotecaConnection")));
@@ -49,10 +49,6 @@ namespace BibliotecaCore2
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-			
-
-
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

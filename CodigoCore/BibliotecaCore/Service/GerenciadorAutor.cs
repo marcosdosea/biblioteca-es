@@ -84,6 +84,31 @@ namespace Service
 		{
 			return GetQuery();
 		}
+		/// <summary>
+		/// REtorna o número de autores cadastrados
+		/// </summary>
+		/// <returns></returns>
+		public int GetNumeroAutores()
+		{
+			return _context.TbAutor.Count();
+		}
+
+		/// <summary>
+		/// Obtém os dados do primeiro autor cadastrado na base de dados.
+		/// </summary>
+		/// <returns></returns>
+		public Autor ObterPrimeiroAutor()
+		{
+			TbAutor _tbautor = _context.TbAutor.FirstOrDefault();
+			Autor autor = new Autor();
+			if (_tbautor != null) { 
+				autor.IdAutor = _tbautor.IdAutor;
+				autor.AnoNascimento = _tbautor.AnoNascimento;
+				autor.Nome = _tbautor.Nome;
+			}
+			return autor;
+		}
+
 
 		/// <summary>
 		/// Obtém pelo identificado do autor
@@ -104,9 +129,50 @@ namespace Service
 		/// <returns></returns>
 		public IEnumerable<Autor> ObterPorNome(string nome)
 		{
-			IEnumerable<Autor> autores = GetQuery().Where(autorModel => autorModel.Nome.StartsWith(nome));
+			IEnumerable<Autor> autores = GetQuery()
+				.Where(autorModel => autorModel.Nome.
+				StartsWith(nome));
 			return autores;
 		}
+
+		public IEnumerable<Autor> ObterPorNomeOtimizado(string nome)
+		{
+			IQueryable<TbAutor> tb_autor = _context.TbAutor;
+			var query = from autor in tb_autor
+						where nome.Contains(nome)
+						select new Autor
+						{
+							IdAutor = autor.IdAutor,
+							Nome = autor.Nome,
+							AnoNascimento = autor.AnoNascimento
+						};
+			return query;
+		}
+
+		/// <summary>
+		/// Obtém autores ordenado de forma descendente
+		/// </summary>
+		/// <param name="nome"></param>
+		/// <returns></returns>
+		public IEnumerable<Autor> ObterPorNomeOrdenadoDescending(string nome)
+		{
+			IQueryable<TbAutor> tb_autor = _context.TbAutor;
+			var query = from autor in tb_autor
+						where nome.StartsWith(nome)
+						orderby autor.Nome descending
+						select new Autor
+						{
+							IdAutor = autor.IdAutor,
+							Nome = autor.Nome,
+							AnoNascimento = autor.AnoNascimento
+						};
+			return query;
+		}
+
+
+
+
+
 
 		/// <summary>
 		/// Atribui dados entre objetos do model e entity

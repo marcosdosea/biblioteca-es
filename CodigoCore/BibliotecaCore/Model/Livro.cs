@@ -20,5 +20,7 @@ namespace Model
 		[StringLength(300)]
 		public string Resumo { get; set; }
 
+
+		public string NomeEditora { get; set; }
     }
 }
