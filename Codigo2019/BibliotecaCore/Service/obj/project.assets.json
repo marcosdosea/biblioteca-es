@@ -3584,23 +3584,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marcos\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\marco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Service\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Service\\Service.csproj",
-      "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Service\\obj\\",
+      "projectPath": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Service\\Service.csproj",
+      "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Service\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3612,12 +3608,13 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {
-            "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj"
+            "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Model\\Model.csproj"
             },
-            "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Persistence\\Persistence.csproj"
+            "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -3630,6 +3627,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -3639,10 +3637,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

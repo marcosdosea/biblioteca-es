@@ -1,0 +1,12 @@
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\bin\Debug\netcoreapp3.1\Persistence.deps.json
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\bin\Debug\netcoreapp3.1\Persistence.runtimeconfig.json
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\bin\Debug\netcoreapp3.1\Persistence.runtimeconfig.dev.json
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\bin\Debug\netcoreapp3.1\Persistence.dll
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\bin\Debug\netcoreapp3.1\Persistence.pdb
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.csprojAssemblyReference.cache
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfoInputs.cache
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfo.cs
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.dll
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.pdb
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Persistence\obj\Debug\netcoreapp3.1\Persistence.genruntimeconfig.cache

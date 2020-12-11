@@ -688,23 +688,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marcos\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\marco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\Model.csproj",
-      "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marcos\\Desktop\\biblioteca-es\\CodigoCore\\BibliotecaCore\\Model\\obj\\",
+      "projectPath": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Model\\Model.csproj",
+      "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marco\\OneDrive - ufs.br\\UFS\\Ensino\\_20201tdi\\biblioteca-es\\Codigo2019\\BibliotecaCore\\Model\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -716,6 +712,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {}
         }
       },
@@ -727,6 +724,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
@@ -736,10 +734,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

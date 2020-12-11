@@ -1,0 +1,4 @@
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Service\obj\Debug\netcoreapp3.1\Service.csprojAssemblyReference.cache
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\marco\OneDrive - ufs.br\UFS\Ensino\_20201tdi\biblioteca-es\Codigo\Biblioteca\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
