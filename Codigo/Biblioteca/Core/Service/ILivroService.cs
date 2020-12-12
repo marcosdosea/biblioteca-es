@@ -6,8 +6,8 @@ namespace Core
 	{
 		void Editar(Livro livro);
 		void Inserir(Livro livro);
-		Livro Obter(int idLivro);
-		IEnumerable<Livro> ObterPorNome(string nome);
+		Livro Obter(string isbn);
+		IEnumerable<LivroDTO> ObterPorNome(string nome);
 		IEnumerable<Livro> ObterTodos();
 		void Remover(int idLivro);
 	}

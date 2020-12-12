@@ -3,14 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaWeb", "BibliotecaWeb\BibliotecaWeb.csproj", "{760F53B1-9CAD-4D2C-82A7-3224CCB6DE99}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{42109B8C-5144-4941-B6F8-56A09F7F8B17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaWeb", "BibliotecaWeb\BibliotecaWeb.csproj", "{760F53B1-9CAD-4D2C-82A7-3224CCB6DE99}"
 	ProjectSection(ProjectDependencies) = postProject
 		{570FDF1C-50FF-4F3B-9541-F343A27A53E4} = {570FDF1C-50FF-4F3B-9541-F343A27A53E4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{570FDF1C-50FF-4F3B-9541-F343A27A53E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{42109B8C-5144-4941-B6F8-56A09F7F8B17}"
+	ProjectSection(ProjectDependencies) = postProject
+		{570FDF1C-50FF-4F3B-9541-F343A27A53E4} = {570FDF1C-50FF-4F3B-9541-F343A27A53E4}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{570FDF1C-50FF-4F3B-9541-F343A27A53E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

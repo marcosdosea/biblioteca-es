@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Core;
+using Microsoft.EntityFrameworkCore;
+using Service;
 
 namespace BibliotecaWeb
 {
@@ -24,11 +22,22 @@ namespace BibliotecaWeb
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
+
+			services.AddDbContext<BibliotecaContext>(options =>
+				options.UseMySQL(
+					Configuration.GetConnectionString("BibliotecaConnection")));
+
+			services.AddTransient<IAutorService, AutorService>();
+			services.AddTransient<IEditoraService, EditoraService>();
+			services.AddTransient<ILivroService, LivroService>();
+
+			//services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

@@ -47,35 +47,18 @@ namespace Service
 		}
 
 		/// <summary>
-		/// Consulta genérica aos dados do livro
-		/// </summary>
-		/// <returns></returns>
-		private IQueryable<LivroDTO> GetQuery()
-		{
-			IQueryable<Livro> tb_livro = _context.Livro;
-			var query = from livro in tb_livro
-						select new LivroDTO
-						{
-							Isbn = livro.Isbn,
-							Nome = livro.Nome,
-							NomeEditora = livro.IdEditoraNavigation.Nome
-						};
-			return query;
-		}
-
-		/// <summary>
 		/// Obtém todos os livros
 		/// </summary>
 		/// <returns></returns>
-		public IEnumerable<LivroDTO> ObterTodos()
+		public IEnumerable<Livro> ObterTodos()
 		{
-			return GetQuery();
+			return _context.Livro.ToList();
 		}
 
 
-		public IEnumerable<LivroDTO> ObterDezPrimeiros()
+		public IEnumerable<Livro> ObterDezPrimeiros()
 		{
-			return GetQuery().Take(10);
+			return _context.Livro.Take(10).ToList();
 		}
 
 		/// <summary>
@@ -83,10 +66,12 @@ namespace Service
 		/// </summary>
 		/// <param name="idLivro"></param>
 		/// <returns></returns>
-		public LivroDTO Obter(string isbn)
+		public Livro Obter(string isbn)
 		{
-			IEnumerable<LivroDTO> livros = GetQuery().Where(livroModel => livroModel.Isbn.Equals(isbn));
-
+			IQueryable<Livro> livros = _context.Livro;
+			var query = from livro in livros
+						where livro.Isbn.Equals(isbn)
+						select livros;
 			return livros.ElementAtOrDefault(0);
 		}
 
@@ -97,8 +82,16 @@ namespace Service
 		/// <returns></returns>
 		public IEnumerable<LivroDTO> ObterPorNome(string nome)
 		{
-			IEnumerable<LivroDTO> livroes = GetQuery().Where(livroModel => livroModel.Nome.StartsWith(nome));
-			return livroes;
+			IQueryable<Livro> livros = _context.Livro;
+			var query = from livro in livros
+						where livro.Nome.StartsWith(nome)
+						select new LivroDTO
+						{
+							Isbn = livro.Isbn,
+							Nome = livro.Nome,
+							NomeEditora = livro.IdEditoraNavigation.Nome
+						};
+			return query;
 		}
 
 		/// <summary>
@@ -143,7 +136,7 @@ namespace Service
 
 		public void ObterLivroMaxExemplares()
 		{
-			IQueryable<TbItemacervo> tb_itemAcervo = _context.TbItemacervo;
+			IQueryable<Itemacervo> tb_itemAcervo = _context.Itemacervo;
 			var query = from itemAcervo in tb_itemAcervo
 						group itemAcervo by itemAcervo.Isbn into g
 						select new
@@ -164,7 +157,7 @@ namespace Service
 
 			if (tb_livro != null)
 			{
-				IEnumerable<TbItemacervo> itensAcervo = tb_livro.TbItemacervo;
+				IEnumerable<Itemacervo> itensAcervo = tb_livro.Itemacervo;
 				foreach(var itemAcervo in itensAcervo)
 				{
 					System.Console.WriteLine(itemAcervo.IdItemAcervo);
@@ -188,7 +181,7 @@ namespace Service
 						{
 							IsbnLivro = livro.Isbn,
 							NomeLivro = livro.Nome,
-							NumeroItensAcervo = livro.TbItemacervo.Count()
+							NumeroItensAcervo = livro.Itemacervo.Count()
 						};
 
 			foreach (var itemAcervo in query)
