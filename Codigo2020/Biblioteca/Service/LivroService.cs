@@ -72,7 +72,7 @@ namespace Service
 			var query = from livro in livros
 						where livro.IdLivro.Equals(idLivro)
 						select livros;
-			return livros.ElementAtOrDefault(0);
+			return livros.FirstOrDefault();
 		}
 
 		/// <summary>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ViewModel.AutorModel>
+﻿@model IEnumerable<Models.LivroModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdAutor)
+                @Html.DisplayNameFor(model => model.Isbn)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AnoNascimento)
+                @Html.DisplayNameFor(model => model.DataPublicacao)
             </th>
             <th></th>
         </tr>
@@ -28,18 +28,18 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.IdAutor)
+                @Html.DisplayFor(modelItem => item.Isbn)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AnoNascimento)
+                @Html.DisplayFor(modelItem => item.DataPublicacao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IdLivro }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.IdLivro }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.IdLivro })
             </td>
         </tr>
 }

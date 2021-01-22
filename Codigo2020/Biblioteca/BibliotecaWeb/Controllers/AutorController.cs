@@ -19,9 +19,11 @@ namespace BibliotecaWeb.Controllers
 
 		// GET: AutorController
 		public ActionResult Index()
-		{
+		{			
+			//TODO: Reduzir campos e melhorar código
 			var listaAutores = _autorService.ObterTodos();
 			var listaAutoresModel = _mapper.Map<List<AutorModel>>(listaAutores);
+
 			return View(listaAutoresModel);
 		}
 
@@ -44,7 +46,8 @@ namespace BibliotecaWeb.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult Create(AutorModel autorModel)
 		{
-			if (ModelState.IsValid) {
+			if (ModelState.IsValid)
+			{
 				var autor = _mapper.Map<Autor>(autorModel);
 				_autorService.Inserir(autor);
 			}

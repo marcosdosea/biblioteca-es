@@ -5,8 +5,9 @@ namespace Models
 {
 	public partial class LivroModel
     {
-		[Required]
 		[Key]
+		public int IdLivro { get; set; }
+		[Required]
 		[StringLength(20)]
         public string Isbn { get; set; }
 		[Display(Name ="Editora")]
@@ -18,7 +19,7 @@ namespace Models
         public DateTime? DataPublicacao { get; set; }
 		[StringLength(300)]
 		public string Resumo { get; set; }
-
+		[Display(Name = "Nome Editora")]
 		public string NomeEditora { get; set; }
     }
 }

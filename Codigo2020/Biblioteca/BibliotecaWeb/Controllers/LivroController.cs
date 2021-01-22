@@ -1,23 +1,25 @@
 ﻿using AutoMapper;
 using Core;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BibliotecaWeb.Controllers
 {
 	public class LivroController : Controller
 	{
 		ILivroService _livroService;
+		IEditoraService _editoraService;
+		IAutorService _autorService;
 		IMapper _mapper;
 
-		public LivroController(ILivroService livroService, IMapper mapper)
+		public LivroController(ILivroService livroService, IEditoraService editoraService,
+			IAutorService autorService, IMapper mapper)
 		{
 			_livroService = livroService;
+			_editoraService = editoraService;
+			_autorService = autorService;
 			_mapper = mapper;
 		}
 
@@ -25,8 +27,8 @@ namespace BibliotecaWeb.Controllers
 		public ActionResult Index()
 		{
 			var listaLivroes = _livroService.ObterTodos();
-			var listaLivroesModel = _mapper.Map<List<LivroModel>>(listaLivroes);
-			return View(listaLivroesModel);
+			var listaLivrosModel = _mapper.Map<List<LivroModel>>(listaLivroes);
+			return View(listaLivrosModel);
 		}
 
 		// GET: LivroController/Details/5
@@ -40,6 +42,11 @@ namespace BibliotecaWeb.Controllers
 		// GET: LivroController/Create
 		public ActionResult Create()
 		{
+			IEnumerable<Autor> listaAutores = _autorService.ObterTodos();
+			IEnumerable<Editora> listaEditoras = _editoraService.ObterTodos();
+			
+			ViewBag.IdEditora = new SelectList(listaEditoras, "IdEditora", "Nome", null);
+			ViewBag.IdAutor  = new SelectList(listaAutores, "IdAutor", "Nome", null);
 			return View();
 		}
 
@@ -59,7 +66,13 @@ namespace BibliotecaWeb.Controllers
 		// GET: LivroController/Edit/5
 		public ActionResult Edit(int id)
 		{
+			IEnumerable<Autor> listaAutores = _autorService.ObterTodos();
+			IEnumerable<Editora> listaEditoras = _editoraService.ObterTodos();
 			Livro livro = _livroService.Obter(id);
+
+			ViewBag.IdEditora = new SelectList(listaEditoras, "IdEditora", "Nome", livro.IdEditoraNavigation);
+			ViewBag.IdAutor = new SelectList(listaAutores, "IdAutor", "Nome", livro.IdEditoraNavigation);
+			
 			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
 			return View(livroModel);
 		}
