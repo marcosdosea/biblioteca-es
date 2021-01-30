@@ -9,10 +9,10 @@ namespace BibliotecaWeb.Controllers
 {
 	public class LivroController : Controller
 	{
-		ILivroService _livroService;
-		IEditoraService _editoraService;
-		IAutorService _autorService;
-		IMapper _mapper;
+		private readonly ILivroService _livroService;
+		private readonly IEditoraService _editoraService;
+		private readonly IAutorService _autorService;
+		private readonly IMapper _mapper;
 
 		public LivroController(ILivroService livroService, IEditoraService editoraService,
 			IAutorService autorService, IMapper mapper)
@@ -31,6 +31,16 @@ namespace BibliotecaWeb.Controllers
 			return View(listaLivrosModel);
 		}
 
+
+		public ActionResult Get(string nomeLivro)
+		{
+			var listaLivroes = _livroService.ObterPorNome(nomeLivro);
+			var listaLivrosModel = _mapper.Map<List<LivroModel>>(listaLivroes);
+			return View(listaLivrosModel);
+		}
+
+
+
 		// GET: LivroController/Details/5
 		public ActionResult Details(int id)
 		{
@@ -42,7 +52,7 @@ namespace BibliotecaWeb.Controllers
 		// GET: LivroController/Create
 		public ActionResult Create()
 		{
-			IEnumerable<Autor> listaAutores = _autorService.ObterTodos();
+			IEnumerable<Autor> listaAutores = _autorService.ObterTodosOrdenadoPorNome();
 			IEnumerable<Editora> listaEditoras = _editoraService.ObterTodos();
 			
 			ViewBag.IdEditora = new SelectList(listaEditoras, "IdEditora", "Nome", null);

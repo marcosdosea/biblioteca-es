@@ -9,6 +9,7 @@ namespace Core
 		Autor Obter(int idAutor);
 		IEnumerable<Autor> ObterPorNome(string nome);
 		IEnumerable<Autor> ObterTodos();
+		IEnumerable<Autor> ObterTodosOrdenadoPorNome();
 		void Remover(int idAutor);
 		IEnumerable<AutorDTO> ObterPorNomeOrdenadoDescending(string nome);
 	}

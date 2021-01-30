@@ -1,8 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<div id="ItensEditorachart_3d" style="width: 900px; height: 500px;"></div>
 </div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	google.charts.load("current", { packages: ["corechart"] });
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var jsonData = $.ajax({
+			url: "/home/LivrosPorEditora",
+			dataType: "json",
+			async: false
+		}).responseText;
+
+		// Create our data table out of JSON data loaded from server.
+		var data = new google.visualization.DataTable(jsonData);
+		var options = {
+			title: 'Quantidade de Livros por Editora',
+			is3D: true,
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('ItensEditorachart_3d'));
+		chart.draw(data, options);
+	}
+</script>

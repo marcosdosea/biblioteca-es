@@ -8,8 +8,8 @@ namespace BibliotecaWeb.Controllers
 {
 	public class EditoraController : Controller
 	{
-		IEditoraService _editoraService;
-		IMapper _mapper;
+		private readonly IEditoraService _editoraService;
+		private readonly IMapper _mapper;
 
 		public EditoraController(IEditoraService editoraService, IMapper mapper)
 		{

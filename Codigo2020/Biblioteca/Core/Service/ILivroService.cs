@@ -10,5 +10,6 @@ namespace Core
 		IEnumerable<LivroDTO> ObterPorNome(string nome);
 		IEnumerable<Livro> ObterTodos();
 		void Remover(int idLivro);
+		public IEnumerable<LivroPorEditoraDTO> ObterNumeroLivrosPorEditora();
 	}
 }

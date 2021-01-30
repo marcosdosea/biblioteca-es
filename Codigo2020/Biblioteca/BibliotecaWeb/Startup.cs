@@ -33,6 +33,7 @@ namespace BibliotecaWeb
 			services.AddTransient<IAutorService, AutorService>();
 			services.AddTransient<IEditoraService, EditoraService>();
 			services.AddTransient<ILivroService, LivroService>();
+			services.AddTransient<IItemAcervoService, ItemAcervoService>();
 
 			// injeção dependência mappers
 			services.AddAutoMapper(typeof(Startup).Assembly);

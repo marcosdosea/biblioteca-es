@@ -8,8 +8,8 @@ namespace BibliotecaWeb.Controllers
 {
 	public class AutorController : Controller
 	{
-		IAutorService _autorService;
-		IMapper _mapper;
+		private readonly IAutorService _autorService;
+		private readonly IMapper _mapper;
 
 		public AutorController(IAutorService autorService, IMapper mapper)
 		{

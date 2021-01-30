@@ -102,6 +102,7 @@ namespace Service
 							NomeEditora = editora.Nome,
 							NomeLivro = livroModel.Nome
 						};
+			// exemplo de como varrer objeto anônimo
 			foreach(var editoraLivro in query)
 			{
 				Console.WriteLine(editoraLivro.NomeEditora);
@@ -113,30 +114,18 @@ namespace Service
 
 		public IEnumerable<Editora> ObterEditorasSPRS()
 		{
-			IQueryable<Editora> tb_editora = _context.Editora;
-			var query = from editora in tb_editora
-						where (editora.Estado.Equals("RS") ||
+			var query = from editora in _context.Editora
+			where (editora.Estado.Equals("RS") ||
 						editora.Estado.Equals("SP")) &&
 						editora.Nome.ToUpper().Contains("EDITORA")
-						select new Editora
-						{
-							IdEditora = editora.IdEditora,
-							Nome = editora.Nome,
-							Bairro = editora.Bairro,
-							Cep = editora.Cep,
-							Cidade = editora.Cidade,
-							Estado = editora.Estado,
-							Numero = editora.Numero,
-							Rua = editora.Rua
-						};
+						select editora;
 			return query;
 		}
 
 
 		public void ObterNomeCepEditora()
 		{
-			IQueryable<Editora> tb_editora = _context.Editora;
-			var query = from editora in tb_editora
+			var query = from editora in _context.Editora
 						select new 
 						{
 							NomeEditora = editora.Nome,

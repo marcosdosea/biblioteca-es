@@ -56,8 +56,8 @@ namespace Service
 		/// <returns></returns>
 		private IQueryable<Autor> GetQuery()
 		{
-			IQueryable<Autor> tb_autor = _context.Autor;
-			var query = from autor in tb_autor
+			//IQueryable<Autor> listaAutor = _context.Autor;
+			var query = from autor in _context.Autor
 						select autor;
 			return query;
 		}
@@ -70,13 +70,35 @@ namespace Service
 		{
 			return GetQuery();
 		}
+
+		/// <summary>
+		/// Obter Todos os autores ordenado por noem
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<Autor> ObterTodosOrdenadoPorNome()
+		{
+			var query = from autor in _context.Autor
+						orderby autor.Nome
+						select autor;
+			return query;
+		}
+
 		/// <summary>
 		/// REtorna o número de autores cadastrados
 		/// </summary>
 		/// <returns></returns>
-		public int GetNumeroAutores()
+		public int GetNumeroAutoresComALetraA()
 		{
-			return _context.Autor.Count();
+			//IQueryable<Autor> listaAutor = _context.Autor;
+			//var query = from autor in listaAutor
+			//			where autor.Nome.StartsWith("A")
+			//			select autor;
+			//return query.Count();
+
+			return _context.Autor.
+				Where(autor => autor.Nome.StartsWith("A")).
+				OrderBy(autor => autor.Nome).
+				Count();
 		}
 
 		/// <summary>
@@ -85,14 +107,7 @@ namespace Service
 		/// <returns></returns>
 		public Autor ObterPrimeiroAutor()
 		{
-			Autor _tbautor = _context.Autor.FirstOrDefault();
-			Autor autor = new Autor();
-			if (_tbautor != null) { 
-				autor.IdAutor = _tbautor.IdAutor;
-				autor.AnoNascimento = _tbautor.AnoNascimento;
-				autor.Nome = _tbautor.Nome;
-			}
-			return autor;
+			return _context.Autor.FirstOrDefault(); 
 		}
 
 
@@ -123,9 +138,8 @@ namespace Service
 
 		public IEnumerable<Autor> ObterPorNomeOtimizado(string nome)
 		{
-			IQueryable<Autor> tb_autor = _context.Autor;
-			var query = from autor in tb_autor
-						where nome.Contains(nome)
+			var query = from autor in _context.Autor
+						where autor.Nome.Contains(nome)
 						select autor;
 			return query;
 		}
@@ -137,13 +151,12 @@ namespace Service
 		/// <returns></returns>
 		public IEnumerable<AutorDTO> ObterPorNomeOrdenadoDescending(string nome)
 		{
-			IQueryable<Autor> tb_autor = _context.Autor;
-			var query = from autor in tb_autor
+			var query = from autor in _context.Autor
 						where nome.StartsWith(nome)
 						orderby autor.Nome descending
 						select new AutorDTO
 						{
-							Nome = autor.Nome
+							Nome = autor.Nome						
 						};
 			return query;
 		}

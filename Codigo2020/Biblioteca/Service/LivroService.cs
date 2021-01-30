@@ -68,11 +68,10 @@ namespace Service
 		/// <returns></returns>
 		public Livro Obter(int idLivro)
 		{
-			IQueryable<Livro> livros = _context.Livro;
-			var query = from livro in livros
+			var query = from livro in _context.Livro
 						where livro.IdLivro.Equals(idLivro)
-						select livros;
-			return livros.FirstOrDefault();
+						select livro;
+			return query.FirstOrDefault();
 		}
 
 		/// <summary>
@@ -82,8 +81,7 @@ namespace Service
 		/// <returns></returns>
 		public IEnumerable<LivroDTO> ObterPorNome(string nome)
 		{
-			IQueryable<Livro> livros = _context.Livro;
-			var query = from livro in livros
+			var query = from livro in _context.Livro
 						where livro.Nome.StartsWith(nome)
 						select new LivroDTO
 						{
@@ -101,8 +99,7 @@ namespace Service
 		/// <returns></returns>
 		public IEnumerable<LivroDTO> ObterPorNomeEditora(string nomeEditora)
 		{
-			IQueryable<Livro> tb_livro = _context.Livro;
-			var query = from livro in tb_livro
+			var query = from livro in _context.Livro
 						where livro.IdEditoraNavigation.Nome.Equals(nomeEditora)
 						select new LivroDTO
 						{
@@ -120,8 +117,7 @@ namespace Service
 		/// <returns></returns>
 		public IEnumerable<LivroDTO> ObterOrdenadoPorNome(string nomeLivro)
 		{
-			IQueryable<Livro> tb_livro = _context.Livro;
-			var query = from livro in tb_livro
+			var query = from livro in _context.Livro
 						where livro.Nome.StartsWith(nomeLivro)
 						orderby livro.Nome
 						select new LivroDTO
@@ -133,11 +129,9 @@ namespace Service
 			return query;
 		}
 
-
 		public void ObterLivroMaxExemplares()
 		{
-			IQueryable<Itemacervo> tb_itemAcervo = _context.Itemacervo;
-			var query = from itemAcervo in tb_itemAcervo
+			var query = from itemAcervo in _context.Itemacervo
 						group itemAcervo by itemAcervo.IdLivro into g
 						select new
 						{
@@ -165,8 +159,28 @@ namespace Service
 
 				}
 			}
+		}
 
-
+		/// <summary>
+		/// Retorna número de itens do acervo por editora
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<LivroPorEditoraDTO> ObterNumeroLivrosPorEditora()
+		{
+			var query = from livro in _context.Livro
+						group livro by new
+						{
+							livro.IdEditora,
+							livro.IdEditoraNavigation.Nome
+						}
+						into g
+						select new LivroPorEditoraDTO
+						{
+							IdEditora = g.Key.IdEditora,
+							NomeEditora = g.Key.Nome,
+							CountLivros = g.Count()
+						};
+			return query.ToList();
 		}
 
 		/// <summary>
