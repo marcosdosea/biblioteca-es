@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System.Collections.Generic;
 
 namespace BibliotecaWeb.Controllers
 {
+	[Authorize]
 	public class AutorController : Controller
 	{
 		private readonly IAutorService _autorService;
@@ -36,6 +38,7 @@ namespace BibliotecaWeb.Controllers
 		}
 
 		// GET: AutorController/Create
+		[Authorize(Roles= "BALCONISTA")]
 		public ActionResult Create()
 		{
 			return View();
