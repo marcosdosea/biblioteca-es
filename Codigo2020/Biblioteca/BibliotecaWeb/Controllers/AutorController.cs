@@ -22,10 +22,8 @@ namespace BibliotecaWeb.Controllers
 		// GET: AutorController
 		public ActionResult Index()
 		{			
-			//TODO: Reduzir campos e melhorar código
 			var listaAutores = _autorService.ObterTodos();
 			var listaAutoresModel = _mapper.Map<List<AutorModel>>(listaAutores);
-
 			return View(listaAutoresModel);
 		}
 
