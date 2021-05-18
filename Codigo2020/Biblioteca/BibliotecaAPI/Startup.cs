@@ -44,7 +44,7 @@ namespace BibliotecaAPI
 
 			// injeção dependência Services
 			services.AddTransient<IAutorService, AutorService>();
-			
+			services.AddTransient<IEditoraService, EditoraService>();
 
 			// injeção dependência mappers
 			services.AddAutoMapper(typeof(Startup).Assembly);

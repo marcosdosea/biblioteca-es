@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Models.LivroModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Livros";
 }
 
-<h1>Index</h1>
+<h1>Lista de Livros</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Novo Livro</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.DataPublicacao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.IdLivro }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.IdLivro }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.IdLivro })
+                @Html.ActionLink("Editar", "Edit", new {  id=item.IdLivro }) |
+                @Html.ActionLink("Detalhes", "Details", new {  id=item.IdLivro }) |
+                @Html.ActionLink("Remover", "Delete", new {  id=item.IdLivro })
             </td>
         </tr>
 }

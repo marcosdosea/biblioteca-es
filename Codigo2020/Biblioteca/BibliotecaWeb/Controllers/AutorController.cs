@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BibliotecaWeb.Controllers
 {
-	[Authorize]
+	[Authorize(Roles = "BALCONISTA")]
 	public class AutorController : Controller
 	{
 		private readonly IAutorService _autorService;
@@ -36,7 +36,7 @@ namespace BibliotecaWeb.Controllers
 		}
 
 		// GET: AutorController/Create
-		[Authorize(Roles= "BALCONISTA")]
+		[Authorize]
 		public ActionResult Create()
 		{
 			return View();
