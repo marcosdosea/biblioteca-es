@@ -10,7 +10,7 @@ namespace Models
 		public int IdAutor { get; set; }
 
 		[Required(ErrorMessage ="Campo requerido")]
-		[StringLength(45, MinimumLength =5, ErrorMessage = "Nome do autordeve ter entre 5 e 45 caracteres")]
+		[StringLength(45, MinimumLength =5, ErrorMessage = "Nome do autor deve ter entre 5 e 45 caracteres")]
 		public string Nome { get; set; }
 		
 		[Display(Name = "Data Nascimento")]
