@@ -8,6 +8,7 @@ namespace Core
 		int Inserir(Autor autor);
 		Autor Obter(int idAutor);
 		IEnumerable<Autor> ObterPorNome(string nome);
+		public IEnumerable<Autor> ObterPorNomeContendo(string nome);
 		IEnumerable<Autor> ObterTodos();
 		IEnumerable<Autor> ObterTodosOrdenadoPorNome();
 		void Remover(int idAutor);

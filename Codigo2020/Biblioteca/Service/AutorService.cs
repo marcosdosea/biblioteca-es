@@ -136,7 +136,7 @@ namespace Service
 			return autores;
 		}
 
-		public IEnumerable<Autor> ObterPorNomeOtimizado(string nome)
+		public IEnumerable<Autor> ObterPorNomeContendo(string nome)
 		{
 			var query = from autor in _context.Autor
 						where autor.Nome.Contains(nome)
@@ -152,7 +152,7 @@ namespace Service
 		public IEnumerable<AutorDTO> ObterPorNomeOrdenadoDescending(string nome)
 		{
 			var query = from autor in _context.Autor
-						where nome.StartsWith(nome)
+						where autor.Nome.StartsWith(nome)
 						orderby autor.Nome descending
 						select new AutorDTO
 						{
