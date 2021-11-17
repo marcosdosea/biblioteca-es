@@ -109,7 +109,7 @@ namespace BibliotecaWeb.Controllers.Tests
 		}
 
 		[TestMethod()]
-		public void EditTest_Post()
+		public void EditTest_Get()
 		{
 			// Act
 			var result = controller.Edit(1);
@@ -124,7 +124,7 @@ namespace BibliotecaWeb.Controllers.Tests
 		}
 
 		[TestMethod()]
-		public void EditTest_Get()
+		public void EditTest_Post()
 		{
 			// Act
 			var result = controller.Edit(GetTargetAutorModel().IdAutor, GetTargetAutorModel());
