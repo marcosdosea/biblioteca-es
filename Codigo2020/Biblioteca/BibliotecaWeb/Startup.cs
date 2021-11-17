@@ -2,11 +2,13 @@ using AutoMapper;
 using Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Service;
+using System.Globalization;
 
 namespace BibliotecaWeb
 {
@@ -56,6 +58,15 @@ namespace BibliotecaWeb
 			app.UseStaticFiles();
 
 			app.UseRouting();
+
+
+			var suppportedCultures = new[] { new CultureInfo(name: "pt-BR") };
+			app.UseRequestLocalization(new RequestLocalizationOptions
+			{
+				DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+				SupportedCultures = suppportedCultures,
+				SupportedUICultures = suppportedCultures
+			}); ;
 
 			app.UseAuthentication();
 			app.UseAuthorization();
