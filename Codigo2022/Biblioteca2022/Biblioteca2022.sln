@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaWEB", "BibliotecaWEB\BibliotecaWEB.csproj", "{501B6341-0F5F-4C08-8FE8-9F989F150ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B4293B6D-D91D-4998-8CA4-2F212A331497}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{EBFDD88A-01DB-4044-AD40-911A91B6B86C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{501B6341-0F5F-4C08-8FE8-9F989F150ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501B6341-0F5F-4C08-8FE8-9F989F150ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501B6341-0F5F-4C08-8FE8-9F989F150ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501B6341-0F5F-4C08-8FE8-9F989F150ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4293B6D-D91D-4998-8CA4-2F212A331497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4293B6D-D91D-4998-8CA4-2F212A331497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4293B6D-D91D-4998-8CA4-2F212A331497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4293B6D-D91D-4998-8CA4-2F212A331497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBFDD88A-01DB-4044-AD40-911A91B6B86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFDD88A-01DB-4044-AD40-911A91B6B86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFDD88A-01DB-4044-AD40-911A91B6B86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFDD88A-01DB-4044-AD40-911A91B6B86C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC7FD662-1C68-4DAA-98BC-0F67AB1E7585}
+	EndGlobalSection
+EndGlobal
