@@ -68,7 +68,7 @@ namespace Service
 		/// <returns>lista de editoras</returns>
 		public IEnumerable<Editora> GetAll()
 		{
-			return _context.Editoras;
+			return _context.Editoras.AsNoTracking();
 		}
 
 		/// <summary>

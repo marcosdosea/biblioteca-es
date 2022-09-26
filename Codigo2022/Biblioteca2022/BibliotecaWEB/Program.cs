@@ -21,6 +21,9 @@ namespace BibliotecaWEB
 			builder.Services.AddTransient<IEditoraService, EditoraService>();
 			builder.Services.AddTransient<ILivroService, LivroService>();
 
+			//TODO: Organize essa bagunça
+
+
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 			var app = builder.Build();

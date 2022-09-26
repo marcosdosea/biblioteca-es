@@ -9,6 +9,7 @@ namespace Core.Service
 {
 	public interface IAutorService
 	{
+		//TODO Rever endentação das interfaces
 		int Create(Autor autor);
 		void Edit(Autor autor);
 		void Delete(int idAutor);
