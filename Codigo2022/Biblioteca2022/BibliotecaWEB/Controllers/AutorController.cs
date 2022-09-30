@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using Core;
 using Core.Service;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using System.Linq.Expressions;
 
 namespace BibliotecaWeb.Controllers
 {
