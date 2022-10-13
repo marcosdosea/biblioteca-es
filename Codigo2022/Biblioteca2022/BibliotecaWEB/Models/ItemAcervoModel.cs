@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribute;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaWEB.Models
 {
@@ -12,13 +12,10 @@ namespace BibliotecaWEB.Models
 		[Required]
 		public int IdBiblioteca { get; set; }
 		[Required] 
-		public string IdSituacaoLivro { get; set; }
-
-
-		[Phone]
-		public string Email { get; set; }
-
-
+		public string? IdSituacaoLivro { get; set; }
+		[EmailAddress]
+		public string? Email { get; set; }
 		public int? IdDoacao { get; set; }
+		public SelectList? ListaLivros { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models
@@ -9,17 +9,18 @@ namespace Models
 		public int IdLivro { get; set; }
 		[Required]
 		[StringLength(20)]
-        public string Isbn { get; set; }
+        public string? Isbn { get; set; }
 		[Display(Name ="Editora")]
         public int IdEditora { get; set; }
 		[StringLength(50)]
-		public string Nome { get; set; }
+		public string? Nome { get; set; }
 		[DataType(DataType.Date)]
 		[Display(Name ="Data Publicação")]
         public DateTime? DataPublicacao { get; set; }
 		[StringLength(300)]
-		public string Resumo { get; set; }
-		[Display(Name = "Nome Editora")]
-		public string NomeEditora { get; set; }
-    }
+		public string? Resumo { get; set; }
+		[Display(Name = "Editora")]
+		public SelectList? ListaEditoras { get; set; }
+		public SelectList? ListaAutores { get; set; }
+	}
 }

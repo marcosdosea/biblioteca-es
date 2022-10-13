@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Models.EditoraModel>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Nova Editora</a>
 </p>
 <table class="table">
     <thead>
@@ -11,18 +11,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rua)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bairro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cep)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cidade)
@@ -43,27 +31,15 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Rua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cidade)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.IdEditora }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.IdEditora }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.IdEditora })
+                @Html.ActionLink("Editar", "Edit", new {  id=item.IdEditora }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id=item.IdEditora }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id=item.IdEditora })
             </td>
         </tr>
 }

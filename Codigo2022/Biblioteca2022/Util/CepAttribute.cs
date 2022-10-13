@@ -18,7 +18,9 @@ namespace Util
 		/// </summary>
 		/// <param name="value"></param>
 		/// <returns></returns>
+#pragma warning disable CS8765 // A nulidade do tipo de parâmetro 'value' não corresponde ao membro substituído (possivelmente devido a atributos de nulidade).
 		public override bool IsValid(object value)
+#pragma warning restore CS8765 // A nulidade do tipo de parâmetro 'value' não corresponde ao membro substituído (possivelmente devido a atributos de nulidade).
 		{
 			if (value == null || string.IsNullOrEmpty(value.ToString()))
 				return true;
@@ -30,7 +32,7 @@ namespace Util
 			return true;
 		}
 
-		public string GetErrorMessage() =>
+		public string ErrorMessage =>
 			$"CEP Inválido";
 	}
 }

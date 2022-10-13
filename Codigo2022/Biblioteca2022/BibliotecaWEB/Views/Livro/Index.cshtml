@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Models.LivroModel>
+
+<p>
+    <a asp-action="Create">Novo Livro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLivro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isbn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLivro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IdLivro }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.IdLivro }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdLivro })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

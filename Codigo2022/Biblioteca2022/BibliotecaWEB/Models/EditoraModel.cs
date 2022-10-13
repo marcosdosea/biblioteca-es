@@ -13,12 +13,17 @@ namespace Models
 		[StringLength(45, MinimumLength =5, ErrorMessage ="O campo nome editora deve ter entre 4 e 45 caracteres")]
 		public string? Nome { get; set; }
 		[StringLength(30)]
-		public string Rua { get; set; }
+		public string? Rua { get; set; }
 		[StringLength(30)]
-		public string Bairro { get; set; }
-        public string Numero { get; set; }
-        public string Cep { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
+		public string? Bairro { get; set; }
+		[Display(Name = "Número")]
+		[StringLength(10)]
+		public string? Numero { get; set; }
+		[StringLength(8)]
+		public string? Cep { get; set; }
+        [StringLength(30)]
+		public string? Cidade { get; set; }
+        [StringLength(2)]
+		public string? Estado { get; set; }
     }
 }

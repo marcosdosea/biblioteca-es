@@ -84,7 +84,7 @@ namespace Service
 						select new AutorDTO
 						{
 							IdAutor = autor.IdAutor,
-							Nome = nome
+							Nome = autor.Nome
 						};
 			return query;
 		}

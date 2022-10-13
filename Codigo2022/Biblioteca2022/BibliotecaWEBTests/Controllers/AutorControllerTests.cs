@@ -9,13 +9,13 @@ using Moq;
 
 namespace BibliotecaWeb.Controllers.Tests
 {
-	[TestClass()]
+	[TestClass]
 	public class AutorControllerTests
 	{
 		private static AutorController controller;
 
 		[TestInitialize]
-		public static void Initialize(TestContext testContext)
+		public void Initialize()
 		{
 			// Arrange
 			var mockService = new Mock<IAutorService>();
@@ -44,7 +44,8 @@ namespace BibliotecaWeb.Controllers.Tests
 			Assert.IsInstanceOfType(result, typeof(ViewResult));
 			ViewResult viewResult = (ViewResult)result;
 			Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<AutorModel>));
-			List<AutorModel> lista = (List<AutorModel>)	viewResult.ViewData.Model;
+
+			List<AutorModel>? lista = (List<AutorModel>) viewResult.ViewData.Model;
 			Assert.AreEqual(3, lista.Count);
 		}
 
@@ -158,7 +159,7 @@ namespace BibliotecaWeb.Controllers.Tests
 			Assert.AreEqual("Index", redirectToActionResult.ActionName);
 		}
 
-		private static AutorModel GetNewAutor()
+		private AutorModel GetNewAutor()
 		{
 			return new AutorModel
 			{
@@ -168,7 +169,7 @@ namespace BibliotecaWeb.Controllers.Tests
 			};
 
 		}
-		private static Autor GetTargetAutor()
+		private Autor GetTargetAutor()
 		{
 			return new Autor
 			{
@@ -178,7 +179,7 @@ namespace BibliotecaWeb.Controllers.Tests
 			};
 		}
 
-		private static AutorModel GetTargetAutorModel()
+		private AutorModel GetTargetAutorModel()
 		{
 			return new AutorModel
 			{
@@ -188,7 +189,7 @@ namespace BibliotecaWeb.Controllers.Tests
 			};
 		}
 
-		private static IEnumerable<Autor> GetTestAutores()
+		private IEnumerable<Autor> GetTestAutores()
 		{
 			return new List<Autor>
 			{

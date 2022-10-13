@@ -34,7 +34,7 @@ namespace Service
 		/// <summary>
 		/// Remover editora da base de dados
 		/// </summary>
-		/// <param name="idEditora"></param>
+		/// <param name="idEditora">id a ser removido</param>
 		public void Delete(int idEditora)
 		{
 			var _editora = _context.Editoras.Find(idEditora);
@@ -78,10 +78,6 @@ namespace Service
 		/// <returns>lista de editoras</returns>
 		public IEnumerable<Editora> GetByNome(string nome)
 		{
-			// Outra forma de fazer a consulta
-			//return _context.Editoras.
-			//	Where(editora => editora.Nome.StartsWith(nome)).AsNoTracking();
-
 			var query = from editora in _context.Editoras
 						where editora.Nome.StartsWith(nome)
 						orderby editora.Nome

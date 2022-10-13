@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using BibliotecaWEB.Models;
+using Core;
 using Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 
 namespace BibliotecaWEB.Controllers
 {
@@ -30,7 +29,9 @@ namespace BibliotecaWEB.Controllers
 		// GET: ItemAcervoController/Details/5
 		public ActionResult Details(int id)
 		{
-			return View();
+			Itemacervo itemAcervo = _itemAcervoService.Get(id);
+			ItemAcervoModel itemAcervoModel = _mapper.Map<ItemAcervoModel>(itemAcervo);
+			return View(itemAcervoModel);
 		}
 
 		// GET: ItemAcervoController/Create
@@ -42,58 +43,53 @@ namespace BibliotecaWEB.Controllers
 		// POST: ItemAcervoController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(IFormCollection collection)
+		public ActionResult Create(ItemAcervoModel itemAcervoModel)
 		{
-			try
+			if (ModelState.IsValid)
 			{
-				return RedirectToAction(nameof(Index));
+				var itemAcervo = _mapper.Map<Itemacervo>(itemAcervoModel);
+				_itemAcervoService.Create(itemAcervo);
 			}
-			catch
-			{
-				return View();
-			}
+			return RedirectToAction(nameof(Index));
 		}
 
 		// GET: ItemAcervoController/Edit/5
 		public ActionResult Edit(int id)
 		{
-			return View();
+			Itemacervo itemAcervo = _itemAcervoService.Get(id);
+			ItemAcervoModel itemAcervoModel = _mapper.Map<ItemAcervoModel>(itemAcervo);
+			return View(itemAcervoModel);
 		}
 
 		// POST: ItemAcervoController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, IFormCollection collection)
+		public ActionResult Edit(int id, ItemAcervoModel itemAcervoModel)
 		{
-			try
+
+			if (ModelState.IsValid)
 			{
-				return RedirectToAction(nameof(Index));
+				var itemAcervo = _mapper.Map<Itemacervo>(itemAcervoModel);
+				_itemAcervoService.Edit(itemAcervo);
 			}
-			catch
-			{
-				return View();
-			}
+			return RedirectToAction(nameof(Index));
 		}
 
 		// GET: ItemAcervoController/Delete/5
 		public ActionResult Delete(int id)
 		{
-			return View();
+			Itemacervo itemAcervo = _itemAcervoService.Get(id);
+			ItemAcervoModel itemAcervoModel = _mapper.Map<ItemAcervoModel>(itemAcervo);
+			return View(itemAcervoModel);
 		}
 
 		// POST: ItemAcervoController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
+		public ActionResult Delete(int id, ItemAcervoModel itemAcervoModel)
 		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
+			_itemAcervoService.Delete(id);
+			return RedirectToAction(nameof(Index));
 		}
 	}
 }

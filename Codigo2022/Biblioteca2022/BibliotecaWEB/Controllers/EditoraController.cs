@@ -23,7 +23,7 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Index()
 		{
 			var listaEditoras = _editoraService.GetAll();
-			var listaEditorasModel = _mapper.Map<List<AutorModel>>(listaEditoras);
+			var listaEditorasModel = _mapper.Map<List<EditoraModel>>(listaEditoras);
 			return View(listaEditorasModel);
 		}
 
@@ -86,7 +86,7 @@ namespace BibliotecaWEB.Controllers
 		// POST: EditoraController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, IFormCollection collection)
+		public ActionResult Delete(int id, EditoraModel editoraModel)
 		{
 			_editoraService.Delete(id);
 			return RedirectToAction(nameof(Index));

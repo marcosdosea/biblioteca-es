@@ -68,6 +68,7 @@ namespace Service.Tests
 			_autorService.Edit(autor);
 			//Assert
 			autor = _autorService.Get(3);
+			Assert.IsNotNull(autor);
 			Assert.AreEqual("Paulo Coelho", autor.Nome);
 			Assert.AreEqual(DateTime.Parse("1950-11-21"), autor.AnoNascimento);
 		}
@@ -78,6 +79,7 @@ namespace Service.Tests
 			var autor = _autorService.Get(1);
 			Assert.IsNotNull(autor);
 			Assert.AreEqual("Machado de Assis", autor.Nome);
+			Assert.AreEqual(DateTime.Parse("1917-12-31"), autor.AnoNascimento);
 		}
 
 		[TestMethod()]
@@ -96,7 +98,9 @@ namespace Service.Tests
 		[TestMethod()]
 		public void GetByNomeTest()
 		{
+			//Act
 			var autores = _autorService.GetByNome("Machado");
+			//Assert
 			Assert.IsNotNull(autores);
 			Assert.AreEqual(1, autores.Count());
 			Assert.AreEqual("Machado de Assis", autores.First().Nome);
