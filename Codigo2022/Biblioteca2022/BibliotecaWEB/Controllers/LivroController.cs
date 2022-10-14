@@ -74,6 +74,14 @@ namespace BibliotecaWEB.Controllers
 		{
 			Livro livro = _livroService.Get(id);
 			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
+
+			IEnumerable<Autor> listaAutores = _autorService.GetAll();
+			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
+
+			livroModel.ListaEditoras = new SelectList(listaEditoras, "IdEditora", "Nome", 
+				listaEditoras.FirstOrDefault(e => e.IdEditora.Equals(livro.IdEditora)));
+			livroModel.ListaAutores = new SelectList(listaAutores, "IdAutor", "Nome", null);
+
 			return View(livroModel);
 		}
 

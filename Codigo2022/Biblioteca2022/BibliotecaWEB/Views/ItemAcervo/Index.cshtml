@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BibliotecaWEB.Models.ItemAcervoModel>
+
+<p>
+    <a asp-action="Create">Novo Item Acervo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdItemAcervo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLivro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdBiblioteca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSituacaoLivro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdItemAcervo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLivro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdBiblioteca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSituacaoLivro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDoacao)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.IdItemAcervo}) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.IdItemAcervo }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.IdItemAcervo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
