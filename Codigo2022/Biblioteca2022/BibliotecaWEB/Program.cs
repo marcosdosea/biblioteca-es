@@ -20,6 +20,7 @@ namespace BibliotecaWEB
 			builder.Services.AddTransient<IAutorService, AutorService>();
 			builder.Services.AddTransient<IEditoraService, EditoraService>();
 			builder.Services.AddTransient<ILivroService, LivroService>();
+			builder.Services.AddTransient<IItemAcervoService, ItemAcervoService>();
 
 			//TODO: Organize essa bagunça
 

@@ -61,10 +61,30 @@ namespace Service
 		/// Obter dados de todos os livros da base de dados
 		/// </summary>
 		/// <returns>dados dos livros</returns>
-		public IEnumerable<Livro> GetAll()
+		public IEnumerable<LivroDTO> GetAll()
 		{
-			return _context.Livros.AsNoTracking();
+			var query = from livro in _context.Livros
+						orderby livro.Nome descending
+						select new LivroDTO
+						{
+							IdLivro = livro.IdLivro,
+							Nome = livro.Nome,
+							Isbn = livro.Isbn,
+							NomeEditora = livro.IdEditoraNavigation.Nome
+						};
+			return query;
 		}
+
+
+		public IEnumerable<Autor> GetAutoresByLivro(int idLivro)
+		{
+			var livro = _context.Livros.Where(l => l.IdLivro == idLivro).FirstOrDefault();
+			if (livro != null)
+				return livro.Autorlivros.Select(autorlivros => autorlivros.IdAutorNavigation);
+			return null;
+		}
+
+
 
 		/// <summary>
 		/// Obter dados dos livros ordenado pelo nome que iniciam com um nome
@@ -80,7 +100,8 @@ namespace Service
 						{
 							IdLivro = livro.IdLivro,
 							Nome = livro.Nome,
-							Isbn = livro.Isbn
+							Isbn = livro.Isbn,
+							NomeEditora = livro.IdEditoraNavigation.Nome
 						};
 			return query;
 		}

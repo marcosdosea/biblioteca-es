@@ -8,7 +8,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdAutor" class="control-label"></label>
-                <input asp-for="IdAutor" class="form-control" />
+                <input type="hidden" asp-for="IdAutor" readonly class="form-control" />
                 <span asp-validation-for="IdAutor" class="text-danger"></span>
             </div>
             <div class="form-group">

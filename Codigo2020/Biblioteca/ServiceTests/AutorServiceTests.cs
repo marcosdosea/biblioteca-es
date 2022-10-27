@@ -56,10 +56,12 @@ namespace Service.Tests
 		[TestMethod()]
 		public void EditarTest()
 		{
+			//Act 
 			var autor = _autorService.Obter(3);
 			autor.Nome = "Paulo Coelho";
 			autor.AnoNascimento = DateTime.Parse("1950-11-21");
 			_autorService.Editar(autor);
+			//Assert
 			autor = _autorService.Obter(3);
 			Assert.AreEqual("Paulo Coelho", autor.Nome);
 			Assert.AreEqual(DateTime.Parse("1950-11-21"), autor.AnoNascimento);

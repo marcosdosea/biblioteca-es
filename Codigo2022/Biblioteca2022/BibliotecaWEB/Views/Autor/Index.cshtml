@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<Models.AutorModel>
 
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/css/jquery.dataTables.min.css" />
+
 <p>
     <a asp-action="Create">Novo Autor</a>
 </p>
-<table class="table">
+<table id="tableAutor" class="table">
     <thead>
         <tr>
             <th>
@@ -19,23 +21,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdAutor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnoNascimento)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new {  id=item.IdAutor}) |
-                @Html.ActionLink("Detalhes", "Details", new { id=item.IdAutor }) |
-                @Html.ActionLink("Excluir", "Delete", new {  id=item.IdAutor })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAutor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnoNascimento)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.IdAutor}) |
+                    @Html.ActionLink("Detalhes", "Details", new { id=item.IdAutor }) |
+                    @Html.ActionLink("Excluir", "Delete", new {  id=item.IdAutor })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tableAutor').DataTable({
+                language: {
+                    url: '/lib/datatable/js/pt-BR.json'
+                }
+            });
+        });
+    </script>
+
+    <script src="~/lib/datatable/js/jquery.dataTables.min.js"></script>
+}

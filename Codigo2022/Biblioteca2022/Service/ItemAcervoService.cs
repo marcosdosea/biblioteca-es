@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.EntityFrameworkCore;
 
@@ -59,9 +60,18 @@ namespace Service
 		/// Obter todos os itens do acervo cadastrados
 		/// </summary>
 		/// <returns>todos os itens acervo</returns>
-		public IEnumerable<Itemacervo> GetAll()
+		public IEnumerable<ItemAcervoDTO> GetAll()
 		{
-			return _context.Itemacervos.AsNoTracking();
+			var query = from itemAcervo in _context.Itemacervos
+						orderby itemAcervo.IdLivroNavigation.Nome descending
+						select new ItemAcervoDTO
+						{
+							IdItemAcervo = itemAcervo.IdItemAcervo,
+							NomeLivro = itemAcervo.IdLivroNavigation.Nome,
+							NomeBiblioteca = itemAcervo.IdBibliotecaNavigation.Nome,
+							SituacaoLivro = itemAcervo.IdSituacaoLivroNavigation.Situacao
+						};
+			return query;
 		}
 	}
 }

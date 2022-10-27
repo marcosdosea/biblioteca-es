@@ -1,22 +1,23 @@
-﻿@model IEnumerable<BibliotecaWEB.Models.ItemAcervoModel>
+﻿@model IEnumerable<Core.DTO.ItemAcervoDTO>
 
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/css/jquery.dataTables.min.css" />
 <p>
     <a asp-action="Create">Novo Item Acervo</a>
 </p>
-<table class="table">
+<table id="tableItemAcervo" class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.IdItemAcervo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdLivro)
+                @Html.DisplayNameFor(model => model.NomeBiblioteca)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdBiblioteca)
+                @Html.DisplayNameFor(model => model.NomeLivro)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdSituacaoLivro)
+                @Html.DisplayNameFor(model => model.SituacaoLivro)
             </th>
             <th></th>
         </tr>
@@ -28,19 +29,13 @@
                 @Html.DisplayFor(modelItem => item.IdItemAcervo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdLivro)
+                @Html.DisplayFor(modelItem => item.NomeBiblioteca)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdBiblioteca)
+                @Html.DisplayFor(modelItem => item.NomeLivro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdSituacaoLivro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDoacao)
+                @Html.DisplayFor(modelItem => item.SituacaoLivro)
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id=item.IdItemAcervo}) |
@@ -51,3 +46,16 @@
 }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tableItemAcervo').DataTable({
+                language: {
+                    url: '/lib/datatable/js/pt-BR.json'
+                }
+            });
+        });
+    </script>
+    <script src="~/lib/datatable/js/jquery.dataTables.min.js"></script>
+}

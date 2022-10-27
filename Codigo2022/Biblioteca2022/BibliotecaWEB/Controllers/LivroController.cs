@@ -31,8 +31,7 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Index()
 		{
 			var listaLivros = _livroService.GetAll();
-			var listaLivrosModel = _mapper.Map<List<LivroModel>>(listaLivros);
-			return View(listaLivrosModel);
+			return View(listaLivros);
 		}
 
 		// GET: LivroController/Details/5

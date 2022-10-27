@@ -1,4 +1,6 @@
-﻿namespace Core.Service
+﻿using Core.DTO;
+
+namespace Core.Service
 {
 	public interface IItemAcervoService
 	{
@@ -6,6 +8,6 @@
 		void Edit(Itemacervo itemAcervo);
 		void Delete(int idItemAcervo);
 		Itemacervo Get(int idItemAcervo);
-		IEnumerable<Itemacervo> GetAll();
+		IEnumerable<ItemAcervoDTO> GetAll();
 	}
 }

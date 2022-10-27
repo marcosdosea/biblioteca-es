@@ -13,7 +13,7 @@ namespace Core.Service
 		void Edit(Livro livro);
 		void Delete(int idLivro);
 		Livro Get(int idLivro);
-		IEnumerable<Livro> GetAll();
+		IEnumerable<LivroDTO> GetAll();
 		IEnumerable<LivroDTO> GetByNome(string nome);
 	}
 }

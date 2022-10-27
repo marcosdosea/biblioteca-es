@@ -22,8 +22,7 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Index()
 		{
 			var listaItemAcervo = _itemAcervoService.GetAll();
-			var listaItemAcervoModel = _mapper.Map<List<ItemAcervoModel>>(listaItemAcervo);
-			return View(listaItemAcervoModel);
+			return View(listaItemAcervo);
 		}
 
 		// GET: ItemAcervoController/Details/5

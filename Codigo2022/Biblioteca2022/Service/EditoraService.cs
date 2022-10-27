@@ -84,5 +84,14 @@ namespace Service
 						select editora;
 			return query.AsNoTracking();
 		}
+
+		public IEnumerable<Editora> GetByEstados()
+		{
+			var query = from editora in _context.Editoras
+						where editora.Nome.Contains("Editora")
+						&& (editora.Estado.Equals("RS") || editora.Estado.Equals("SP"))
+						select editora;
+			return query.AsNoTracking();
+		}
 	}
 }
