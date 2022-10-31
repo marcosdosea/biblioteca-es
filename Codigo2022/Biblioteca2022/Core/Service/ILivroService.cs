@@ -1,4 +1,5 @@
-﻿using Core.DTO;
+﻿using BibliotecaWEB.Models;
+using Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Core.Service
 		Livro Get(int idLivro);
 		IEnumerable<LivroDTO> GetAll();
 		IEnumerable<LivroDTO> GetByNome(string nome);
+		public IEnumerable<LivroDTO> GetByPage(DatatableDTO model, out int filteredResultsCount, out int totalResultsCount);
 	}
 }

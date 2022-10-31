@@ -53,9 +53,21 @@
     <script>
         $(document).ready( function () {
             $('#tableLivro').DataTable({
+                processing: true,
+                serverSide : true,
+                ajax: {
+                    url: "/Livro/GetByPage",
+                    type: 'POST'
+                },
                 language: {
                     url: '/lib/datatable/js/pt-BR.json'
-                }
+                },
+                columns: [
+                    { data: "IdLivro" },
+                    { data: "Isbn" },
+                    { data: "Nome" },
+                    { data: "Editora" }
+                ],
             });
         } );
     </script>

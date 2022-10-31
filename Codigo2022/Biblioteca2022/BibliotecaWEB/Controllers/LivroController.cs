@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
+using BibliotecaWEB.Models;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
 using Service;
+using System.Data;
 
 namespace BibliotecaWEB.Controllers
 {
@@ -33,6 +36,25 @@ namespace BibliotecaWEB.Controllers
 			var listaLivros = _livroService.GetAll();
 			return View(listaLivros);
 		}
+
+		public JsonResult GetByPage(DatatableDTO model)
+		{
+			int filteredResultsCount;
+			int totalResultsCount;
+			
+			// search the dbase taking into consideration table sorting and paging
+			var result = _livroService.GetByPage(model, out filteredResultsCount, out totalResultsCount);
+			
+			return Json(new
+			{
+				draw = model.draw,
+				recordsTotal = totalResultsCount,
+				recordsFiltered = filteredResultsCount,
+				data = result
+			});
+
+		}
+
 
 		// GET: LivroController/Details/5
 		public ActionResult Details(int id)
