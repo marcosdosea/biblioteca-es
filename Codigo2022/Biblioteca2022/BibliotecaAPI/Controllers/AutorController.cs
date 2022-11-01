@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -27,38 +28,59 @@ namespace BibliotecaAPI.Controllers
         public ActionResult Get()
         {
             var listaAutores = _autorService.GetAll();
-            var listaAutoresModel = _mapper.Map<List<AutorModel>>(listaAutores);
-            return Ok(new 
-            {
-                result = listaAutoresModel,
-				httpCode = (int)HttpStatusCode.OK,
-				message = "Autores obtidos com sucesso!"
-			});
+			var listaAutoresModel = _mapper.Map<List<AutorModel>>(listaAutores);
+			return Ok(listaAutoresModel);
 		}
 
         // GET api/<AutorController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult Get(int id)
         {
-            return "value";
-        }
+			Autor autor = _autorService.Get(id);
+            if (autor == null)
+                return NotFound();
+            return Ok(autor);
+		}
 
         // POST api/<AutorController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] AutorModel autorModel)
         {
-        }
+			if (!ModelState.IsValid)
+				return BadRequest("Dados inválidos.");
+
+			var autor = _mapper.Map<Autor>(autorModel);
+			_autorService.Create(autor);
+			
+            return Ok();
+		}
 
         // PUT api/<AutorController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(int id, [FromBody] AutorModel autorModel)
         {
-        }
+			if (!ModelState.IsValid)
+				return BadRequest("Dados inválidos.");
+
+			var autor = _mapper.Map<Autor>(autorModel);
+			if (autor == null)
+				return NotFound();
+            
+            _autorService.Edit(autor);
+			
+			return Ok();
+		}
 
         // DELETE api/<AutorController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
-        }
+			Autor autor = _autorService.Get(id);
+			if (autor == null)
+				return NotFound();
+			
+		    _autorService.Delete(id);
+			return Ok();
+		}
     }
 }

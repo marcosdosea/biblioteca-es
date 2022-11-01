@@ -22,8 +22,9 @@ namespace BibliotecaAPI
 				options => options.UseMySQL(builder.Configuration.GetConnectionString("BibliotecaDatabase")));
 
 			builder.Services.AddTransient<IAutorService, AutorService>();
-			
-		    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+			builder.Services.AddTransient<IEditoraService, EditoraService>();
+
+			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 			var app = builder.Build();
 
