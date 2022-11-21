@@ -3,6 +3,7 @@ using BibliotecaWEB.Models;
 using Core;
 using Core.DTO;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using System.Data;
 
 namespace BibliotecaWEB.Controllers
 {
+	[Authorize]
 	public class LivroController : Controller
 	{
 

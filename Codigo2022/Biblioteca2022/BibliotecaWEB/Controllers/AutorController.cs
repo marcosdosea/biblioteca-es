@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
 namespace BibliotecaWeb.Controllers
 {
+	[Authorize(Roles ="bibliotecario")]
 	public class AutorController : Controller
 	{
 		private readonly IAutorService _autorService;

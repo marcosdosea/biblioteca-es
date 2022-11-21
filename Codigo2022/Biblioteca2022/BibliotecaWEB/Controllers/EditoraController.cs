@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Service;
+using System.Data;
 
 namespace BibliotecaWEB.Controllers
 {
+	[Authorize]
 	public class EditoraController : Controller
 	{
 

@@ -1,10 +1,13 @@
 ﻿using BibliotecaWEB.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel;
+using System.Data;
 using System.Diagnostics;
 
 namespace BibliotecaWEB.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
