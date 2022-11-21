@@ -7,7 +7,7 @@ using Models;
 
 namespace BibliotecaWeb.Controllers
 {
-	[Authorize(Roles ="bibliotecario")]
+	[Authorize(Roles = "bibliotecario")]
 	public class AutorController : Controller
 	{
 		private readonly IAutorService _autorService;

@@ -20,7 +20,8 @@ namespace BibliotecaWEB.Controllers
 			_mapper = mapper;
 		}
 
-	
+
+		[AllowAnonymous]
 		// GET: ItemAcervoController
 		public ActionResult Index()
 		{

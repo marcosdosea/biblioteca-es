@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BibliotecaWEB.Controllers
 {
-	[Authorize]
+	[Authorize(Roles = "bibliotecario")]
 	public class EditoraController : Controller
 	{
 

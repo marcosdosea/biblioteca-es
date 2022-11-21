@@ -26,6 +26,7 @@ namespace BibliotecaWEB
 			builder.Services.AddTransient<IItemAcervoService, ItemAcervoService>();
 
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 			builder.Services.AddDbContext<BibliotecaContext>(
 				options => options.UseMySQL(builder.Configuration.GetConnectionString("BibliotecaDatabase")));
 
@@ -55,7 +56,8 @@ namespace BibliotecaWEB
 				options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
 				options.Lockout.MaxFailedAccessAttempts = 5;
 				options.Lockout.AllowedForNewUsers = true;
-			}).AddEntityFrameworkStores<IdentityContext>();
+			}).AddRoles<IdentityRole>()
+			  .AddEntityFrameworkStores<IdentityContext>();
 
 			builder.Services.ConfigureApplicationCookie(options =>
 			{
