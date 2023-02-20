@@ -1056,8 +1056,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
-									"left": 8,
-									"top": -4,
+									"left": -8,
+									"top": 28,
 									"width": 10,
 									"height": 10
 								},
@@ -1081,8 +1081,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#FFFFB9",
 											"font": "Arial;11;0",
-											"left": 16,
-											"top": -8,
+											"left": -16,
+											"top": 56,
 											"height": 11
 										},
 										{
@@ -1094,8 +1094,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#FFFFB9",
 											"font": "Arial;11;1",
-											"left": 577,
-											"top": 481.5,
+											"left": 561,
+											"top": 513.5,
 											"width": 123,
 											"height": 11,
 											"text": "Manter Pessoa"
@@ -1110,8 +1110,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#FFFFB9",
 											"font": "Arial;11;0",
-											"left": 16,
-											"top": -8,
+											"left": -16,
+											"top": 56,
 											"width": 113.6953125,
 											"height": 11,
 											"text": "(from Use Case Model)"
@@ -1126,16 +1126,16 @@
 											"lineColor": "#800000",
 											"fillColor": "#FFFFB9",
 											"font": "Arial;11;0",
-											"left": 16,
-											"top": -8,
+											"left": -16,
+											"top": 56,
 											"height": 11
 										}
 									],
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
-									"left": 572,
-									"top": 474.5,
+									"left": 556,
+									"top": 506.5,
 									"width": 133,
 									"height": 23,
 									"stereotypeLabel": {
@@ -1164,8 +1164,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
-									"left": 8,
-									"top": -4,
+									"left": -8,
+									"top": 28,
 									"width": 10,
 									"height": 10
 								},
@@ -1182,8 +1182,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
-									"left": 8,
-									"top": -4,
+									"left": -8,
+									"top": 28,
 									"width": 10,
 									"height": 10
 								},
@@ -1200,8 +1200,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
-									"left": 8,
-									"top": -4,
+									"left": -8,
+									"top": 28,
 									"width": 10,
 									"height": 10
 								},
@@ -1218,8 +1218,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
-									"left": 8,
-									"top": -4,
+									"left": -8,
+									"top": 28,
 									"width": 10,
 									"height": 10
 								}
@@ -1227,8 +1227,8 @@
 							"lineColor": "#800000",
 							"fillColor": "#FFFFB9",
 							"font": "Arial;11;0",
-							"left": 544,
-							"top": 464,
+							"left": 528,
+							"top": 496,
 							"width": 189,
 							"height": 45,
 							"showProperty": false,
@@ -2596,8 +2596,8 @@
 									},
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 643,
-									"top": 286,
+									"left": 636,
+									"top": 303,
 									"width": 47.09375,
 									"height": 11,
 									"alpha": -0.7407169911254726,
@@ -2617,8 +2617,8 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 622,
-									"top": 313,
+									"left": 614,
+									"top": 328,
 									"height": 11,
 									"alpha": 1,
 									"distance": 15,
@@ -2636,8 +2636,8 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 647,
-									"top": 312,
+									"left": 639,
+									"top": 329,
 									"height": 11,
 									"alpha": -1,
 									"distance": 15,
@@ -2654,7 +2654,7 @@
 								"$ref": "hTsGtMD4QkurOpTeFn7p6QAA"
 							},
 							"lineStyle": 1,
-							"points": "638:463;633:189",
+							"points": "623:495;632:189",
 							"showProperty": false,
 							"nameLabel": {
 								"$ref": "DhceBMco3Uub1VFi5DfIpwAA"
@@ -3736,8 +3736,8 @@
 									"visible": null,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 215,
-									"top": 461,
+									"left": 217,
+									"top": 462,
 									"height": 11,
 									"alpha": 1,
 									"distance": 30,
@@ -3755,7 +3755,7 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 207,
+									"left": 208,
 									"top": 474,
 									"height": 11,
 									"alpha": 1,
@@ -3774,8 +3774,8 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 208,
-									"top": 499,
+									"left": 207,
+									"top": 500,
 									"height": 11,
 									"alpha": -1,
 									"distance": 15,
@@ -3793,8 +3793,8 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 513,
-									"top": 482,
+									"left": 497,
+									"top": 505,
 									"height": 11,
 									"alpha": 0,
 									"distance": 30
@@ -3830,8 +3830,8 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 518,
-									"top": 482,
+									"left": 502,
+									"top": 505,
 									"height": 11,
 									"alpha": 0,
 									"distance": 25
@@ -3867,8 +3867,8 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 503,
-									"top": 482,
+									"left": 487,
+									"top": 504,
 									"height": 11,
 									"alpha": 0,
 									"distance": 40
@@ -3939,7 +3939,7 @@
 								"$ref": "gAQE+53aXUOVihJcRGPb6AAA"
 							},
 							"lineStyle": 1,
-							"points": "125:398;200:492;543:487",
+							"points": "125:398;200:492;527:512",
 							"showVisibility": true,
 							"showProperty": false,
 							"nameLabel": {
@@ -11237,7 +11237,7 @@
 									"font": "Arial;13;0",
 									"left": 260,
 									"top": 112.5,
-									"width": 109,
+									"width": 109.70263671875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFrHYCY6DKyVY4="
@@ -11958,7 +11958,7 @@
 									"font": "Arial;13;0",
 									"left": 282,
 									"top": 236.5,
-									"width": 99,
+									"width": 100.314453125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFrHYChaTNLgG0="
@@ -12679,7 +12679,7 @@
 									"font": "Arial;13;0",
 									"left": 274,
 									"top": 355.5,
-									"width": 74,
+									"width": 75.0126953125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFrHYCurzP8eUg="
@@ -13400,7 +13400,7 @@
 									"font": "Arial;13;0",
 									"left": 635.5,
 									"top": 184.5,
-									"width": 125,
+									"width": 126.3017578125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFrHYC53zTFVBU="
@@ -45990,7 +45990,7 @@
 											"top": -248,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from BibliotecaWEB)"
 										},
 										{
 											"_type": "LabelView",
@@ -46187,7 +46187,7 @@
 											"top": -30,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from Service)"
 										},
 										{
 											"_type": "LabelView",
@@ -47190,7 +47190,7 @@
 											"top": -154,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from Core)"
 										},
 										{
 											"_type": "LabelView",
@@ -48781,7 +48781,7 @@
 											"top": -112,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from BibliotecaWEB)"
 										},
 										{
 											"_type": "LabelView",
@@ -50055,7 +50055,7 @@
 											"top": -62,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from Core)"
 										},
 										{
 											"_type": "LabelView",
@@ -51670,7 +51670,7 @@
 											"top": -80,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from BibliotecaWEB)"
 										},
 										{
 											"_type": "LabelView",
@@ -53472,7 +53472,7 @@
 											"top": -80,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from BibliotecaWEB)"
 										},
 										{
 											"_type": "LabelView",
@@ -64513,7 +64513,7 @@
 											"top": 190,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from Core)"
 										},
 										{
 											"_type": "LabelView",
@@ -64761,7 +64761,7 @@
 											"left": 238,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from Core)"
 										},
 										{
 											"_type": "LabelView",
@@ -64971,7 +64971,7 @@
 											"top": 112,
 											"width": 125.6962890625,
 											"height": 13,
-											"text": "(from Design Model)"
+											"text": "(from Core)"
 										},
 										{
 											"_type": "LabelView",
