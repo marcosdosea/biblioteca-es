@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# S4144: Methods should not have identical implementations
+dotnet_diagnostic.S4144.severity = silent
