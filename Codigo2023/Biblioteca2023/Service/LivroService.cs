@@ -1,18 +1,16 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
-using System.Linq.Expressions;
 
 namespace Service
 {
- 
 	public class LivroService : ILivroService
 	{
-		private readonly BibliotecaContext _context;
+		private readonly BibliotecaContext context;
 
 		public LivroService(BibliotecaContext context)
 		{
-			_context = context;
+			this.context = context;
 		}
 
 		/// <summary>
@@ -22,8 +20,8 @@ namespace Service
 		/// <returns>id do novo livro</returns>
 		public uint Create(Livro livro)
 		{
-			_context.Add(livro);
-			_context.SaveChanges();
+			context.Add(livro);
+			context.SaveChanges();
 			return livro.IdLivro;
 		}
 
@@ -31,11 +29,11 @@ namespace Service
 		/// Remover dados de um livro da base de dados
 		/// </summary>
 		/// <param name="idLivro">id do livro</param>
-		public void Delete(int idLivro)
+		public void Delete(int id)
 		{
-			var _livro = _context.Livros.Find(idLivro);
-			_context.Remove(_livro);
-			_context.SaveChanges();
+			var livro = context.Livros.Find(id);
+			context.Remove(livro);
+			context.SaveChanges();
 		}
 
 		/// <summary>
@@ -44,8 +42,8 @@ namespace Service
 		/// <param name="livro">novos dados do livro</param>
 		public void Edit(Livro livro)
 		{
-			_context.Update(livro);
-			_context.SaveChanges();
+			context.Update(livro);
+			context.SaveChanges();
 		}
 
 		/// <summary>
@@ -53,9 +51,9 @@ namespace Service
 		/// </summary>
 		/// <param name="idLivro">id do livro</param>
 		/// <returns>dados do livro</returns>
-		public Livro Get(int idLivro)
+		public Livro Get(int id)
 		{
-			return _context.Livros.Find(idLivro);
+			return context.Livros.Find(id);
 		}
 
 		/// <summary>
@@ -64,7 +62,7 @@ namespace Service
 		/// <returns>dados dos livros</returns>
 		public IEnumerable<LivroDto> GetAll()
 		{
-			var query = from livro in _context.Livros
+			var query = from livro in context.Livros
 						orderby livro.Nome descending
 						select new LivroDto
 						{
@@ -79,7 +77,7 @@ namespace Service
 
 		public IEnumerable<Autor> GetAutoresByLivro(int idLivro)
 		{
-			var livro = _context.Livros.Where(l => l.IdLivro == idLivro).FirstOrDefault();
+			var livro = context.Livros.Where(l => l.IdLivro == idLivro).FirstOrDefault();
 			if (livro != null)
 				return livro.IdAutors;
 			return new List<Autor>();
@@ -94,7 +92,7 @@ namespace Service
 		/// <returns>lista de livros</returns>
 		public IEnumerable<LivroDto> GetByNome(string nome)
 		{
-			var query = from livro in _context.Livros
+			var query = from livro in context.Livros
 						where livro.Nome.StartsWith(nome)
 						orderby livro.Nome
 						select new LivroDto

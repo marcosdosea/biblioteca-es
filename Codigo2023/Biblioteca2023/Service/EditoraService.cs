@@ -9,11 +9,11 @@ namespace Service
     /// </summary>
     public class EditoraService : IEditoraService
 	{
-		private readonly BibliotecaContext _context;
+		private readonly BibliotecaContext context;
 
 		public EditoraService(BibliotecaContext context)
 		{
-			_context = context;
+			this.context = context;
 		}
 		
 		/// <summary>
@@ -23,8 +23,8 @@ namespace Service
 		/// <returns>id gerado</returns>
 		public int Create(Editora editora)
 		{
-			_context.Add(editora);
-			_context.SaveChanges();
+			context.Add(editora);
+			context.SaveChanges();
 			return editora.IdEditora;
 		}
 
@@ -32,11 +32,11 @@ namespace Service
 		/// Remover editora da base de dados
 		/// </summary>
 		/// <param name="idEditora">id a ser removido</param>
-		public void Delete(int idEditora)
+		public void Delete(int id)
 		{
-			var _editora = _context.Editoras.Find(idEditora);
-			_context.Remove(_editora);
-			_context.SaveChanges();
+			var editora = context.Editoras.Find(id);
+			context.Remove(editora);
+			context.SaveChanges();
 		}
 
 		/// <summary>
@@ -45,8 +45,8 @@ namespace Service
 		/// <param name="editora">novos dados da editora</param>
 		public void Edit(Editora editora)
 		{
-			_context.Update(editora);
-			_context.SaveChanges();
+			context.Update(editora);
+			context.SaveChanges();
 		}
 
 		/// <summary>
@@ -54,9 +54,9 @@ namespace Service
 		/// </summary>
 		/// <param name="idEditora">id da editora</param>
 		/// <returns>Dados da editora</returns>
-		public Editora Get(int idEditora)
+		public Editora Get(int id)
 		{
-			return _context.Editoras.Find(idEditora);
+			return context.Editoras.Find(id);
 		}
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace Service
 		/// <returns>lista de editoras</returns>
 		public IEnumerable<Editora> GetAll()
 		{
-			return _context.Editoras.AsNoTracking();
+			return context.Editoras.AsNoTracking();
 		}
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace Service
 		/// <returns>lista de editoras</returns>
 		public IEnumerable<Editora> GetByNome(string nome)
 		{
-			var query = from editora in _context.Editoras
+			var query = from editora in context.Editoras
 						where editora.Nome.StartsWith(nome)
 						orderby editora.Nome
 						select editora;
@@ -84,7 +84,7 @@ namespace Service
 
 		public IEnumerable<Editora> GetByEstados()
 		{
-			var query = from editora in _context.Editoras
+			var query = from editora in context.Editoras
 						where editora.Nome.Contains("Editora")
 						&& (editora.Estado.Equals("RS") || editora.Estado.Equals("SP"))
 						select editora;

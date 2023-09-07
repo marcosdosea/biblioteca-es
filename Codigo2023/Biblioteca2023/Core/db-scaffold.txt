@@ -1,0 +1,9 @@
+﻿dotnet add Core package MySql.EntityFrameworkCore -v 7.0.5
+dotnet add Core package MySql.Data -v 8.1.0
+dotnet add Core package Microsoft.EntityFrameworkCore.Tools -v 7.0.10
+dotnet add Core package Microsoft.EntityFrameworkCore.Design -v 7.0.10
+dotnet restore
+
+dotnet tool install --global dotnet-ef
+
+dotnet ef dbcontext scaffold "server=localhost;port=3306;user=root;password=123456;database=Biblioteca" MySql.EntityFrameworkCore -p Core -c BibliotecaContext -f -v

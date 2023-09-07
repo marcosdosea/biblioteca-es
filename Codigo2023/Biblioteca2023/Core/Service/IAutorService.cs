@@ -6,8 +6,8 @@ namespace Core.Service
     {
         int Create(Autor autor);
         void Edit(Autor autor);
-        void Delete(int idAutor);
-        Autor Get(int idAutor);
+        void Delete(int id);
+        Autor Get(int id);
         IEnumerable<Autor> GetAll();
         IEnumerable<AutorDto> GetByNome(string nome);
     }

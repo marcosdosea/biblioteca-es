@@ -34,9 +34,9 @@ namespace Service
 		/// Remover o autor da base de dados
 		/// </summary>
 		/// <param name="idAutor">id do autor</param>
-		public void Delete(int idAutor)
+		public void Delete(int id)
 		{
-			var autor = context.Autors.Find(idAutor);
+			var autor = context.Autors.Find(id);
 			context.Remove(autor);
 			context.SaveChanges();
 		}
@@ -60,9 +60,9 @@ namespace Service
 		/// </summary>
 		/// <param name="idAutor">id autor</param>
 		/// <returns>dados do autor</returns>
-		public Autor Get(int idAutor)
+		public Autor Get(int id)
 		{
-			return context.Autors.Find(idAutor);
+			return context.Autors.Find(id);
 		}
 
 		/// <summary>
