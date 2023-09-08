@@ -35,8 +35,11 @@ namespace Service
 		public void Delete(int id)
 		{
 			var itemAcervo = context.Itemacervos.Find(id);
-			context.Remove(itemAcervo);
-			context.SaveChanges();
+			if (itemAcervo != null)
+			{
+				context.Remove(itemAcervo);
+				context.SaveChanges();
+			}
 		}
 		/// <summary>
 		/// Atualiza os dados de um item no acervo
@@ -53,7 +56,7 @@ namespace Service
 		/// </summary>
 		/// <param name="idItemAcervo">id a ser buscado</param>
 		/// <returns>todos os dados do item acervo</returns>
-		public Itemacervo Get(int id)
+		public Itemacervo? Get(int id)
 		{
 			return context.Itemacervos.Find(id);
 		}

@@ -35,8 +35,11 @@ namespace Service
 		public void Delete(int id)
 		{
 			var editora = context.Editoras.Find(id);
-			context.Remove(editora);
-			context.SaveChanges();
+			if (editora != null)
+			{
+				context.Remove(editora);
+				context.SaveChanges();
+			}
 		}
 
 		/// <summary>
@@ -54,7 +57,7 @@ namespace Service
 		/// </summary>
 		/// <param name="idEditora">id da editora</param>
 		/// <returns>Dados da editora</returns>
-		public Editora Get(int id)
+		public Editora? Get(int id)
 		{
 			return context.Editoras.Find(id);
 		}

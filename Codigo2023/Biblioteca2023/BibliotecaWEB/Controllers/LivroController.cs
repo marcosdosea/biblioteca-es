@@ -41,9 +41,9 @@ namespace BibliotecaWEB.Controllers
 
 		
 		// GET: LivroController/Details/5
-		public ActionResult Details(int id)
+		public ActionResult Details(uint id)
 		{
-			Livro livro = _livroService.Get(id);
+			Livro? livro = _livroService.Get(id);
 			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
 			return View(livroModel);
 		}
@@ -51,7 +51,7 @@ namespace BibliotecaWEB.Controllers
 		// GET: LivroController/Create
 		public ActionResult Create()
 		{
-			LivroModel livroModel = new LivroModel();
+			LivroModel livroModel = new();
 
 			IEnumerable<Autor> listaAutores = _autorService.GetAll();
 			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
@@ -75,9 +75,9 @@ namespace BibliotecaWEB.Controllers
 		}
 
 		// GET: LivroController/Edit/5
-		public ActionResult Edit(int id)
+		public ActionResult Edit(uint id)
 		{
-			Livro livro = _livroService.Get(id);
+			Livro? livro = _livroService.Get(id);
 			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
 
 			IEnumerable<Autor> listaAutores = _autorService.GetAll();
@@ -104,9 +104,9 @@ namespace BibliotecaWEB.Controllers
 		}
 
 		// GET: LivroController/Delete/5
-		public ActionResult Delete(int id)
+		public ActionResult Delete(uint id)
 		{
-			Livro livro = _livroService.Get(id);
+			Livro? livro = _livroService.Get(id);
 			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
 			return View(livroModel);
 		}

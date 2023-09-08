@@ -37,8 +37,11 @@ namespace Service
 		public void Delete(int id)
 		{
 			var autor = context.Autors.Find(id);
-			context.Remove(autor);
-			context.SaveChanges();
+			if (autor != null)
+			{
+				context.Remove(autor);
+				context.SaveChanges();
+			}
 		}
 
 		/// <summary>
@@ -60,7 +63,7 @@ namespace Service
 		/// </summary>
 		/// <param name="idAutor">id autor</param>
 		/// <returns>dados do autor</returns>
-		public Autor Get(int id)
+		public Autor? Get(int id)
 		{
 			return context.Autors.Find(id);
 		}

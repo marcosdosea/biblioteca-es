@@ -6,8 +6,8 @@ namespace Core.Service
 	{
 		uint Create(Livro livro);
 		void Edit(Livro livro);
-		void Delete(int idLivro);
-		Livro Get(int idLivro);
+		void Delete(uint id);
+		Livro? Get(uint id);
 		IEnumerable<LivroDto> GetAll();
 		IEnumerable<LivroDto> GetByNome(string nome);
 	}

@@ -14,7 +14,6 @@ namespace Models
 		
 		[Display(Name = "Data Nascimento")]
 		[DataType(DataType.Date, ErrorMessage ="Data válida requerida")]
-		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 		public DateTime AnoNascimento { get; set; }
     }
 }

@@ -28,12 +28,15 @@ namespace Service
 		/// <summary>
 		/// Remover dados de um livro da base de dados
 		/// </summary>
-		/// <param name="idLivro">id do livro</param>
-		public void Delete(int id)
+		/// <param name="id">id do livro</param>
+		public void Delete(uint id)
 		{
 			var livro = context.Livros.Find(id);
-			context.Remove(livro);
-			context.SaveChanges();
+			if (livro != null)
+			{
+				context.Remove(livro);
+				context.SaveChanges();
+			}
 		}
 
 		/// <summary>
@@ -49,9 +52,9 @@ namespace Service
 		/// <summary>
 		/// Obter os dados de um livro da base de dados
 		/// </summary>
-		/// <param name="idLivro">id do livro</param>
+		/// <param name="id">id do livro</param>
 		/// <returns>dados do livro</returns>
-		public Livro Get(int id)
+		public Livro? Get(uint id)
 		{
 			return context.Livros.Find(id);
 		}

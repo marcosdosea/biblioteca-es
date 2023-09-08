@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Models.AutorModel>
 
-<link rel="stylesheet" type="text/css" href="~/lib/datatable/css/jquery.dataTables.min.css" />
-
+<link href="~/lib/datatable/css/datatables.min.css" rel="stylesheet" />
 <p>
     <a asp-action="Create">Novo Autor</a>
 </p>
@@ -44,15 +43,14 @@
 </table>
 
 @section Scripts {
+    <script src="~/lib/datatable/js/datatables.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#tableAutor').DataTable({
                 language: {
-                    url: '/lib/datatable/js/pt-BR.json'
+                    url: "lib/datatable/js/pt-br.json",
                 }
             });
         });
-    </script>
-
-    <script src="~/lib/datatable/js/jquery.dataTables.min.js"></script>
+    </script>   
 }

@@ -56,8 +56,10 @@ namespace BibliotecaWeb.Controllers
 		// GET: AutorController/Edit/5
 		public ActionResult Edit(int id)
 		{
-			return Details(id);
-		}
+            Autor autor = _autorService.Get(id);
+            AutorModel autorModel = _mapper.Map<AutorModel>(autor);
+            return View(autorModel);
+        }
 
 		// POST: AutorController/Edit/5
 		[HttpPost]
