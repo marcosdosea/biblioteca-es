@@ -28,7 +28,7 @@ namespace BibliotecaWeb.Controllers
 		}
         
 		[HttpPost]
-        public IActionResult GetPage(DatatableRequest request)
+        public IActionResult GetDataPage(DatatableRequest request)
         {
 			var response = _autorService.GetPage(request);
             return Json(response);

@@ -103,7 +103,7 @@ namespace Service
         /// <param name="request"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public DatatableResponse<Autor> GetPage(DatatableRequest request)
+        public DatatableResponse<Autor> GetDataPage(DatatableRequest request)
         {
             var autores = context.Autors.AsNoTracking();
             // total de registros na tabela

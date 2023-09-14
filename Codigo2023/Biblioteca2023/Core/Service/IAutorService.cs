@@ -11,6 +11,6 @@ namespace Core.Service
         Autor? Get(uint id);
         IEnumerable<Autor> GetAll();
         IEnumerable<AutorDto> GetByNome(string nome);
-        DatatableResponse<Autor> GetPage(DatatableRequest request);
+        DatatableResponse<Autor> GetDataPage(DatatableRequest request);
     }
 }
