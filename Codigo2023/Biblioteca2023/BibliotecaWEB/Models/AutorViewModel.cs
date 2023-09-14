@@ -2,11 +2,12 @@
 
 namespace Models
 {
-    public class AutorModel
+    public class AutorViewModel
     {
-		[Display(Name ="Código")]
+		//[Display(Name ="Código")]
 		[Required(ErrorMessage = "Código do autor é obrigatório")]
-		public int IdAutor { get; set; }
+		[Key]
+		public int Id { get; set; }
 
 		[Required(ErrorMessage ="Campo requerido")]
 		[StringLength(45, MinimumLength =5, ErrorMessage = "Nome do autor deve ter entre 5 e 45 caracteres")]
@@ -14,6 +15,6 @@ namespace Models
 		
 		[Display(Name = "Data Nascimento")]
 		[DataType(DataType.Date, ErrorMessage ="Data válida requerida")]
-		public DateTime AnoNascimento { get; set; }
+		public DateTime DataNascimento { get; set; }
     }
 }

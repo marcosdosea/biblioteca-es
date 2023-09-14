@@ -2,11 +2,11 @@
 
 namespace Models
 {
-    public class EditoraModel
+    public class EditoraViewModel
     {
 		[Required]
 		[Key]
-		public int IdEditora { get; set; }
+		public int Id { get; set; }
 		[Required(ErrorMessage ="O nome da editora deve ser preenchido obrigatoriamente")]
 		[StringLength(45, MinimumLength =5, ErrorMessage ="O campo nome editora deve ter entre 4 e 45 caracteres")]
 		public string? Nome { get; set; }

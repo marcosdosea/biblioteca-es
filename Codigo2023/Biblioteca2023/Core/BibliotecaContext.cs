@@ -33,7 +33,7 @@ public partial class BibliotecaContext : DbContext
 
     public virtual DbSet<Pessoa> Pessoas { get; set; }
 
-    public virtual DbSet<Situacaolivro> Situacaolivros { get; set; }
+    public virtual DbSet<Situacaoitemacervo> Situacaoitemacervos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -43,16 +43,16 @@ public partial class BibliotecaContext : DbContext
     {
         modelBuilder.Entity<Autor>(entity =>
         {
-            entity.HasKey(e => e.IdAutor).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("autor");
 
-            entity.Property(e => e.IdAutor)
-                .HasColumnType("int(11)")
-                .HasColumnName("idAutor");
-            entity.Property(e => e.AnoNascimento)
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
+            entity.Property(e => e.DataNascimento)
                 .HasColumnType("date")
-                .HasColumnName("anoNascimento");
+                .HasColumnName("dataNascimento");
             entity.Property(e => e.Nome)
                 .HasMaxLength(45)
                 .HasColumnName("nome");
@@ -74,8 +74,8 @@ public partial class BibliotecaContext : DbContext
                         j.ToTable("autorlivro");
                         j.HasIndex(new[] { "IdAutor" }, "fk_AutorLivro_Autor1_idx");
                         j.HasIndex(new[] { "IdLivro" }, "fk_AutorLivro_Livro1_idx");
-                        j.IndexerProperty<int>("IdAutor")
-                            .HasColumnType("int(11)")
+                        j.IndexerProperty<uint>("IdAutor")
+                            .HasColumnType("int(10) unsigned")
                             .HasColumnName("idAutor");
                         j.IndexerProperty<uint>("IdLivro")
                             .HasColumnType("int(10) unsigned")
@@ -85,13 +85,13 @@ public partial class BibliotecaContext : DbContext
 
         modelBuilder.Entity<Biblioteca>(entity =>
         {
-            entity.HasKey(e => e.IdBiblioteca).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("biblioteca");
 
-            entity.Property(e => e.IdBiblioteca)
-                .HasColumnType("int(11)")
-                .HasColumnName("idBiblioteca");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
             entity.Property(e => e.Nome)
                 .HasMaxLength(45)
                 .HasColumnName("nome");
@@ -99,7 +99,7 @@ public partial class BibliotecaContext : DbContext
 
         modelBuilder.Entity<Devolucao>(entity =>
         {
-            entity.HasKey(e => e.IdDevolucao).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("devolucao");
 
@@ -107,17 +107,17 @@ public partial class BibliotecaContext : DbContext
 
             entity.HasIndex(e => e.IdPessoaBalconista, "fk_Devolucao_Pessoa2_idx");
 
-            entity.Property(e => e.IdDevolucao)
-                .HasColumnType("int(11)")
-                .HasColumnName("idDevolucao");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
             entity.Property(e => e.Data)
                 .HasColumnType("datetime")
                 .HasColumnName("data");
             entity.Property(e => e.IdPessoaBalconista)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idPessoaBalconista");
             entity.Property(e => e.IdPessoaUsuario)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idPessoaUsuario");
             entity.Property(e => e.Multa)
                 .HasPrecision(10)
@@ -135,42 +135,17 @@ public partial class BibliotecaContext : DbContext
                 .HasForeignKey(d => d.IdPessoaUsuario)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("fk_Devolucao_Pessoa1");
-
-            entity.HasMany(d => d.IdItemAcervos).WithMany(p => p.IdDevolucaos)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Devolucaoitemacervo",
-                    r => r.HasOne<Itemacervo>().WithMany()
-                        .HasForeignKey("IdItemAcervo")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("fk_Devolucao_has_ItemAcervo_ItemAcervo1"),
-                    l => l.HasOne<Devolucao>().WithMany()
-                        .HasForeignKey("IdDevolucao")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("fk_Devolucao_has_ItemAcervo_Devolucao1"),
-                    j =>
-                    {
-                        j.HasKey("IdDevolucao", "IdItemAcervo").HasName("PRIMARY");
-                        j.ToTable("devolucaoitemacervo");
-                        j.HasIndex(new[] { "IdDevolucao" }, "fk_Devolucao_has_ItemAcervo_Devolucao1_idx");
-                        j.HasIndex(new[] { "IdItemAcervo" }, "fk_Devolucao_has_ItemAcervo_ItemAcervo1_idx");
-                        j.IndexerProperty<int>("IdDevolucao")
-                            .HasColumnType("int(11)")
-                            .HasColumnName("idDevolucao");
-                        j.IndexerProperty<int>("IdItemAcervo")
-                            .HasColumnType("int(11)")
-                            .HasColumnName("idItemAcervo");
-                    });
         });
 
         modelBuilder.Entity<Doacao>(entity =>
         {
-            entity.HasKey(e => e.IdDoacao).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("doacao");
 
-            entity.Property(e => e.IdDoacao)
-                .HasColumnType("int(11)")
-                .HasColumnName("idDoacao");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
             entity.Property(e => e.Data)
                 .HasColumnType("datetime")
                 .HasColumnName("data");
@@ -178,13 +153,13 @@ public partial class BibliotecaContext : DbContext
 
         modelBuilder.Entity<Editora>(entity =>
         {
-            entity.HasKey(e => e.IdEditora).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("editora");
 
-            entity.Property(e => e.IdEditora)
-                .HasColumnType("int(11)")
-                .HasColumnName("idEditora");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
             entity.Property(e => e.Bairro)
                 .HasMaxLength(30)
                 .HasColumnName("bairro");
@@ -210,7 +185,7 @@ public partial class BibliotecaContext : DbContext
 
         modelBuilder.Entity<Emprestimo>(entity =>
         {
-            entity.HasKey(e => e.IdEmprestimo).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("emprestimo");
 
@@ -218,17 +193,17 @@ public partial class BibliotecaContext : DbContext
 
             entity.HasIndex(e => e.IdPessoaBalconista, "fk_Emprestimo_Pessoa2_idx");
 
-            entity.Property(e => e.IdEmprestimo)
-                .HasColumnType("int(11)")
-                .HasColumnName("idEmprestimo");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
             entity.Property(e => e.Data)
                 .HasColumnType("datetime")
                 .HasColumnName("data");
             entity.Property(e => e.IdPessoaBalconista)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idPessoaBalconista");
             entity.Property(e => e.IdPessoaUsuario)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idPessoaUsuario");
 
             entity.HasOne(d => d.IdPessoaBalconistaNavigation).WithMany(p => p.EmprestimoIdPessoaBalconistaNavigations)
@@ -244,7 +219,7 @@ public partial class BibliotecaContext : DbContext
 
         modelBuilder.Entity<Itemacervo>(entity =>
         {
-            entity.HasKey(e => e.IdItemAcervo).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("itemacervo");
 
@@ -254,32 +229,36 @@ public partial class BibliotecaContext : DbContext
 
             entity.HasIndex(e => e.IdLivro, "fk_ItemAcervo_Livro1_idx");
 
-            entity.HasIndex(e => e.IdSituacaoLivro, "fk_ItemAcervo_SituacaoLivro1_idx");
+            entity.HasIndex(e => e.IdSituacaoItemAcervo, "fk_ItemAcervo_SituacaoItemAcervo1_idx");
 
-            entity.Property(e => e.IdItemAcervo)
-                .HasColumnType("int(11)")
-                .HasColumnName("idItemAcervo");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
+            entity.Property(e => e.DataAquisicao)
+                .HasColumnType("datetime")
+                .HasColumnName("dataAquisicao");
             entity.Property(e => e.IdBiblioteca)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idBiblioteca");
             entity.Property(e => e.IdDoacao)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idDoacao");
             entity.Property(e => e.IdLivro)
                 .HasColumnType("int(10) unsigned")
                 .HasColumnName("idLivro");
-            entity.Property(e => e.IdSituacaoLivro)
+            entity.Property(e => e.IdSituacaoItemAcervo)
                 .HasMaxLength(1)
                 .IsFixedLength()
-                .HasColumnName("idSituacaoLivro");
+                .HasColumnName("idSituacaoItemAcervo");
 
             entity.HasOne(d => d.IdBibliotecaNavigation).WithMany(p => p.Itemacervos)
                 .HasForeignKey(d => d.IdBiblioteca)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("fk_ItemAcervo_Biblioteca1");
 
             entity.HasOne(d => d.IdDoacaoNavigation).WithMany(p => p.Itemacervos)
                 .HasForeignKey(d => d.IdDoacao)
+                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("fk_ItemAcervo_Doacao1");
 
             entity.HasOne(d => d.IdLivroNavigation).WithMany(p => p.Itemacervos)
@@ -287,40 +266,65 @@ public partial class BibliotecaContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("fk_ItemAcervo_Livro1");
 
-            entity.HasOne(d => d.IdSituacaoLivroNavigation).WithMany(p => p.Itemacervos)
-                .HasForeignKey(d => d.IdSituacaoLivro)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_ItemAcervo_SituacaoLivro1");
+            entity.HasOne(d => d.IdSituacaoItemAcervoNavigation).WithMany(p => p.Itemacervos)
+                .HasForeignKey(d => d.IdSituacaoItemAcervo)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("fk_ItemAcervo_SituacaoItemAcervo1");
+
+            entity.HasMany(d => d.IdDevolucaos).WithMany(p => p.IdItemAcervos)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Itemacervodevolucao",
+                    r => r.HasOne<Devolucao>().WithMany()
+                        .HasForeignKey("IdDevolucao")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("fk_ItemAcervoDevolucao_Devolucao1"),
+                    l => l.HasOne<Itemacervo>().WithMany()
+                        .HasForeignKey("IdItemAcervo")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("fk_ItemAcervoDevolucao_ItemAcervo1"),
+                    j =>
+                    {
+                        j.HasKey("IdItemAcervo", "IdDevolucao").HasName("PRIMARY");
+                        j.ToTable("itemacervodevolucao");
+                        j.HasIndex(new[] { "IdDevolucao" }, "fk_ItemAcervoDevolucao_Devolucao1_idx");
+                        j.HasIndex(new[] { "IdItemAcervo" }, "fk_ItemAcervoDevolucao_ItemAcervo1_idx");
+                        j.IndexerProperty<uint>("IdItemAcervo")
+                            .HasColumnType("int(10) unsigned")
+                            .HasColumnName("idItemAcervo");
+                        j.IndexerProperty<uint>("IdDevolucao")
+                            .HasColumnType("int(10) unsigned")
+                            .HasColumnName("idDevolucao");
+                    });
 
             entity.HasMany(d => d.IdEmprestimos).WithMany(p => p.IdItemAcervos)
                 .UsingEntity<Dictionary<string, object>>(
-                    "Emprestimoitemacervo",
+                    "Itemacervoemprestimo",
                     r => r.HasOne<Emprestimo>().WithMany()
                         .HasForeignKey("IdEmprestimo")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("fk_ItemAcervo_has_Emprestimo_Emprestimo1"),
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("fk_ItemAcervoEmprestimo_Emprestimo1"),
                     l => l.HasOne<Itemacervo>().WithMany()
                         .HasForeignKey("IdItemAcervo")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("fk_ItemAcervo_has_Emprestimo_ItemAcervo1"),
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("fk_ItemAcervoEmprestimo_ItemAcervo1"),
                     j =>
                     {
                         j.HasKey("IdItemAcervo", "IdEmprestimo").HasName("PRIMARY");
-                        j.ToTable("emprestimoitemacervo");
-                        j.HasIndex(new[] { "IdEmprestimo" }, "fk_ItemAcervo_has_Emprestimo_Emprestimo1_idx");
-                        j.HasIndex(new[] { "IdItemAcervo" }, "fk_ItemAcervo_has_Emprestimo_ItemAcervo1_idx");
-                        j.IndexerProperty<int>("IdItemAcervo")
-                            .HasColumnType("int(11)")
+                        j.ToTable("itemacervoemprestimo");
+                        j.HasIndex(new[] { "IdEmprestimo" }, "fk_ItemAcervoEmprestimo_Emprestimo1_idx");
+                        j.HasIndex(new[] { "IdItemAcervo" }, "fk_ItemAcervoEmprestimo_ItemAcervo1_idx");
+                        j.IndexerProperty<uint>("IdItemAcervo")
+                            .HasColumnType("int(10) unsigned")
                             .HasColumnName("idItemAcervo");
-                        j.IndexerProperty<int>("IdEmprestimo")
-                            .HasColumnType("int(11)")
+                        j.IndexerProperty<uint>("IdEmprestimo")
+                            .HasColumnType("int(10) unsigned")
                             .HasColumnName("idEmprestimo");
                     });
         });
 
         modelBuilder.Entity<Livro>(entity =>
         {
-            entity.HasKey(e => e.IdLivro).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("livro");
 
@@ -330,14 +334,17 @@ public partial class BibliotecaContext : DbContext
 
             entity.HasIndex(e => e.Isbn, "isbn_UNIQUE").IsUnique();
 
-            entity.Property(e => e.IdLivro)
+            entity.Property(e => e.Id)
                 .HasColumnType("int(10) unsigned")
-                .HasColumnName("idLivro");
+                .HasColumnName("id");
             entity.Property(e => e.DataPublicacao)
                 .HasColumnType("date")
                 .HasColumnName("dataPublicacao");
+            entity.Property(e => e.FotoCapa)
+                .HasColumnType("blob")
+                .HasColumnName("fotoCapa");
             entity.Property(e => e.IdEditora)
-                .HasColumnType("int(11)")
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("idEditora");
             entity.Property(e => e.Isbn)
                 .HasMaxLength(20)
@@ -358,27 +365,27 @@ public partial class BibliotecaContext : DbContext
 
         modelBuilder.Entity<Pessoa>(entity =>
         {
-            entity.HasKey(e => e.IdPessoa).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("pessoa");
 
             entity.HasIndex(e => e.Cpf, "cpf_UNIQUE").IsUnique();
 
-            entity.Property(e => e.IdPessoa)
-                .HasColumnType("int(11)")
-                .HasColumnName("idPessoa");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(10) unsigned")
+                .HasColumnName("id");
             entity.Property(e => e.Bairro)
                 .HasMaxLength(45)
                 .HasColumnName("bairro");
+            entity.Property(e => e.Cep)
+                .HasMaxLength(8)
+                .HasColumnName("cep");
             entity.Property(e => e.Cidade)
                 .HasMaxLength(45)
                 .HasColumnName("cidade");
             entity.Property(e => e.Cpf)
                 .HasMaxLength(11)
                 .HasColumnName("cpf");
-            entity.Property(e => e.Endereco)
-                .HasMaxLength(45)
-                .HasColumnName("endereco");
             entity.Property(e => e.Estado)
                 .HasMaxLength(2)
                 .HasColumnName("estado");
@@ -391,22 +398,28 @@ public partial class BibliotecaContext : DbContext
             entity.Property(e => e.Nome)
                 .HasMaxLength(45)
                 .HasColumnName("nome");
+            entity.Property(e => e.Numero)
+                .HasMaxLength(15)
+                .HasColumnName("numero");
+            entity.Property(e => e.Rua)
+                .HasMaxLength(45)
+                .HasColumnName("rua");
             entity.Property(e => e.TipoPessoa)
                 .HasDefaultValueSql("'U'")
                 .HasColumnType("enum('U','B','A')")
                 .HasColumnName("tipoPessoa");
         });
 
-        modelBuilder.Entity<Situacaolivro>(entity =>
+        modelBuilder.Entity<Situacaoitemacervo>(entity =>
         {
-            entity.HasKey(e => e.IdSituacaoLivro).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("situacaolivro");
+            entity.ToTable("situacaoitemacervo");
 
-            entity.Property(e => e.IdSituacaoLivro)
+            entity.Property(e => e.Id)
                 .HasMaxLength(1)
                 .IsFixedLength()
-                .HasColumnName("idSituacaoLivro");
+                .HasColumnName("id");
             entity.Property(e => e.Situacao)
                 .HasMaxLength(45)
                 .HasColumnName("situacao");

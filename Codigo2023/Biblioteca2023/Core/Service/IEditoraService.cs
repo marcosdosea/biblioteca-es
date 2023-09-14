@@ -2,7 +2,7 @@
 {
     public interface IEditoraService
     {
-        int Create(Editora editora);
+        uint Create(Editora editora);
         void Edit(Editora editora);
         void Delete(int id);
         Editora? Get(int id);

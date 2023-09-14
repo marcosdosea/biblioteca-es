@@ -21,11 +21,11 @@ namespace Service
 		/// </summary>
 		/// <param name="editora">dados da editora</param>
 		/// <returns>id gerado</returns>
-		public int Create(Editora editora)
+		public uint Create(Editora editora)
 		{
 			context.Add(editora);
 			context.SaveChanges();
-			return editora.IdEditora;
+			return editora.Id;
 		}
 
 		/// <summary>

@@ -9,7 +9,7 @@ namespace BibliotecaWEB.Mappers
 	{
 		public LivroDTOProfile()
 		{
-			CreateMap<LivroModel, LivroDto>().ReverseMap();
+			CreateMap<LivroViewModel, LivroDto>().ReverseMap();
 
 		}
 	}

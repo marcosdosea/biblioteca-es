@@ -1,4 +1,4 @@
-﻿@model Models.LivroModel
+﻿@model Models.LivroViewModel
 
 <h4>Editar Livro</h4>
 <hr />
@@ -7,9 +7,9 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group col-sm-4">
-                <label asp-for="IdLivro" class="control-label"></label>
-                <input asp-for="IdLivro" readonly class="form-control" />
-                <span asp-validation-for="IdLivro" class="text-danger"></span>
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" readonly class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group col-sm-4">
                 <label asp-for="Isbn" class="control-label"></label>

@@ -5,7 +5,7 @@ namespace Core;
 
 public partial class Biblioteca
 {
-    public int IdBiblioteca { get; set; }
+    public uint Id { get; set; }
 
     public string? Nome { get; set; }
 

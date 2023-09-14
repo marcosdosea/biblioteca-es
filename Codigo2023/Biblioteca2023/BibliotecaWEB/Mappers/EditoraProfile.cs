@@ -8,7 +8,7 @@ namespace Mappers
 	{
 		public EditoraProfile()
 		{
-			CreateMap<EditoraModel, Editora>().ReverseMap();
+			CreateMap<EditoraViewModel, Editora>().ReverseMap();
 		}
 	}
 }

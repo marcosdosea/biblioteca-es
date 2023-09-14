@@ -3,9 +3,11 @@ using Util;
 
 namespace BibliotecaWEB.Models
 {
-    public class PessoaModel
+    public class PessoaViewModel
 	{
-		public int IdPessoa { get; set; }
+		[Required]
+        [Key]
+        public int Id { get; set; }
 		[CPF]
 		public string? Cpf { get; set; }
 		

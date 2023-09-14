@@ -21,11 +21,11 @@ namespace Service
 		/// </summary>
 		/// <param name="itemAcervo">dados do item acervo</param>
 		/// <returns>id gerado</returns>
-		public int Create(Itemacervo itemAcervo)
+		public uint Create(Itemacervo itemAcervo)
 		{
 			context.Add(itemAcervo);
 			context.SaveChanges();
-			return itemAcervo.IdItemAcervo;
+			return itemAcervo.Id;
 		}
 
 		/// <summary>
@@ -71,10 +71,10 @@ namespace Service
 						orderby itemAcervo.IdLivroNavigation.Nome descending
 						select new ItemAcervoDto
 						{
-							IdItemAcervo = itemAcervo.IdItemAcervo,
+							Id = itemAcervo.Id,
 							NomeLivro = itemAcervo.IdLivroNavigation.Nome,
 							NomeBiblioteca = itemAcervo.IdBibliotecaNavigation.Nome,
-							SituacaoLivro = itemAcervo.IdSituacaoLivroNavigation.Situacao
+							SituacaoItemAcervo = itemAcervo.IdSituacaoItemAcervoNavigation.Situacao
 						};
 			return query;
 		}

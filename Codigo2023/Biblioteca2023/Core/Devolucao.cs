@@ -5,13 +5,13 @@ namespace Core;
 
 public partial class Devolucao
 {
-    public int IdDevolucao { get; set; }
+    public uint Id { get; set; }
 
-    public int IdPessoaUsuario { get; set; }
+    public uint IdPessoaUsuario { get; set; }
 
-    public int IdPessoaBalconista { get; set; }
+    public uint IdPessoaBalconista { get; set; }
 
-    public DateTime? Data { get; set; }
+    public DateTime Data { get; set; }
 
     public decimal? Multa { get; set; }
 

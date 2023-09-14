@@ -1,14 +1,16 @@
-﻿using Core.DTO;
+﻿using Core.Datatables;
+using Core.DTO;
 
 namespace Core.Service
 {
     public interface IAutorService
     {
-        int Create(Autor autor);
+        uint Create(Autor autor);
         void Edit(Autor autor);
-        void Delete(int id);
-        Autor? Get(int id);
+        void Delete(uint id);
+        Autor? Get(uint id);
         IEnumerable<Autor> GetAll();
         IEnumerable<AutorDto> GetByNome(string nome);
+        DatatableResponse<Autor> GetPage(DatatableRequest request);
     }
 }

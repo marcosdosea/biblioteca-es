@@ -26,15 +26,15 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Index()
 		{
 			var listaEditoras = _editoraService.GetAll();
-			var listaEditorasModel = _mapper.Map<List<EditoraModel>>(listaEditoras);
+			var listaEditorasModel = _mapper.Map<List<EditoraViewModel>>(listaEditoras);
 			return View(listaEditorasModel);
 		}
 
 		// GET: EditoraController/Details/5
 		public ActionResult Details(int id)
 		{
-			Editora editora = _editoraService.Get(id);
-			EditoraModel editoraModel = _mapper.Map<EditoraModel>(editora);
+			Editora? editora = _editoraService.Get(id);
+			EditoraViewModel editoraModel = _mapper.Map<EditoraViewModel>(editora);
 			return View(editoraModel);
 		}
 
@@ -47,7 +47,7 @@ namespace BibliotecaWEB.Controllers
 		// POST: EditoraController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(EditoraModel editoraModel)
+		public ActionResult Create(EditoraViewModel editoraModel)
 		{
 			if (ModelState.IsValid)
 			{
@@ -60,15 +60,15 @@ namespace BibliotecaWEB.Controllers
 		// GET: EditoraController/Edit/5
 		public ActionResult Edit(int id)
 		{
-			Editora editora = _editoraService.Get(id);
-			EditoraModel editoraModel = _mapper.Map<EditoraModel>(editora);
+			Editora? editora = _editoraService.Get(id);
+			EditoraViewModel editoraModel = _mapper.Map<EditoraViewModel>(editora);
 			return View(editoraModel);
 		}
 
 		// POST: EditoraController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, EditoraModel editoraModel)
+		public ActionResult Edit(int id, EditoraViewModel editoraModel)
 		{
 			if (ModelState.IsValid)
 			{
@@ -81,15 +81,15 @@ namespace BibliotecaWEB.Controllers
 		// GET: EditoraController/Delete/5
 		public ActionResult Delete(int id)
 		{
-			Editora editora = _editoraService.Get(id);
-			EditoraModel editoraModel = _mapper.Map<EditoraModel>(editora);
+			Editora? editora = _editoraService.Get(id);
+			EditoraViewModel editoraModel = _mapper.Map<EditoraViewModel>(editora);
 			return View(editoraModel);
 		}
 
 		// POST: EditoraController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, EditoraModel editoraModel)
+		public ActionResult Delete(int id, EditoraViewModel editoraModel)
 		{
 			_editoraService.Delete(id);
 			return RedirectToAction(nameof(Index));

@@ -1,4 +1,4 @@
-﻿@model BibliotecaWEB.Models.ItemAcervoModel
+﻿@model BibliotecaWEB.Models.ItemAcervoViewModel
 
 <h3>Confirma exclusão do item do acervo?</h3>
 <div>
@@ -6,10 +6,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdItemAcervo)
+            @Html.DisplayNameFor(model => model.Id)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdItemAcervo)
+            @Html.DisplayFor(model => model.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdLivro)

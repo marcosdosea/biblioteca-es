@@ -1,4 +1,4 @@
-﻿@model Models.AutorModel
+﻿@model Models.AutorViewModel
 
 <h4>AutorModel</h4>
 <hr />
@@ -7,9 +7,9 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdAutor" class="control-label"></label>
-                <input type="hidden" asp-for="IdAutor" readonly class="form-control" />
-                <span asp-validation-for="IdAutor" class="text-danger"></span>
+                <label asp-for="Id" class="control-label"></label>
+                <input type="hidden" asp-for="Id" readonly class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
@@ -17,9 +17,9 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnoNascimento" class="control-label"></label>
-                <input type="date" asp-for="AnoNascimento" class="form-control datepicker" />
-                <span asp-validation-for="AnoNascimento" class="text-danger"></span>
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input type="date" asp-for="DataNascimento" class="form-control datepicker" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -1,4 +1,4 @@
-﻿@model Models.AutorModel
+﻿@model Models.AutorViewModel
 
 <h4>Cadastro de Autores</h4>
 <hr />
@@ -13,9 +13,9 @@
                     <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
                 <div class="form-group col-sm-4">
-                    <label asp-for="AnoNascimento" class="control-label"></label>
-                    <input type="date" asp-for="AnoNascimento" class="form-control" />
-                    <span asp-validation-for="AnoNascimento" class="text-danger"></span>
+                    <label asp-for="DataNascimento" class="control-label"></label>
+                    <input type="date" asp-for="DataNascimento" class="form-control" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group">

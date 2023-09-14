@@ -44,14 +44,14 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Details(uint id)
 		{
 			Livro? livro = _livroService.Get(id);
-			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
+			LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
 			return View(livroModel);
 		}
 
 		// GET: LivroController/Create
 		public ActionResult Create()
 		{
-			LivroModel livroModel = new();
+			LivroViewModel livroModel = new();
 
 			IEnumerable<Autor> listaAutores = _autorService.GetAll();
 			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
@@ -64,7 +64,7 @@ namespace BibliotecaWEB.Controllers
 		// POST: LivroController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(LivroModel livroModel)
+		public ActionResult Create(LivroViewModel livroModel)
 		{
 			if (ModelState.IsValid)
 			{
@@ -78,13 +78,13 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Edit(uint id)
 		{
 			Livro? livro = _livroService.Get(id);
-			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
+			LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
 
 			IEnumerable<Autor> listaAutores = _autorService.GetAll();
 			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
 
 			livroModel.ListaEditoras = new SelectList(listaEditoras, "IdEditora", "Nome", 
-				listaEditoras.FirstOrDefault(e => e.IdEditora.Equals(livro.IdEditora)));
+				listaEditoras.FirstOrDefault(e => e.Id.Equals(livro.IdEditora)));
 			livroModel.ListaAutores = new SelectList(listaAutores, "IdAutor", "Nome", null);
 
 			return View(livroModel);
@@ -93,7 +93,7 @@ namespace BibliotecaWEB.Controllers
 		// POST: LivroController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, LivroModel livroModel)
+		public ActionResult Edit(int id, LivroViewModel livroModel)
 		{
 			if (ModelState.IsValid)
 			{
@@ -107,14 +107,14 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Delete(uint id)
 		{
 			Livro? livro = _livroService.Get(id);
-			LivroModel livroModel = _mapper.Map<LivroModel>(livro);
+			LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
 			return View(livroModel);
 		}
 
 		// POST: LivroController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, LivroModel livroModel)
+		public ActionResult Delete(int id, LivroViewModel livroModel)
 		{
 			if (ModelState.IsValid)
 			{

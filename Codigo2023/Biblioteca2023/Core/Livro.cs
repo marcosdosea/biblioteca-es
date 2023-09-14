@@ -5,17 +5,19 @@ namespace Core;
 
 public partial class Livro
 {
-    public uint IdLivro { get; set; }
+    public uint Id { get; set; }
 
     public string Isbn { get; set; } = null!;
 
-    public int IdEditora { get; set; }
+    public uint IdEditora { get; set; }
 
-    public string? Nome { get; set; }
+    public string Nome { get; set; } = null!;
 
     public DateTime? DataPublicacao { get; set; }
 
     public string? Resumo { get; set; }
+
+    public byte[]? FotoCapa { get; set; }
 
     public virtual Editora IdEditoraNavigation { get; set; } = null!;
 

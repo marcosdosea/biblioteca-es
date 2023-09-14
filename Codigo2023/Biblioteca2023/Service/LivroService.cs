@@ -22,7 +22,7 @@ namespace Service
 		{
 			context.Add(livro);
 			context.SaveChanges();
-			return livro.IdLivro;
+			return livro.Id;
 		}
 
 		/// <summary>
@@ -69,7 +69,7 @@ namespace Service
 						orderby livro.Nome descending
 						select new LivroDto
 						{
-							IdLivro = livro.IdLivro,
+							Id = livro.Id,
 							Nome = livro.Nome,
 							Isbn = livro.Isbn,
 							NomeEditora = livro.IdEditoraNavigation.Nome
@@ -80,7 +80,7 @@ namespace Service
 
 		public IEnumerable<Autor> GetAutoresByLivro(int idLivro)
 		{
-			var livro = context.Livros.Where(l => l.IdLivro == idLivro).FirstOrDefault();
+			var livro = context.Livros.Where(l => l.Id == idLivro).FirstOrDefault();
 			if (livro != null)
 				return livro.IdAutors;
 			return new List<Autor>();
@@ -100,7 +100,7 @@ namespace Service
 						orderby livro.Nome
 						select new LivroDto
 						{
-							IdLivro = livro.IdLivro,
+							Id = livro.Id,
 							Nome = livro.Nome,
 							Isbn = livro.Isbn,
 							NomeEditora = livro.IdEditoraNavigation.Nome

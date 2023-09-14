@@ -1,14 +1,14 @@
-﻿@model Models.AutorModel
+﻿@model Models.AutorViewModel
 
 <div>
     <h4>AutorModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdAutor)
+            @Html.DisplayNameFor(model => model.Id)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdAutor)
+            @Html.DisplayFor(model => model.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
@@ -17,14 +17,14 @@
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnoNascimento)
+            @Html.DisplayNameFor(model => model.DataNascimento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnoNascimento)
+            @Html.DisplayFor(model => model.DataNascimento)
         </dd>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.IdAutor }) |
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.Id }) |
     <a asp-action="Index">Back to List</a>
 </div>

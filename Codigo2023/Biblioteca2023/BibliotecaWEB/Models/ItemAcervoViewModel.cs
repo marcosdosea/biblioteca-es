@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaWEB.Models
 {
-    public class ItemAcervoModel
+    public class ItemAcervoViewModel
 	{
 		[Required]
-		public int IdItemAcervo { get; set; }
+        [Key]
+        public int Id { get; set; }
 		[Required]
 		public int IdLivro { get; set; }
 		[Required]

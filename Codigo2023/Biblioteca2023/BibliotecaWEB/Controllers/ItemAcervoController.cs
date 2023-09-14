@@ -32,8 +32,8 @@ namespace BibliotecaWEB.Controllers
 		// GET: ItemAcervoController/Details/5
 		public ActionResult Details(int id)
 		{
-			Itemacervo itemAcervo = _itemAcervoService.Get(id);
-			ItemAcervoModel itemAcervoModel = _mapper.Map<ItemAcervoModel>(itemAcervo);
+			Itemacervo? itemAcervo = _itemAcervoService.Get(id);
+			ItemAcervoViewModel itemAcervoModel = _mapper.Map<ItemAcervoViewModel>(itemAcervo);
 			return View(itemAcervoModel);
 		}
 
@@ -46,7 +46,7 @@ namespace BibliotecaWEB.Controllers
 		// POST: ItemAcervoController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(ItemAcervoModel itemAcervoModel)
+		public ActionResult Create(ItemAcervoViewModel itemAcervoModel)
 		{
 			if (ModelState.IsValid)
 			{
@@ -60,14 +60,14 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Edit(int id)
 		{
 			Itemacervo itemAcervo = _itemAcervoService.Get(id);
-			ItemAcervoModel itemAcervoModel = _mapper.Map<ItemAcervoModel>(itemAcervo);
+			ItemAcervoViewModel itemAcervoModel = _mapper.Map<ItemAcervoViewModel>(itemAcervo);
 			return View(itemAcervoModel);
 		}
 
 		// POST: ItemAcervoController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, ItemAcervoModel itemAcervoModel)
+		public ActionResult Edit(int id, ItemAcervoViewModel itemAcervoModel)
 		{
 
 			if (ModelState.IsValid)
@@ -82,14 +82,14 @@ namespace BibliotecaWEB.Controllers
 		public ActionResult Delete(int id)
 		{
 			Itemacervo itemAcervo = _itemAcervoService.Get(id);
-			ItemAcervoModel itemAcervoModel = _mapper.Map<ItemAcervoModel>(itemAcervo);
+			ItemAcervoViewModel itemAcervoModel = _mapper.Map<ItemAcervoViewModel>(itemAcervo);
 			return View(itemAcervoModel);
 		}
 
 		// POST: ItemAcervoController/Delete/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, ItemAcervoModel itemAcervoModel)
+		public ActionResult Delete(int id, ItemAcervoViewModel itemAcervoModel)
 		{
 			_itemAcervoService.Delete(id);
 			return RedirectToAction(nameof(Index));

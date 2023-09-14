@@ -1,4 +1,4 @@
-﻿@model Models.LivroModel
+﻿@model Models.LivroViewModel
 
 <h4>Cadastro de Livro</h4>
 <hr />
@@ -8,7 +8,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <!--label asp-for="IdLivro" class="control-label"></!label-->
-                <input type="hidden" asp-for="IdLivro" class="form-control" />
+                <input type="hidden" asp-for="Id" class="form-control" />
                 <!-- span asp-validation-for="IdLivro" class="text-danger"></!--span-->
             </div>
             <div class="form-group col-sm-4">

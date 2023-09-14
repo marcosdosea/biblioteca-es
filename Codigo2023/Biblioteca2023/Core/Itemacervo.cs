@@ -5,15 +5,17 @@ namespace Core;
 
 public partial class Itemacervo
 {
-    public int IdItemAcervo { get; set; }
+    public uint Id { get; set; }
 
     public uint IdLivro { get; set; }
 
-    public int IdBiblioteca { get; set; }
+    public string IdSituacaoItemAcervo { get; set; } = null!;
 
-    public string IdSituacaoLivro { get; set; } = null!;
+    public uint? IdDoacao { get; set; }
 
-    public int? IdDoacao { get; set; }
+    public DateTime DataAquisicao { get; set; }
+
+    public uint IdBiblioteca { get; set; }
 
     public virtual Biblioteca IdBibliotecaNavigation { get; set; } = null!;
 
@@ -21,7 +23,7 @@ public partial class Itemacervo
 
     public virtual Livro IdLivroNavigation { get; set; } = null!;
 
-    public virtual Situacaolivro IdSituacaoLivroNavigation { get; set; } = null!;
+    public virtual Situacaoitemacervo IdSituacaoItemAcervoNavigation { get; set; } = null!;
 
     public virtual ICollection<Devolucao> IdDevolucaos { get; set; } = new List<Devolucao>();
 

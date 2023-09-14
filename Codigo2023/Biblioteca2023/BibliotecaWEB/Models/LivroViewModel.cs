@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
-    public partial class LivroModel
+    public partial class LivroViewModel
     {
 		[Key]
-		public int IdLivro { get; set; }
+		public int Id { get; set; }
 		[Required]
 		[StringLength(20)]
         public string? Isbn { get; set; }
@@ -19,8 +19,10 @@ namespace Models
         public DateTime? DataPublicacao { get; set; }
 		[StringLength(300)]
 		public string? Resumo { get; set; }
-		[Display(Name = "Editora")]
-		public SelectList? ListaEditoras { get; set; }
+		[Display(Name = "Foto da Capa")]
+        public byte[]? FotoCapa { get; set; }
+        [Display(Name = "Editora")]
+        public SelectList? ListaEditoras { get; set; }
 		public SelectList? ListaAutores { get; set; }
 	}
 }

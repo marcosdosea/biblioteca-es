@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `biblioteca` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `biblioteca`;
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: biblioteca
 -- ------------------------------------------------------
--- Server version	5.5.8
+-- Server version	5.7.39-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,11 +23,11 @@ DROP TABLE IF EXISTS `autor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `autor` (
-  `idAutor` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  `anoNascimento` date NOT NULL,
-  PRIMARY KEY (`idAutor`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `dataNascimento` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +36,7 @@ CREATE TABLE `autor` (
 
 LOCK TABLES `autor` WRITE;
 /*!40000 ALTER TABLE `autor` DISABLE KEYS */;
-INSERT INTO `autor` VALUES (1,'marcos dosea','1990-01-01'),(2,'jose','1990-01-01'),(3,'Tonho','1690-01-01'),(4,'maria','1980-01-01'),(7,'kleyson','0001-01-01'),(10,'Tonho','0001-01-01');
+INSERT INTO `autor` VALUES (1,'Machado de Assis','1917-12-31'),(2,'Marcos Barbosa Dósea','1982-01-01'),(3,'Graciliano Ramos','1930-05-13'),(4,'Clarisse Linspector','1927-01-01'),(5,'Lima Barreto','1917-07-13'),(6,'Jorge Amamdo','1920-08-10');
 /*!40000 ALTER TABLE `autor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,13 +48,13 @@ DROP TABLE IF EXISTS `autorlivro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `autorlivro` (
-  `idAutor` int(11) NOT NULL,
+  `idAutor` int(10) unsigned NOT NULL,
   `idLivro` int(10) unsigned NOT NULL,
   PRIMARY KEY (`idAutor`,`idLivro`),
   KEY `fk_AutorLivro_Livro1_idx` (`idLivro`),
   KEY `fk_AutorLivro_Autor1_idx` (`idAutor`),
-  CONSTRAINT `fk_AutorLivro_Autor1` FOREIGN KEY (`idAutor`) REFERENCES `autor` (`idAutor`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_AutorLivro_Livro1` FOREIGN KEY (`idLivro`) REFERENCES `livro` (`idLivro`) ON UPDATE CASCADE
+  CONSTRAINT `fk_AutorLivro_Autor1` FOREIGN KEY (`idAutor`) REFERENCES `autor` (`id`),
+  CONSTRAINT `fk_AutorLivro_Livro1` FOREIGN KEY (`idLivro`) REFERENCES `livro` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -77,9 +75,9 @@ DROP TABLE IF EXISTS `biblioteca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `biblioteca` (
-  `idBiblioteca` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idBiblioteca`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -100,17 +98,17 @@ DROP TABLE IF EXISTS `devolucao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `devolucao` (
-  `idDevolucao` int(11) NOT NULL AUTO_INCREMENT,
-  `idPessoaUsuario` int(11) NOT NULL,
-  `idPessoaBalconista` int(11) NOT NULL,
-  `data` datetime DEFAULT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idPessoaUsuario` int(10) unsigned NOT NULL,
+  `idPessoaBalconista` int(10) unsigned NOT NULL,
+  `data` datetime NOT NULL,
   `multa` decimal(10,2) DEFAULT NULL,
   `valorPago` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`idDevolucao`),
+  PRIMARY KEY (`id`),
   KEY `fk_Devolucao_Pessoa1_idx` (`idPessoaUsuario`),
   KEY `fk_Devolucao_Pessoa2_idx` (`idPessoaBalconista`),
-  CONSTRAINT `fk_Devolucao_Pessoa1` FOREIGN KEY (`idPessoaUsuario`) REFERENCES `pessoa` (`idPessoa`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_Devolucao_Pessoa2` FOREIGN KEY (`idPessoaBalconista`) REFERENCES `pessoa` (`idPessoa`) ON UPDATE CASCADE
+  CONSTRAINT `fk_Devolucao_Pessoa1` FOREIGN KEY (`idPessoaUsuario`) REFERENCES `pessoa` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_Devolucao_Pessoa2` FOREIGN KEY (`idPessoaBalconista`) REFERENCES `pessoa` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -124,33 +122,6 @@ LOCK TABLES `devolucao` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `devolucaoitemacervo`
---
-
-DROP TABLE IF EXISTS `devolucaoitemacervo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `devolucaoitemacervo` (
-  `idDevolucao` int(11) NOT NULL,
-  `idItemAcervo` int(11) NOT NULL,
-  PRIMARY KEY (`idDevolucao`,`idItemAcervo`),
-  KEY `fk_Devolucao_has_ItemAcervo_ItemAcervo1_idx` (`idItemAcervo`),
-  KEY `fk_Devolucao_has_ItemAcervo_Devolucao1_idx` (`idDevolucao`),
-  CONSTRAINT `fk_Devolucao_has_ItemAcervo_Devolucao1` FOREIGN KEY (`idDevolucao`) REFERENCES `devolucao` (`idDevolucao`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Devolucao_has_ItemAcervo_ItemAcervo1` FOREIGN KEY (`idItemAcervo`) REFERENCES `itemacervo` (`idItemAcervo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `devolucaoitemacervo`
---
-
-LOCK TABLES `devolucaoitemacervo` WRITE;
-/*!40000 ALTER TABLE `devolucaoitemacervo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `devolucaoitemacervo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `doacao`
 --
 
@@ -158,9 +129,9 @@ DROP TABLE IF EXISTS `doacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `doacao` (
-  `idDoacao` int(11) NOT NULL AUTO_INCREMENT,
-  `data` datetime DEFAULT NULL,
-  PRIMARY KEY (`idDoacao`)
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `data` datetime NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -181,7 +152,7 @@ DROP TABLE IF EXISTS `editora`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `editora` (
-  `idEditora` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `rua` varchar(30) DEFAULT NULL,
   `bairro` varchar(30) DEFAULT NULL,
@@ -189,8 +160,8 @@ CREATE TABLE `editora` (
   `cep` varchar(8) DEFAULT NULL,
   `cidade` varchar(30) DEFAULT NULL,
   `estado` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`idEditora`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +170,7 @@ CREATE TABLE `editora` (
 
 LOCK TABLES `editora` WRITE;
 /*!40000 ALTER TABLE `editora` DISABLE KEYS */;
-INSERT INTO `editora` VALUES (1,'Etica',NULL,NULL,NULL,NULL,NULL,NULL),(2,'Atlas',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `editora` VALUES (1,'Campus','Rua Z','Santo Antônio','s/n','49050445','Aracaju','SE');
 /*!40000 ALTER TABLE `editora` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,15 +182,15 @@ DROP TABLE IF EXISTS `emprestimo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `emprestimo` (
-  `idEmprestimo` int(11) NOT NULL AUTO_INCREMENT,
-  `idPessoaUsuario` int(11) NOT NULL,
-  `idPessoaBalconista` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idPessoaUsuario` int(10) unsigned NOT NULL,
+  `idPessoaBalconista` int(10) unsigned NOT NULL,
   `data` datetime NOT NULL,
-  PRIMARY KEY (`idEmprestimo`),
+  PRIMARY KEY (`id`),
   KEY `fk_Emprestimo_Pessoa1_idx` (`idPessoaUsuario`),
   KEY `fk_Emprestimo_Pessoa2_idx` (`idPessoaBalconista`),
-  CONSTRAINT `fk_Emprestimo_Pessoa1` FOREIGN KEY (`idPessoaUsuario`) REFERENCES `pessoa` (`idPessoa`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_Emprestimo_Pessoa2` FOREIGN KEY (`idPessoaBalconista`) REFERENCES `pessoa` (`idPessoa`) ON UPDATE CASCADE
+  CONSTRAINT `fk_Emprestimo_Pessoa1` FOREIGN KEY (`idPessoaUsuario`) REFERENCES `pessoa` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_Emprestimo_Pessoa2` FOREIGN KEY (`idPessoaBalconista`) REFERENCES `pessoa` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -233,33 +204,6 @@ LOCK TABLES `emprestimo` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `emprestimoitemacervo`
---
-
-DROP TABLE IF EXISTS `emprestimoitemacervo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `emprestimoitemacervo` (
-  `idItemAcervo` int(11) NOT NULL,
-  `idEmprestimo` int(11) NOT NULL,
-  PRIMARY KEY (`idItemAcervo`,`idEmprestimo`),
-  KEY `fk_ItemAcervo_has_Emprestimo_Emprestimo1_idx` (`idEmprestimo`),
-  KEY `fk_ItemAcervo_has_Emprestimo_ItemAcervo1_idx` (`idItemAcervo`),
-  CONSTRAINT `fk_ItemAcervo_has_Emprestimo_Emprestimo1` FOREIGN KEY (`idEmprestimo`) REFERENCES `emprestimo` (`idEmprestimo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ItemAcervo_has_Emprestimo_ItemAcervo1` FOREIGN KEY (`idItemAcervo`) REFERENCES `itemacervo` (`idItemAcervo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `emprestimoitemacervo`
---
-
-LOCK TABLES `emprestimoitemacervo` WRITE;
-/*!40000 ALTER TABLE `emprestimoitemacervo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `emprestimoitemacervo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `itemacervo`
 --
 
@@ -267,20 +211,21 @@ DROP TABLE IF EXISTS `itemacervo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `itemacervo` (
-  `idItemAcervo` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `idLivro` int(10) unsigned NOT NULL,
-  `idBiblioteca` int(11) NOT NULL,
-  `idSituacaoLivro` char(1) NOT NULL,
-  `idDoacao` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idItemAcervo`),
-  KEY `fk_ItemAcervo_Biblioteca1_idx` (`idBiblioteca`),
-  KEY `fk_ItemAcervo_SituacaoLivro1_idx` (`idSituacaoLivro`),
-  KEY `fk_ItemAcervo_Doacao1_idx` (`idDoacao`),
+  `idSituacaoItemAcervo` char(1) NOT NULL,
+  `idDoacao` int(10) unsigned DEFAULT NULL,
+  `dataAquisicao` datetime NOT NULL,
+  `idBiblioteca` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `fk_ItemAcervo_Livro1_idx` (`idLivro`),
-  CONSTRAINT `fk_ItemAcervo_Biblioteca1` FOREIGN KEY (`idBiblioteca`) REFERENCES `biblioteca` (`idBiblioteca`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ItemAcervo_Doacao1` FOREIGN KEY (`idDoacao`) REFERENCES `doacao` (`idDoacao`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ItemAcervo_Livro1` FOREIGN KEY (`idLivro`) REFERENCES `livro` (`idLivro`) ON UPDATE CASCADE,
-  CONSTRAINT `fk_ItemAcervo_SituacaoLivro1` FOREIGN KEY (`idSituacaoLivro`) REFERENCES `situacaolivro` (`idSituacaoLivro`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_ItemAcervo_SituacaoItemAcervo1_idx` (`idSituacaoItemAcervo`),
+  KEY `fk_ItemAcervo_Doacao1_idx` (`idDoacao`),
+  KEY `fk_ItemAcervo_Biblioteca1_idx` (`idBiblioteca`),
+  CONSTRAINT `fk_ItemAcervo_Biblioteca1` FOREIGN KEY (`idBiblioteca`) REFERENCES `biblioteca` (`id`),
+  CONSTRAINT `fk_ItemAcervo_Doacao1` FOREIGN KEY (`idDoacao`) REFERENCES `doacao` (`id`),
+  CONSTRAINT `fk_ItemAcervo_Livro1` FOREIGN KEY (`idLivro`) REFERENCES `livro` (`id`),
+  CONSTRAINT `fk_ItemAcervo_SituacaoItemAcervo1` FOREIGN KEY (`idSituacaoItemAcervo`) REFERENCES `situacaoitemacervo` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -294,6 +239,60 @@ LOCK TABLES `itemacervo` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `itemacervodevolucao`
+--
+
+DROP TABLE IF EXISTS `itemacervodevolucao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `itemacervodevolucao` (
+  `idItemAcervo` int(10) unsigned NOT NULL,
+  `idDevolucao` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idItemAcervo`,`idDevolucao`),
+  KEY `fk_ItemAcervoDevolucao_Devolucao1_idx` (`idDevolucao`),
+  KEY `fk_ItemAcervoDevolucao_ItemAcervo1_idx` (`idItemAcervo`),
+  CONSTRAINT `fk_ItemAcervoDevolucao_Devolucao1` FOREIGN KEY (`idDevolucao`) REFERENCES `devolucao` (`id`),
+  CONSTRAINT `fk_ItemAcervoDevolucao_ItemAcervo1` FOREIGN KEY (`idItemAcervo`) REFERENCES `itemacervo` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `itemacervodevolucao`
+--
+
+LOCK TABLES `itemacervodevolucao` WRITE;
+/*!40000 ALTER TABLE `itemacervodevolucao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `itemacervodevolucao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `itemacervoemprestimo`
+--
+
+DROP TABLE IF EXISTS `itemacervoemprestimo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `itemacervoemprestimo` (
+  `idItemAcervo` int(10) unsigned NOT NULL,
+  `idEmprestimo` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idItemAcervo`,`idEmprestimo`),
+  KEY `fk_ItemAcervoEmprestimo_Emprestimo1_idx` (`idEmprestimo`),
+  KEY `fk_ItemAcervoEmprestimo_ItemAcervo1_idx` (`idItemAcervo`),
+  CONSTRAINT `fk_ItemAcervoEmprestimo_Emprestimo1` FOREIGN KEY (`idEmprestimo`) REFERENCES `emprestimo` (`id`),
+  CONSTRAINT `fk_ItemAcervoEmprestimo_ItemAcervo1` FOREIGN KEY (`idItemAcervo`) REFERENCES `itemacervo` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `itemacervoemprestimo`
+--
+
+LOCK TABLES `itemacervoemprestimo` WRITE;
+/*!40000 ALTER TABLE `itemacervoemprestimo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `itemacervoemprestimo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `livro`
 --
 
@@ -301,18 +300,19 @@ DROP TABLE IF EXISTS `livro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `livro` (
-  `idLivro` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `isbn` char(20) NOT NULL,
-  `idEditora` int(11) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL,
+  `idEditora` int(10) unsigned NOT NULL,
+  `nome` varchar(50) NOT NULL,
   `dataPublicacao` date DEFAULT NULL,
   `resumo` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`idLivro`),
+  `fotoCapa` blob,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `isbn_UNIQUE` (`isbn`),
   KEY `fk_Livro_Editora1_idx` (`idEditora`),
   KEY `idx_nome` (`nome`),
-  CONSTRAINT `fk_Livro_Editora1` FOREIGN KEY (`idEditora`) REFERENCES `editora` (`idEditora`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  CONSTRAINT `fk_Livro_Editora1` FOREIGN KEY (`idEditora`) REFERENCES `editora` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,7 +321,6 @@ CREATE TABLE `livro` (
 
 LOCK TABLES `livro` WRITE;
 /*!40000 ALTER TABLE `livro` DISABLE KEYS */;
-INSERT INTO `livro` VALUES (1,'1111',1,'Engenharia de Software','1990-01-01','teste');
 /*!40000 ALTER TABLE `livro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -333,17 +332,19 @@ DROP TABLE IF EXISTS `pessoa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pessoa` (
-  `idPessoa` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cpf` varchar(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `endereco` varchar(45) DEFAULT NULL,
+  `cep` varchar(8) DEFAULT NULL,
+  `rua` varchar(45) DEFAULT NULL,
+  `numero` varchar(15) DEFAULT NULL,
   `bairro` varchar(45) DEFAULT NULL,
   `cidade` varchar(45) DEFAULT NULL,
   `estado` varchar(2) DEFAULT NULL,
   `fone` varchar(12) DEFAULT NULL,
   `fone2` varchar(12) DEFAULT NULL,
   `tipoPessoa` enum('U','B','A') NOT NULL DEFAULT 'U',
-  PRIMARY KEY (`idPessoa`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `cpf_UNIQUE` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -358,26 +359,27 @@ LOCK TABLES `pessoa` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `situacaolivro`
+-- Table structure for table `situacaoitemacervo`
 --
 
-DROP TABLE IF EXISTS `situacaolivro`;
+DROP TABLE IF EXISTS `situacaoitemacervo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `situacaolivro` (
-  `idSituacaoLivro` char(1) NOT NULL,
-  `situacao` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idSituacaoLivro`)
+CREATE TABLE `situacaoitemacervo` (
+  `id` char(1) NOT NULL,
+  `situacao` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `situacaolivro`
+-- Dumping data for table `situacaoitemacervo`
 --
 
-LOCK TABLES `situacaolivro` WRITE;
-/*!40000 ALTER TABLE `situacaolivro` DISABLE KEYS */;
-/*!40000 ALTER TABLE `situacaolivro` ENABLE KEYS */;
+LOCK TABLES `situacaoitemacervo` WRITE;
+/*!40000 ALTER TABLE `situacaoitemacervo` DISABLE KEYS */;
+INSERT INTO `situacaoitemacervo` VALUES ('D','Disponível'),('E','Emprestado'),('P','Danificado'),('R','Reservado');
+/*!40000 ALTER TABLE `situacaoitemacervo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -389,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-29 10:22:52
+-- Dump completed on 2023-09-14 12:39:29

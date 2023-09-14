@@ -9,7 +9,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdLivro)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Isbn)
@@ -28,7 +28,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdLivro)
+                    @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Isbn)
@@ -40,9 +40,9 @@
                     @Html.DisplayFor(modelItem => item.NomeEditora)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new {  id=item.IdLivro }) |
-                    @Html.ActionLink("Detalhes", "Details", new {  id=item.IdLivro }) |
-                    @Html.ActionLink("Remover", "Delete", new { id=item.IdLivro })
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
+                    @Html.ActionLink("Detalhes", "Details", new {  id=item.Id }) |
+                    @Html.ActionLink("Remover", "Delete", new { id=item.Id })
                 </td>
             </tr>
         }

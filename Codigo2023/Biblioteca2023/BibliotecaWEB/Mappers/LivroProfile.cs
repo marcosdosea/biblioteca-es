@@ -8,7 +8,7 @@ namespace Mappers
 	{
 		public LivroProfile()
 		{
-			CreateMap<LivroModel, Livro>().ReverseMap();
+			CreateMap<LivroViewModel, Livro>().ReverseMap();
 
 		}
 	}

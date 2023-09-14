@@ -4,7 +4,7 @@ namespace Core.Service
 {
 	public interface IItemAcervoService
 	{
-		int Create(Itemacervo itemAcervo);
+		uint Create(Itemacervo itemAcervo);
 		void Edit(Itemacervo itemAcervo);
 		void Delete(int id);
 		Itemacervo? Get(int id);

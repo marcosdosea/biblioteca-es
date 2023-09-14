@@ -9,7 +9,7 @@ namespace BibliotecaWEB.Mappers
 	{
 		public ItemAcervoProfile()
 		{
-			CreateMap<ItemAcervoModel, Itemacervo>().ReverseMap();
+			CreateMap<ItemAcervoViewModel, Itemacervo>().ReverseMap();
 
 		}
 	
