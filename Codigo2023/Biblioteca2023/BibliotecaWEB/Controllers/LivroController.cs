@@ -56,8 +56,8 @@ namespace BibliotecaWEB.Controllers
 			IEnumerable<Autor> listaAutores = _autorService.GetAll();
 			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
 
-			livroModel.ListaEditoras = new SelectList(listaEditoras, "IdEditora", "Nome", null);
-			livroModel.ListaAutores = new SelectList(listaAutores, "IdAutor", "Nome", null);
+			livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome", null);
+			livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
 			return View(livroModel);
 		}
 
@@ -83,9 +83,9 @@ namespace BibliotecaWEB.Controllers
 			IEnumerable<Autor> listaAutores = _autorService.GetAll();
 			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
 
-			livroModel.ListaEditoras = new SelectList(listaEditoras, "IdEditora", "Nome", 
+			livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome", 
 				listaEditoras.FirstOrDefault(e => e.Id.Equals(livro.IdEditora)));
-			livroModel.ListaAutores = new SelectList(listaAutores, "IdAutor", "Nome", null);
+			livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
 
 			return View(livroModel);
 		}

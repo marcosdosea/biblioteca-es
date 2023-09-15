@@ -59,8 +59,9 @@
                     { "data": "nome", "name": "Autor", "autoWidth": true },
                     { "data": "dataNascimento", "name": "Nascimento", "autoWidth": true },
                     {
-                        "render": function (data, type, full, meta) { return '<a class="btn btn-info" href="/Autor/Edit/' + full.id + '">Editar</a> ' + 
-                                                                             '<a class="btn btn-danger" href="/Autor/Delete/' + full.id + '">Excluir</a>'; }
+                        "render": function (data, type, full, meta) {
+                            return '<a class="btn btn-info" href="/Autor/Edit/' + full.id + '">Editar</a> ' +
+                                '<a class="btn btn-danger" href="/Autor/Delete/' + full.id + '">Excluir</a>'; }
                     },
                 ],
                 language: {
