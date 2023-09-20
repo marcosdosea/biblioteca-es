@@ -88,5 +88,17 @@ namespace Service
 						};
 			return query;
 		}
+
+
+		public IEnumerable<Autor> GetAutorByLivro(int idLivro)
+        {
+			var livro = _context.Livros.FirstOrDefault(l => l.IdLivro == idLivro);
+
+			if (livro == null) return Enumerable.Empty<Autor>();
+
+			var autores = livro.Autorlivros.Select(c => c.IdAutorNavigation);
+
+			return autores;
+        }
 	}
 }
