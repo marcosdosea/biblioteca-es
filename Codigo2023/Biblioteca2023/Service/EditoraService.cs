@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,90 +9,102 @@ namespace Service
     /// Implementa os serviços para manter os dados de editoras
     /// </summary>
     public class EditoraService : IEditoraService
-	{
-		private readonly BibliotecaContext context;
+    {
+        private readonly BibliotecaContext context;
 
-		public EditoraService(BibliotecaContext context)
-		{
-			this.context = context;
-		}
-		
-		/// <summary>
-		/// Criar uma nova editora na base de dados 
-		/// </summary>
-		/// <param name="editora">dados da editora</param>
-		/// <returns>id gerado</returns>
-		public uint Create(Editora editora)
-		{
-			context.Add(editora);
-			context.SaveChanges();
-			return editora.Id;
-		}
+        public EditoraService(BibliotecaContext context)
+        {
+            this.context = context;
+        }
 
-		/// <summary>
-		/// Remover editora da base de dados
-		/// </summary>
-		/// <param name="idEditora">id a ser removido</param>
-		public void Delete(int id)
-		{
-			var editora = context.Editoras.Find(id);
-			if (editora != null)
-			{
-				context.Remove(editora);
-				context.SaveChanges();
-			}
-		}
+        /// <summary>
+        /// Criar uma nova editora na base de dados 
+        /// </summary>
+        /// <param name="editora">dados da editora</param>
+        /// <returns>id gerado</returns>
+        public uint Create(Editora editora)
+        {
+            context.Add(editora);
+            context.SaveChanges();
+            return editora.Id;
+        }
 
-		/// <summary>
-		/// Atualizar dados da editora
-		/// </summary>
-		/// <param name="editora">novos dados da editora</param>
-		public void Edit(Editora editora)
-		{
-			context.Update(editora);
-			context.SaveChanges();
-		}
+        /// <summary>
+        /// Remover editora da base de dados
+        /// </summary>
+        /// <param name="idEditora">id a ser removido</param>
+        public void Delete(int id)
+        {
+            var editora = context.Editoras.Find(id);
+            if (editora != null)
+            {
+                context.Remove(editora);
+                context.SaveChanges();
+            }
+        }
 
-		/// <summary>
-		/// Obter os dados de uma editora na base de dados
-		/// </summary>
-		/// <param name="idEditora">id da editora</param>
-		/// <returns>Dados da editora</returns>
-		public Editora? Get(int id)
-		{
-			return context.Editoras.Find(id);
-		}
+        /// <summary>
+        /// Atualizar dados da editora
+        /// </summary>
+        /// <param name="editora">novos dados da editora</param>
+        public void Edit(Editora editora)
+        {
+            context.Update(editora);
+            context.SaveChanges();
+        }
 
-		/// <summary>
-		/// Obter dados de todas as editoras
-		/// </summary>
-		/// <returns>lista de editoras</returns>
-		public IEnumerable<Editora> GetAll()
-		{
-			return context.Editoras.AsNoTracking();
-		}
+        /// <summary>
+        /// Obter os dados de uma editora na base de dados
+        /// </summary>
+        /// <param name="idEditora">id da editora</param>
+        /// <returns>Dados da editora</returns>
+        public Editora? Get(int id)
+        {
+            return context.Editoras.Find(id);
+        }
 
-		/// <summary>
-		/// Obter editoras que iniciam com o nome
-		/// </summary>
-		/// <param name="nome">nome da editora</param>
-		/// <returns>lista de editoras</returns>
-		public IEnumerable<Editora> GetByNome(string nome)
-		{
-			var query = from editora in context.Editoras
-						where editora.Nome.StartsWith(nome)
-						orderby editora.Nome
-						select editora;
-			return query.AsNoTracking();
-		}
+        /// <summary>
+        /// Obter dados de todas as editoras
+        /// </summary>
+        /// <returns>lista de editoras</returns>
+        public IEnumerable<Editora> GetAll()
+        {
+            return context.Editoras.AsNoTracking();
+        }
 
-		public IEnumerable<Editora> GetByEstados()
-		{
-			var query = from editora in context.Editoras
-						where editora.Nome.Contains("Editora")
-						&& (editora.Estado.Equals("RS") || editora.Estado.Equals("SP"))
-						select editora;
-			return query.AsNoTracking();
-		}
-	}
+        /// <summary>
+        /// Obter editoras que iniciam com o nome
+        /// </summary>
+        /// <param name="nome">nome da editora</param>
+        /// <returns>lista de editoras</returns>
+        public IEnumerable<Editora> GetByNome(string nome)
+        {
+            var query = from editora in context.Editoras
+                        where editora.Nome.StartsWith(nome)
+                        orderby editora.Nome
+                        select editora;
+            return query.AsNoTracking();
+        }
+
+
+
+
+
+        public IEnumerable<EditoraDto> GetByEstados()
+        {
+            var query = from editora in context.Editoras
+                        where editora.Nome.Contains("Editora") &&
+                            (editora.Estado.Equals("SP") ||
+                            editora.Estado.Equals("RS"))
+                        select new EditoraDto
+                        {
+                            Id = editora.Id,
+                            Nome = editora.Nome,
+                            Cep = editora.Cep
+                        };
+
+            return query.AsNoTracking();
+
+        }
+    }
 }

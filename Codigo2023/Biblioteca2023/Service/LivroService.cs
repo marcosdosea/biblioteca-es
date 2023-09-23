@@ -86,7 +86,13 @@ namespace Service
 			return new List<Autor>();
 		}
 
-
+		public IEnumerable<Livro> GetLivrosByNomeEditora(String nome)
+		{
+			var query = from livro in context.Livros
+						where livro.IdEditoraNavigation.Nome.StartsWith(nome)
+						select livro;
+			return query;
+		}
 
 		/// <summary>
 		/// Obter dados dos livros ordenado pelo nome que iniciam com um nome

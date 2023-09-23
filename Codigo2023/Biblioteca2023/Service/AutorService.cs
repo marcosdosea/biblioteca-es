@@ -80,6 +80,21 @@ namespace Service
             return context.Autors.AsNoTracking();
         }
 
+        public IEnumerable<Autor> GetOrderByDescending()
+        {
+            var query = from autor in context.Autors
+                        orderby autor.Nome descending
+                        select autor;
+
+
+            return context.Autors.
+                OrderByDescending(autor => autor.Nome);
+        }
+
+
+
+
+
         /// <summary>
         /// Buscar autores iniciando com o nome
         /// </summary>
