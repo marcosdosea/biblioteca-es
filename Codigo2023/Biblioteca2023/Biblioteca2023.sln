@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaWEBTests", "Bibli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceTests", "ServiceTests\ServiceTests.csproj", "{4C56FC90-3F56-46A9-ADAA-B2A03793958B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceExternal", "ConversorTemperatura\ServiceExternal.csproj", "{DFBA0ABF-3E7A-4E66-824A-46032408755B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaAPI", "BibliotecaAPI\BibliotecaAPI.csproj", "{D255B6EC-AB53-47C7-98B4-522F8FC868E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{4C56FC90-3F56-46A9-ADAA-B2A03793958B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C56FC90-3F56-46A9-ADAA-B2A03793958B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C56FC90-3F56-46A9-ADAA-B2A03793958B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFBA0ABF-3E7A-4E66-824A-46032408755B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFBA0ABF-3E7A-4E66-824A-46032408755B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFBA0ABF-3E7A-4E66-824A-46032408755B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFBA0ABF-3E7A-4E66-824A-46032408755B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D255B6EC-AB53-47C7-98B4-522F8FC868E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D255B6EC-AB53-47C7-98B4-522F8FC868E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D255B6EC-AB53-47C7-98B4-522F8FC868E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D255B6EC-AB53-47C7-98B4-522F8FC868E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
