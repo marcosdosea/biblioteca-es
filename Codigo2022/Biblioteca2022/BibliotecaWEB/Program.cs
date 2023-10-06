@@ -35,28 +35,28 @@ namespace BibliotecaWEB
 
 			builder.Services.AddDefaultIdentity<UsuarioIdentity>(options =>
 			{
-				// SignIn settings
-				options.SignIn.RequireConfirmedAccount = false;
-				options.SignIn.RequireConfirmedEmail = false;
-				options.SignIn.RequireConfirmedPhoneNumber	= false;
+					// SignIn settings
+					options.SignIn.RequireConfirmedAccount = false;
+					options.SignIn.RequireConfirmedEmail = false;
+					options.SignIn.RequireConfirmedPhoneNumber	= false;
 
-				// Password settings
-				options.Password.RequireDigit = true;
-				options.Password.RequireLowercase = false;
-				options.Password.RequireNonAlphanumeric = false;
-				options.Password.RequireUppercase = false;
-				options.Password.RequiredLength = 6;
+					// Password settings
+					options.Password.RequireDigit = true;
+					options.Password.RequireLowercase = false;
+					options.Password.RequireNonAlphanumeric = false;
+					options.Password.RequireUppercase = false;
+					options.Password.RequiredLength = 6;
 
-				// Default User settings.
-				options.User.AllowedUserNameCharacters =
-						"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-				options.User.RequireUniqueEmail = false;
+					// Default User settings.
+					options.User.AllowedUserNameCharacters =
+							"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+					options.User.RequireUniqueEmail = false;
 
-				// Default Lockout settings
-				options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-				options.Lockout.MaxFailedAccessAttempts = 5;
-				options.Lockout.AllowedForNewUsers = true;
-			}).AddRoles<IdentityRole>()
+					// Default Lockout settings
+					options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+					options.Lockout.MaxFailedAccessAttempts = 5;
+					options.Lockout.AllowedForNewUsers = true;
+				}).AddRoles<IdentityRole>()
 			  .AddEntityFrameworkStores<IdentityContext>();
 
 			builder.Services.ConfigureApplicationCookie(options =>

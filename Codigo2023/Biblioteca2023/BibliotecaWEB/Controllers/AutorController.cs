@@ -2,12 +2,14 @@
 using Core;
 using Core.Datatables;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System.Text.Json;
 
 namespace BibliotecaWeb.Controllers
 {
+	[Authorize(Roles = "bibliotecario")]
     public class AutorController : Controller
 	{
 		private readonly IAutorService _autorService;

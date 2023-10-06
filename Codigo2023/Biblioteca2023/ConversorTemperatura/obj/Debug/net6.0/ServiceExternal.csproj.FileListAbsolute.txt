@@ -1,0 +1,2 @@
+C:\Users\marco\Desktop\biblioteca-es\Codigo2023\Biblioteca2023\ConversorTemperatura\obj\Debug\net6.0\ServiceExternal.csproj.AssemblyReference.cache
+C:\Users\marco\Desktop\biblioteca-es\Codigo2023\Biblioteca2023\ConversorTemperatura\obj\Debug\net6.0\ServiceExternal.GeneratedMSBuildEditorConfig.editorconfig
