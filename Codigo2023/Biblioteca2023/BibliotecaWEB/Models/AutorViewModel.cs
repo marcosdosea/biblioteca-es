@@ -7,7 +7,7 @@ namespace Models
 		//[Display(Name ="Código")]
 		[Required(ErrorMessage = "Código do autor é obrigatório")]
 		[Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 
 		[Required(ErrorMessage ="Campo requerido")]
 		[StringLength(45, MinimumLength =5, ErrorMessage = "Nome do autor deve ter entre 5 e 45 caracteres")]

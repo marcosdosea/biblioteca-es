@@ -2,7 +2,6 @@
 using Core.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Runtime.Serialization;
 
 namespace Service.Tests
 {
@@ -13,7 +12,7 @@ namespace Service.Tests
         private IAutorService _autorService;
 
         [TestInitialize]
-        public void Initialize(DateTime dateTime)
+        public void Initialize()
         {
             //Arrange
             var builder = new DbContextOptionsBuilder<BibliotecaContext>();
@@ -92,7 +91,7 @@ namespace Service.Tests
             Assert.IsInstanceOfType(listaAutor, typeof(IEnumerable<Autor>));
             Assert.IsNotNull(listaAutor);
             Assert.AreEqual(3, listaAutor.Count());
-            Assert.AreEqual(1, listaAutor.First().Id);
+            Assert.AreEqual((uint)1, listaAutor.First().Id);
             Assert.AreEqual("Machado de Assis", listaAutor.First().Nome);
         }
 
