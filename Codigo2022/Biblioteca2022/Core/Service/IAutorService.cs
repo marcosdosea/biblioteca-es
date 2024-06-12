@@ -15,6 +15,7 @@ namespace Core.Service
 		void Delete(int idAutor);
 		Autor Get(int idAutor);
 		IEnumerable<Autor> GetAll();
+		IEnumerable<Autor> GetAutorsByLivro(int idLivro);
 		IEnumerable<AutorDTO> GetByNome(string nome);
 	}
 }
