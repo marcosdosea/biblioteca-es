@@ -35,9 +35,6 @@ public partial class BibliotecaContext : DbContext
 
     public virtual DbSet<Situacaoitemacervo> Situacaoitemacervos { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        => optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=Biblioteca");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Autor>(entity =>

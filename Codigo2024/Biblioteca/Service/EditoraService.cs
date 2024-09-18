@@ -87,9 +87,6 @@ namespace Service
         }
 
 
-
-
-
         public IEnumerable<EditoraDto> GetByEstados()
         {
             var query = from editora in context.Editoras
@@ -104,7 +101,6 @@ namespace Service
                         };
 
             return query.AsNoTracking();
-
         }
     }
 }

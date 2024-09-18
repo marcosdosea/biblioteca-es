@@ -7,7 +7,6 @@ namespace Core.DTO
 		public uint Id { get; set; }
 		public string? Isbn { get; set; }
 		public string? Nome { get; set; }
-		[DisplayName("Editora")]
 		public string? NomeEditora { get; set; }
 
 	}

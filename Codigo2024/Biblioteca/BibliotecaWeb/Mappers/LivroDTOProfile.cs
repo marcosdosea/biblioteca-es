@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
-using BibliotecaWEB.Models;
+using Core;
 using Core.DTO;
+using Models;
 
 namespace BibliotecaWEB.Mappers
 {
-    public class LivroDTOProfile : Profile
+	public class LivroDTOProfile : Profile
 	{
 		public LivroDTOProfile()
 		{

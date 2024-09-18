@@ -83,10 +83,10 @@ namespace Service
 			var livro = context.Livros.Where(l => l.Id == idLivro).FirstOrDefault();
 			if (livro != null)
 				return livro.IdAutors;
-			return new List<Autor>();
+			return [];
 		}
 
-		public IEnumerable<Livro> GetLivrosByNomeEditora(String nome)
+		public IEnumerable<Livro> GetLivrosByNomeEditora(string nome)
 		{
 			var query = from livro in context.Livros
 						where livro.IdEditoraNavigation.Nome.StartsWith(nome)

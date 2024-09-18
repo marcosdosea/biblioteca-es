@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BibliotecaWEB.Models
+namespace Models
 {
     public class AutorViewModel
     {

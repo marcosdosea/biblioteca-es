@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BibliotecaWEB.Models;
 using Core;
+using Models;
 
 namespace BibliotecaWEB.Mappers
 {

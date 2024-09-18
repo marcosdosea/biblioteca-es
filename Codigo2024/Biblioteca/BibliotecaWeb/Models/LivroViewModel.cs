@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace BibliotecaWEB.Models
+namespace Models
 {
     public partial class LivroViewModel
     {

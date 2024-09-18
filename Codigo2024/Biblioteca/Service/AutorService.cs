@@ -59,6 +59,16 @@ namespace Service
         }
 
         /// <summary>
+        /// Buscar um autor na base de dados
+        /// </summary>
+        /// <param name="idAutor">id autor</param>
+        /// <returns>dados do autor</returns>
+        public Autor? Get(uint id)
+        {
+            return context.Autors.Find(id);
+        }
+
+        /// <summary>
         /// Buscar todos os autores cadastrados
         /// </summary>
         /// <returns>lista de autores</returns>
@@ -67,23 +77,11 @@ namespace Service
             return context.Autors.AsNoTracking();
         }
 
-        /// <summary>
-        /// Buscar um autor na base de dados
-        /// </summary>
-        /// <param name="idAutor">id autor</param>
-        /// <returns>dados do autor</returns>
-        public Autor? Get(uint id)
-        {
-            return context.Autors.FirstOrDefault(a => a.Id == id);
-        }
-
-
-
         public IEnumerable<Autor> GetOrderByDescending()
         {
-            //var query = from autor in context.Autors
-            //            orderby autor.Nome descending
-            //            select autor;
+            var query = from autor in context.Autors
+                        orderby autor.Nome descending
+                        select autor;
 
             return context.Autors.
                 OrderByDescending(autor => autor.Nome);
@@ -102,7 +100,7 @@ namespace Service
                         orderby autor.Nome
                         select new AutorDto
                         {
-                            IdAutor = autor.Id,
+                            Id = autor.Id,
                             Nome = autor.Nome
                         };
             return query;

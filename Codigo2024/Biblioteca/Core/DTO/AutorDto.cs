@@ -2,7 +2,7 @@
 {
 	public class AutorDto
 	{
-		public uint IdAutor { get; set; }
+		public uint Id { get; set; }
 		public string? Nome { get; set; }
 	}
 }

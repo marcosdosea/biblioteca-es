@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using BibliotecaWEB.Models;
+using Models;
 using Core;
 
 namespace Mappers
 {
-    public class AutorProfile : Profile
+	public class AutorProfile : Profile
 	{
 		public AutorProfile()
 		{
