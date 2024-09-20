@@ -4,11 +4,11 @@ using Models;
 
 namespace Mappers
 {
-	public class EditoraProfile : Profile
-	{
-		public EditoraProfile()
-		{
-			CreateMap<EditoraViewModel, Editora>().ReverseMap();
-		}
-	}
+    public class EditoraProfile : Profile
+    {
+        public EditoraProfile()
+        {
+            CreateMap<EditoraViewModel, Editora>().ReverseMap();
+        }
+    }
 }

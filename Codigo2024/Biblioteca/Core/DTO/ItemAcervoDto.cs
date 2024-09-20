@@ -1,12 +1,10 @@
-﻿using System.ComponentModel;
-
-namespace Core.DTO
+﻿namespace Core.DTO
 {
     public class ItemAcervoDto
     {
-		public uint Id { get; set; }
-		public string? NomeBiblioteca { get; set; }
-		public string? NomeLivro { get; set; }
-		public string? SituacaoItemAcervo { get; set; }
-	}
+        public uint Id { get; set; }
+        public string? NomeBiblioteca { get; set; }
+        public string? NomeLivro { get; set; }
+        public string? SituacaoItemAcervo { get; set; }
+    }
 }

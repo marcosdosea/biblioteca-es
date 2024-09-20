@@ -1,3 +1,8 @@
+using Core;
+using Core.Service;
+using Microsoft.EntityFrameworkCore;
+using Service;
+
 namespace BibliotecaWeb
 {
     public class Program
@@ -8,6 +13,12 @@ namespace BibliotecaWeb
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<IAutorService, AutorService>();
+
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddDbContext<BibliotecaContext>(
+                options => options.UseMySQL(builder.Configuration.GetConnectionString("BibliotecaDatabase")));
 
             var app = builder.Build();
 

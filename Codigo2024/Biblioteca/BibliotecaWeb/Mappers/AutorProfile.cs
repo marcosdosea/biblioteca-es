@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using Models;
 using Core;
+using Models;
 
 namespace Mappers
 {
-	public class AutorProfile : Profile
-	{
-		public AutorProfile()
-		{
-			CreateMap<AutorViewModel, Autor>().ReverseMap();
-		}
-	}
+    public class AutorProfile : Profile
+    {
+        public AutorProfile()
+        {
+            CreateMap<AutorViewModel, Autor>().ReverseMap();
+        }
+    }
 }
