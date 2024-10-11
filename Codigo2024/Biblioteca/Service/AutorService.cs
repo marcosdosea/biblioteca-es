@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Datatables;
 using Core.DTO;
 using Core.Service;
 using Microsoft.EntityFrameworkCore;
@@ -138,6 +139,62 @@ namespace Service
                             Nome = autor.Nome
                         };
             return query;
+        }
+
+        /// <summary>
+        /// Retorna uma página de dados
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public DatatableResponse<Autor> GetDataPage(DatatableRequest request)
+        {
+            var autores = context.Autors.AsNoTracking();
+            // total de registros na tabela
+            var totalRecords = autores.Count();
+
+            // filtra pelo campos de busca
+            if (request.Search != null && request.Search.GetValueOrDefault("value") != null)
+            {
+                autores = autores.Where(autor => autor.Id.ToString().Contains(request.Search.GetValueOrDefault("value"))
+                                              || autor.Nome.ToLower().Contains(request.Search.GetValueOrDefault("value")));
+            }
+
+            // ordenação pelas colunas permitidas
+            if (request.Order != null && request.Order[0].GetValueOrDefault("column").Equals("0"))
+            {
+                if (request.Order[0].GetValueOrDefault("dir").Equals("asc"))
+                    autores = autores.OrderBy(autor => autor.Id);
+                else
+                    autores = autores.OrderByDescending(autor => autor.Id);
+            }
+            else if (request.Order != null && request.Order[0].GetValueOrDefault("column").Equals("1"))
+            {
+                if (request.Order[0].GetValueOrDefault("dir").Equals("asc"))
+                    autores = autores.OrderBy(autor => autor.Nome);
+                else
+                    autores = autores.OrderByDescending(autor => autor.Nome);
+            }
+            else if (request.Order != null && request.Order[0].GetValueOrDefault("column").Equals("2"))
+            {
+                if (request.Order[0].GetValueOrDefault("dir").Equals("asc"))
+                    autores = autores.OrderBy(autor => autor.DataNascimento);
+                else
+                    autores = autores.OrderByDescending(autor => autor.DataNascimento);
+            }
+
+            // total de registros filtrados
+            int countRecordsFiltered = autores.Count();
+            // paginação que será exibida
+            autores = autores.Skip(request.Start).Take(request.Length);
+            return new DatatableResponse<Autor>()
+            {
+                Data = autores.ToList(),
+                Draw = request.Draw,
+                RecordsFiltered = countRecordsFiltered,
+                RecordsTotal = totalRecords
+            };
+
         }
     }
 }
