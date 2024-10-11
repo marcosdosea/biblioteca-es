@@ -1,12 +1,6 @@
 ﻿@model Models.AutorViewModel
 
-@{
-    ViewData["Title"] = "Edit";
-}
-
-<h1>Editar Autor</h1>
-
-<h4>AutorViewModel</h4>
+<h4>AutorModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +8,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
+                <input type="hidden" asp-for="Id" readonly class="form-control" />
                 <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -24,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DataNascimento" class="control-label"></label>
-                <input asp-for="DataNascimento" class="form-control" />
+                <input type="date" asp-for="DataNascimento" class="form-control datepicker" />
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,7 +29,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

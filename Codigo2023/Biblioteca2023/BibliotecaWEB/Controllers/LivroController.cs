@@ -13,115 +13,115 @@ using System.Data;
 
 namespace BibliotecaWEB.Controllers
 {
-	//[Authorize(Roles = "bibliotecario")]
-	public class LivroController : Controller
-	{
+    //[Authorize(Roles = "bibliotecario")]
+    public class LivroController : Controller
+    {
 
-		private readonly ILivroService _livroService;
-		private readonly IAutorService _autorService;
-		private readonly IEditoraService _editoraService;
-		private readonly IMapper _mapper;
+        private readonly ILivroService _livroService;
+        private readonly IAutorService _autorService;
+        private readonly IEditoraService _editoraService;
+        private readonly IMapper _mapper;
 
-		public LivroController(ILivroService livroService, 
-			IAutorService autorService, IEditoraService editoraService,
-			IMapper mapper)
-		{
-			_livroService = livroService;
-			_autorService = autorService;
-			_editoraService = editoraService;
-			_mapper = mapper;
-		}
+        public LivroController(ILivroService livroService,
+            IAutorService autorService, IEditoraService editoraService,
+            IMapper mapper)
+        {
+            _livroService = livroService;
+            _autorService = autorService;
+            _editoraService = editoraService;
+            _mapper = mapper;
+        }
 
-		// GET: LivroController
-		public ActionResult Index()
-		{
-			var listaLivros = _livroService.GetAll();
-			return View(listaLivros);
-		}
+        // GET: LivroController
+        public ActionResult Index()
+        {
+            var listaLivros = _livroService.GetAll();
+            return View(listaLivros);
+        }
 
-		
-		// GET: LivroController/Details/5
-		public ActionResult Details(uint id)
-		{
-			Livro? livro = _livroService.Get(id);
-			LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
-			return View(livroModel);
-		}
 
-		// GET: LivroController/Create
-		public ActionResult Create()
-		{
-			LivroViewModel livroModel = new();
+        // GET: LivroController/Details/5
+        public ActionResult Details(uint id)
+        {
+            Livro? livro = _livroService.Get(id);
+            LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
+            return View(livroModel);
+        }
 
-			IEnumerable<Autor> listaAutores = _autorService.GetAll();
-			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
+        // GET: LivroController/Create
+        public ActionResult Create()
+        {
+            LivroViewModel livroModel = new();
 
-			livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome", null);
-			livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
-			return View(livroModel);
-		}
+            IEnumerable<Autor> listaAutores = _autorService.GetAll();
+            IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
 
-		// POST: LivroController/Create
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Create(LivroViewModel livroModel)
-		{
-			if (ModelState.IsValid)
-			{
-				var livro = _mapper.Map<Livro>(livroModel);
-				_livroService.Create(livro);
-			}
-			return RedirectToAction(nameof(Index));
-		}
+            livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome", null);
+            livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
+            return View(livroModel);
+        }
 
-		// GET: LivroController/Edit/5
-		public ActionResult Edit(uint id)
-		{
-			Livro? livro = _livroService.Get(id);
-			LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
+        // POST: LivroController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(LivroViewModel livroModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var livro = _mapper.Map<Livro>(livroModel);
+                _livroService.Create(livro);
+            }
+            return RedirectToAction(nameof(Index));
+        }
 
-			IEnumerable<Autor> listaAutores = _autorService.GetAll();
-			IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
+        // GET: LivroController/Edit/5
+        public ActionResult Edit(uint id)
+        {
+            Livro? livro = _livroService.Get(id);
+            LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
 
-			livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome", 
-				listaEditoras.FirstOrDefault(e => e.Id.Equals(livro.IdEditora)));
-			livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
+            IEnumerable<Autor> listaAutores = _autorService.GetAll();
+            IEnumerable<Editora> listaEditoras = _editoraService.GetAll();
 
-			return View(livroModel);
-		}
+            livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome",
+                listaEditoras.FirstOrDefault(e => e.Id.Equals(livro.IdEditora)));
+            livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
 
-		// POST: LivroController/Edit/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, LivroViewModel livroModel)
-		{
-			if (ModelState.IsValid)
-			{
-				var livro = _mapper.Map<Livro>(livroModel);
-				_livroService.Edit(livro);
-			}
-			return RedirectToAction(nameof(Index));
-		}
+            return View(livroModel);
+        }
 
-		// GET: LivroController/Delete/5
-		public ActionResult Delete(uint id)
-		{
-			Livro? livro = _livroService.Get(id);
-			LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
-			return View(livroModel);
-		}
+        // POST: LivroController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, LivroViewModel livroModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var livro = _mapper.Map<Livro>(livroModel);
+                _livroService.Edit(livro);
+            }
+            return RedirectToAction(nameof(Index));
+        }
 
-		// POST: LivroController/Delete/5
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public ActionResult Delete(int id, LivroViewModel livroModel)
-		{
-			if (ModelState.IsValid)
-			{
-				var livro = _mapper.Map<Livro>(livroModel);
-				_livroService.Edit(livro);
-			}
-			return RedirectToAction(nameof(Index));
-		}
-	}
+        // GET: LivroController/Delete/5
+        public ActionResult Delete(uint id)
+        {
+            Livro? livro = _livroService.Get(id);
+            LivroViewModel livroModel = _mapper.Map<LivroViewModel>(livro);
+            return View(livroModel);
+        }
+
+        // POST: LivroController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, LivroViewModel livroModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var livro = _mapper.Map<Livro>(livroModel);
+                _livroService.Edit(livro);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
 }

@@ -87,20 +87,19 @@ namespace Service
         }
 
 
-        public IEnumerable<EditoraDto> GetByEstados()
+        public IEnumerable<Editora> GetByEstados()
         {
-            var query = from editora in context.Editoras
-                        where editora.Nome.Contains("Editora") &&
-                            (editora.Estado.Equals("SP") ||
-                            editora.Estado.Equals("RS"))
-                        select new EditoraDto
-                        {
-                            Id = editora.Id,
-                            Nome = editora.Nome,
-                            Cep = editora.Cep
-                        };
+            return context.Editoras.Where(
+                editora => editora.Nome.Contains("Editora") &&
+                (editora.Estado.Equals("SP") ||
+                 editora.Estado.Equals("RS")));
 
-            return query.AsNoTracking();
+            //var query = from editora in context.Editoras
+            //            where editora.Nome.Contains("Editora") &&
+            //                (editora.Estado.Equals("SP") ||
+            //                editora.Estado.Equals("RS"))
+           //             select editora;
+           // return query.AsNoTracking();
         }
     }
 }

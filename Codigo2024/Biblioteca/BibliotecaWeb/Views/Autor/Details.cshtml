@@ -1,13 +1,7 @@
 ﻿@model Models.AutorViewModel
 
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Detalhes do Autor</h1>
-
 <div>
-    <h4>AutorViewModel</h4>
+    <h4>AutorModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -32,5 +26,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new {  id = Model.Id }) |
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index">Back to List</a>
 </div>

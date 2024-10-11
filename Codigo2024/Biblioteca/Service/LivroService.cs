@@ -1,6 +1,7 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service
 {
@@ -58,6 +59,22 @@ namespace Service
         {
             return context.Livros.Find(id);
         }
+
+        public IEnumerable<LivroDto> GetLivroDTO()
+        {
+            var query = from livro in context.Livros
+                        select new LivroDto
+                        {
+                            Id = livro.Id,
+                            Isbn = livro.Isbn,
+                            Nome = livro.Nome,
+                            NomeEditora = livro.IdEditoraNavigation.Nome
+                        };
+            return query.AsNoTracking();
+        }
+
+
+
 
         /// <summary>
         /// Obter dados de todos os livros da base de dados

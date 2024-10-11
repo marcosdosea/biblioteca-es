@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Core.DTO.ItemAcervoDto>
+
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/css/jquery.dataTables.min.css" />
+<p>
+    <a asp-action="Create">Novo Item Acervo</a>
+</p>
+<table id="tableItemAcervo" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeBiblioteca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeLivro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SituacaoItemAcervo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeBiblioteca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeLivro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SituacaoItemAcervo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id=item.Id}) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tableItemAcervo').DataTable({
+                language: {
+                    url: '/lib/datatable/js/pt-BR.json'
+                }
+            });
+        });
+    </script>
+    <script src="~/lib/datatable/js/jquery.dataTables.min.js"></script>
+}

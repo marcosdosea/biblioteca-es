@@ -77,6 +77,40 @@ namespace Service
             return context.Autors.AsNoTracking();
         }
 
+
+        public IEnumerable<Autor> GetAllOrderByNome()
+        {
+            var query = from Autor autor in context.Autors
+                        orderby autor.Nome descending
+                        select autor;
+            return query.AsNoTracking();
+
+
+            //return context.Autors.
+            //    OrderByDescending(autor => autor.Nome).
+            //    AsNoTracking();
+        }
+
+        public int GetCountAutores()
+        {
+            return context.Autors.Count();
+        }
+
+        public IEnumerable<Autor> GetByName(string nomeAutor)
+        {   
+            var query = from autor in context.Autors
+                        where autor.Nome.Contains(nomeAutor)
+                        select autor;
+            return query.AsNoTracking().ToList();
+            
+            //return context.Autors.Where(
+            //    autor => autor.Nome.StartsWith(nomeAutor))
+            //    .AsNoTracking();
+        }
+
+
+
+
         public IEnumerable<Autor> GetOrderByDescending()
         {
             var query = from autor in context.Autors

@@ -1,10 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Views\Autor\Create.cshtml" />
+    <None Include="Views\Autor\Delete.cshtml" />
+    <None Include="Views\Autor\Details.cshtml" />
+    <None Include="Views\Autor\Edit.cshtml" />
+    <None Include="Views\Autor\Index.cshtml" />
+    <None Include="Views\Editora\Create.cshtml" />
+    <None Include="Views\Editora\Delete.cshtml" />
+    <None Include="Views\Editora\Details.cshtml" />
+    <None Include="Views\Editora\Edit.cshtml" />
+    <None Include="Views\Editora\Index.cshtml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />

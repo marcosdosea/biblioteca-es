@@ -1,17 +1,12 @@
 ﻿@model IEnumerable<Models.AutorViewModel>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Lista de Autores</h1>
-
+<link href="~/lib/datatables/css/datatables.min.css" rel="stylesheet" />
 <p>
     <a asp-action="Create">Novo Autor</a>
 </p>
-<table class="table">
+<table id="tableAutor" class="table table-striped table-bordered dt-responsive nowrap">
     <thead>
-        <tr>
+        <tr class="table-primary">
             <th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
@@ -21,27 +16,58 @@
             <th>
                 @Html.DisplayNameFor(model => model.DataNascimento)
             </th>
-            <th></th>
+            <th>
+                
+            </th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataNascimento)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
-                @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Excluir", "Delete", new {  id=item.Id })
-            </td>
-        </tr>
-}
-    </tbody>
 </table>
+
+@section Scripts {
+    <script src="~/lib/datatables/js/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tableAutor').DataTable({
+                "processing": true, // for show progress bar
+                "serverSide": true, // for process server side
+                "filter": true, // this is for disable filter (search box)
+                "orderMulti": false, // for disable multiple column at once
+                "pageLength": 5,
+                "lengthMenu": [
+                    [5, 10, 20, -1],
+                    [5, 10, 20, "Todos"]
+                ],
+                "ajax": {
+                    "url": "/Autor/GetDataPage",
+                    "type": "POST",
+                    "datatype": "json"                 
+                },
+                "columnDefs": [{
+                    "targets": [0],
+                    "visible": true,
+                    "searchable": false
+                },
+                {
+                    "targets": [3],
+                    "visible": true,
+                    "searchable": false,
+                    "orderable": false
+                    
+                }],
+                "columns": [
+                    { "data": "id", "name": "Id", "autoWidth": true },
+                    { "data": "nome", "name": "Autor", "autoWidth": true },
+                    { "data": "dataNascimento", "name": "Nascimento", "autoWidth": true },
+                    {
+                        "render": function (data, type, full, meta) {
+                            return '<a class="btn btn-info" href="/Autor/Edit/' + full.id + '">Editar</a> ' +
+                                '<a class="btn btn-danger" href="/Autor/Delete/' + full.id + '">Excluir</a>'; }
+                    },
+                ],
+                language: {
+                    url: "lib/datatables/js/pt-br.json",
+                }
+            });
+        });
+    </script>
+}

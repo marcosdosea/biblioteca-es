@@ -14,6 +14,7 @@ namespace BibliotecaWeb
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<IAutorService, AutorService>();
+            builder.Services.AddTransient <IEditoraService, EditoraService> ();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

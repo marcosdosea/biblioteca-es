@@ -4,6 +4,7 @@ using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
+using Service;
 
 namespace BibliotecaWeb.Controllers
 {
@@ -66,9 +67,17 @@ namespace BibliotecaWeb.Controllers
         // GET: LivroController/Edit/5
         public ActionResult Edit(uint id)
         {
-            var livro = livroService.Get(id);
-            LivroViewModel livroViewModel = mapper.Map<LivroViewModel>(livro);
-            return View(livroViewModel);
+            Livro? livro = livroService.Get(id);
+            LivroViewModel livroModel = mapper.Map<LivroViewModel>(livro);
+
+            IEnumerable<Autor> listaAutores = autorService.GetAll();
+            IEnumerable<Editora> listaEditoras = editoraService.GetAll();
+
+            livroModel.ListaEditoras = new SelectList(listaEditoras, "Id", "Nome",
+                        listaEditoras.FirstOrDefault(e => e.Id.Equals(livro.IdEditora)));
+            livroModel.ListaAutores = new SelectList(listaAutores, "Id", "Nome", null);
+
+            return View(livroModel);
         }
 
         // POST: LivroController/Edit/5
