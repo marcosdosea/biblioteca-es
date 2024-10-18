@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Core;
+using Core.Datatables;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Service;
 
 namespace BibliotecaWeb.Controllers
 {
@@ -31,6 +33,13 @@ namespace BibliotecaWeb.Controllers
             var autor = autorService.Get(id);
             var autorViewModel = mapper.Map<AutorViewModel>(autor);
             return View(autorViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult GetDataPage(DatatableRequest request)
+        {
+            var response = autorService.GetDataPage(request);
+            return Json(response);
         }
 
         // GET: AutorController/Create

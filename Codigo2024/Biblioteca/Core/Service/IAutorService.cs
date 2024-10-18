@@ -1,4 +1,5 @@
-﻿using Core.DTO;
+﻿using Core.Datatables;
+using Core.DTO;
 
 namespace Core.Service
 {
@@ -10,5 +11,6 @@ namespace Core.Service
         Autor? Get(uint id);
         IEnumerable<Autor> GetAll();
         IEnumerable<AutorDto> GetByNome(string nome);
+        DatatableResponse<Autor> GetDataPage(DatatableRequest request);
     }
 }

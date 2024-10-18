@@ -15,6 +15,10 @@ namespace BibliotecaWeb.Controllers
 
         public IActionResult Index()
         {
+            ViewData["nomeUsuario"] = "Marcos Dósea";
+            ViewBag.PerfilUsuario = "Professor";
+
+
             return View();
         }
 
