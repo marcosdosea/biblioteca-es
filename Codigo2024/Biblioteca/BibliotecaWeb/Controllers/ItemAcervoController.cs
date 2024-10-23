@@ -2,11 +2,13 @@
 using BibliotecaWEB.Models;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace BibliotecaWeb.Controllers
 {
+    [Authorize]
     public class ItemAcervoController : Controller
     {
         private readonly IItemAcervoService itemAcervoService;

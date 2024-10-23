@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
@@ -8,7 +9,8 @@ using Service;
 
 namespace BibliotecaWeb.Controllers
 {
-    public class LivroController : Controller
+    [Authorize]
+    class LivroController : Controller
     {
         private readonly ILivroService livroService;
         private readonly IAutorService autorService;
