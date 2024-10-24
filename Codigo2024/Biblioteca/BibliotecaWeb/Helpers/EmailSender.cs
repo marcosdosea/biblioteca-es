@@ -27,7 +27,7 @@ namespace BibliotecaWeb.Helpers
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             // Caminho físico para a imagem no servidor, dentro do wwwroot
-            var imagePath = Path.Combine(_webRootPath, "assets", "images", "logo.png");
+            var imagePath = Path.Combine(_webRootPath,"img", "logo.png");
 
             var mailMessage = new MailMessage
             {

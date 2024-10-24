@@ -1,9 +1,7 @@
-using BibliotecaWeb.Areas.Identity.Data;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BibliotecaWeb.Areas.Identity.Data;
+namespace Core.Identity.Data;
 
 public class IdentityContext : IdentityDbContext<UsuarioIdentity>
 {

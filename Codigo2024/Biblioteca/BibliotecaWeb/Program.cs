@@ -2,11 +2,10 @@ using Core;
 using Core.Service;
 using Microsoft.EntityFrameworkCore;
 using Service;
-using BibliotecaWeb.Areas.Identity.Data;
+using Core.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using SecGuardWeb.Services;
 using BibliotecaWeb.Helpers;
 
 namespace BibliotecaWeb
@@ -41,8 +40,8 @@ namespace BibliotecaWeb
                 options =>
                 {
                     // SignIn settings
-                    options.SignIn.RequireConfirmedAccount = true;
-                    options.SignIn.RequireConfirmedEmail = true;
+                    options.SignIn.RequireConfirmedAccount = false;
+                    options.SignIn.RequireConfirmedEmail = false;
                     options.SignIn.RequireConfirmedPhoneNumber = false;
 
                     // Password settings
@@ -73,7 +72,7 @@ namespace BibliotecaWeb
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 //options.AccessDeniedPath = "/Identity/Autenticar";
-                options.Cookie.Name = "YourAppCookieName";
+                options.Cookie.Name = "BibliotecaCookieName";
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                 //options.LoginPath = "/Identity/Autenticar";
