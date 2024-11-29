@@ -7,7 +7,7 @@ using Models;
 
 namespace BibliotecaWeb.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Bibliotecario1")]
     public class EditoraController : Controller
     {
         private readonly IEditoraService editoraService;

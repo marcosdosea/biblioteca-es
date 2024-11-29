@@ -8,6 +8,7 @@ using Core.Identity.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BibliotecaAPI.Filter;
 
 namespace BibliotecaAPI
 {
@@ -17,9 +18,9 @@ namespace BibliotecaAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Add services to the container with Exception handling.
+            builder.Services.AddControllers(options => options.Filters.Add(new HttpResponseExceptionFilter()));
 
-            builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

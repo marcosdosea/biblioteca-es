@@ -1,11 +1,12 @@
 using BibliotecaWeb.Models;
+using Core.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace BibliotecaWeb.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         public const string SessionKeyUserName = "UserName";
@@ -24,6 +25,7 @@ namespace BibliotecaWeb.Controllers
                 HttpContext.Session.SetString(SessionKeyUserName, "Marcos Dósea");
             }
             var userName = HttpContext.Session.GetString(SessionKeyUserName);
+            
             ViewData["nomeUsuario"] = userName;
             
             ViewBag.PerfilUsuario = "Professor";

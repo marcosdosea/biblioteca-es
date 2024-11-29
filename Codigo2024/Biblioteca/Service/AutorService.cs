@@ -26,6 +26,9 @@ namespace Service
         /// <returns>id do autor</returns>
         public uint Create(Autor autor)
         {
+            if (autor.DataNascimento.Year < 1000)
+                throw new ServiceException("O ano de nascimento de autor deve ser maior do que 1000. Favor informar nova data.");
+
             context.Add(autor);
             context.SaveChanges();
             return autor.Id;

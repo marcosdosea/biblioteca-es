@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using BibliotecaWeb.Helpers;
+using BibliotecaWeb.Filter;
 
 namespace BibliotecaWeb
 {
@@ -17,7 +18,10 @@ namespace BibliotecaWeb
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add<CustomExceptionFilter>();
+            }) ;
             builder.Services.AddTransient<IAutorService, AutorService>();
             builder.Services.AddTransient <IEditoraService, EditoraService> ();
             builder.Services.AddTransient<ILivroService, LivroService>();

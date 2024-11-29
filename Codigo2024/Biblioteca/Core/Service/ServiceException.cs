@@ -13,7 +13,7 @@ namespace Core.Service
         {
         }
 
-        public ServiceException(String mensagem, Exception inner)
+        public ServiceException(string mensagem, Exception inner)
             : base(mensagem, inner)
         {
 
