@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Models.EditoraViewModel>
+
+<link rel="stylesheet" type="text/css" href="~/lib/datatables/css/dataTables.min.css" />
+
+<p>
+    <a asp-action="Create">Nova Editora</a>
+</p>
+<table id="tableEditora" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                    @Html.ActionLink("Editar", "Edit", new {  id=item.Id }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tableEditora').DataTable({
+                language: {
+                    url: 'lib/datatables/js/pt-BR.json'
+                }
+            });
+        });
+    </script>
+    <script src="~/lib/datatables/js/dataTables.min.js"></script>
+}

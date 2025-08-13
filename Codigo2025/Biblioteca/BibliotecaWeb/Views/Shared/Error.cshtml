@@ -1,0 +1,28 @@
+﻿@using Core.Service
+@model ErrorViewModel
+
+@{
+    ViewData["Title"] = "Erro ";
+    var exception = ViewData["Exception"] as Exception;
+}
+
+@if (exception == null)
+{
+<h1 class="text-danger">Erro inesperado ao enviar sua requisição</h1>
+
+<p>Um erro inesperado aconteceu ao tentar processar sua requisição. Por favor, tente novamente em alguns minutos.</p>
+}
+else if (exception is ServiceException)
+{
+    <h1 class="text-warning">Problemas ao executar sua requisição</h1>
+
+    <p>@exception.Message</p>
+}  
+else if (exception is Exception) 
+{
+    <h1 class="text-danger">Erro ao enviar sua requisição</h1>
+
+    <p>Um erro inesperado aconteceu ao tentar processar sua requisição. Por favor, tente novamente em alguns minutos.</p>
+    <p>Caso o erro se repita, entre em contato com o administrador do sistema informando a mensagem: @exception.Message </p>
+}
+

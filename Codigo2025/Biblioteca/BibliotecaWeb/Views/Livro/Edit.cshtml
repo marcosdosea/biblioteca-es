@@ -1,0 +1,54 @@
+﻿@model Models.LivroViewModel
+
+<h4>Editar Livro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col-sm-4">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" readonly class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-4">
+                <label asp-for="Isbn" class="control-label"></label>
+                <input asp-for="Isbn" class="form-control" />
+                <span asp-validation-for="Isbn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-8">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-8">
+                <label asp-for="IdEditora" class="control-label"></label>
+                <select asp-for="IdEditora" asp-items="@Model.ListaEditoras" class="form-control"></select>
+                <span asp-validation-for="IdEditora" class="text-danger"></span>
+            </div>
+            <div class="form-group col-sm-4">
+                <label asp-for="DataPublicacao" class="control-label"></label>
+                <input asp-for="DataPublicacao" class="form-control" />
+                <span asp-validation-for="DataPublicacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resumo" class="control-label"></label>
+                <textarea asp-for="Resumo" class="form-control" cols="40" rows="3"> </textarea>
+                <span asp-validation-for="Resumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gravar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-danger" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
