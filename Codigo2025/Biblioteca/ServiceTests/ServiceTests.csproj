@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.23" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.20" />
   </ItemGroup>
 
