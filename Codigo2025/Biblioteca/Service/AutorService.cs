@@ -159,8 +159,9 @@ namespace Service
             // filtra pelo campos de busca
             if (request.Search != null && request.Search.GetValueOrDefault("value") != null)
             {
-                autores = autores.Where(autor => autor.Id.ToString().Contains(request.Search.GetValueOrDefault("value"))
-                                              || autor.Nome.ToLower().Contains(request.Search.GetValueOrDefault("value")));
+                var searchValue = request.Search.GetValueOrDefault("value") ?? string.Empty;
+                autores = autores.Where(autor => autor.Id.ToString().Contains(searchValue)
+                                              || autor.Nome.ToLower().Contains(searchValue));
             }
 
             // ordenação pelas colunas permitidas

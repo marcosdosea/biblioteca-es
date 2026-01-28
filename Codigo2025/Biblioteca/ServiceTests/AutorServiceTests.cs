@@ -24,8 +24,8 @@ namespace Service.Tests
             var autores = new List<Autor>
                 {
                     new() { Id = 1, Nome = "Machado de Assis", DataNascimento =  DateTime.Parse("1917-12-31")},
-                    new Autor { Id = 2, Nome = "Ian S. Sommervile", DataNascimento = DateTime.Parse("1935-12-31")},
-                    new Autor { Id = 3, Nome = "Gleford Myers", DataNascimento = DateTime.Parse("1900-11-20")},
+                    new() { Id = 2, Nome = "Ian S. Sommervile", DataNascimento = DateTime.Parse("1935-12-31")},
+                    new() { Id = 3, Nome = "Gleford Myers", DataNascimento = DateTime.Parse("1900-11-20")},
                 };
 
             context.AddRange(autores);

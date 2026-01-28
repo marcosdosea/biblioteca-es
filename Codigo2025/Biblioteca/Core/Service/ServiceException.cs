@@ -18,9 +18,5 @@ namespace Core.Service
         {
 
         }
-
-        protected ServiceException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

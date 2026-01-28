@@ -89,11 +89,11 @@ namespace BibliotecaWeb.Controllers.Tests
         public void CreateTest_Post_Invalid()
         {
             // Arrange
-            controller.ModelState.AddModelError("Nome", "Campo requerido");
+            controller.ModelState.AddModelError("Nome", "Nome é obrigatório.");
 
             // Act
             var result = controller.Create(GetNewAutor());
-
+            
             // Assert
             Assert.AreEqual(1, controller.ModelState.ErrorCount);
             Assert.IsInstanceOfType(result, typeof(RedirectToActionResult));

@@ -76,7 +76,7 @@ namespace BibliotecaAPI.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(uint id)
         {
-            Autor autor = _autorService.Get(id);
+            Autor? autor = _autorService.Get(id);
             if (autor == null)
                 return NotFound();
 

@@ -18,7 +18,7 @@ namespace Util
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public override bool IsValid(object value)
+        public override bool IsValid(object? value)
         {
             if (value == null || string.IsNullOrEmpty(value.ToString()))
                 return true;
