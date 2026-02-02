@@ -3,7 +3,8 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "datatables.net@2.1.8",
+      "provider": "cdnjs",
+      "library": "datatables.net@2.3.4",
       "destination": "wwwroot/lib/datatables.net/"
     }
   ]
