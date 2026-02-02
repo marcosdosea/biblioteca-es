@@ -9,8 +9,8 @@ using Service;
 
 namespace BibliotecaWeb.Controllers
 {
-    [Authorize]
-    class LivroController : Controller
+    
+    public class LivroController : Controller
     {
         private readonly ILivroService livroService;
         private readonly IAutorService autorService;
