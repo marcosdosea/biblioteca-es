@@ -27,7 +27,7 @@ namespace BibliotecaWeb
             builder.Services.AddTransient<ILivroService, LivroService>();
             builder.Services.AddTransient<IItemAcervoService, ItemAcervoService>();
 
-            // configuração do envio de emails para o usuário
+            // configuraï¿½ï¿½o do envio de emails para o usuï¿½rio
             builder.Services.AddTransient<IEmailSender, EmailSender>();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

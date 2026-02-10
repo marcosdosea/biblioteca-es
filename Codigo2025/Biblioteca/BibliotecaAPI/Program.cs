@@ -5,7 +5,6 @@ using Core.Identity.Data;
 using Core.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Service;
 
 namespace BibliotecaAPI
